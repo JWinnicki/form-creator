@@ -1,0 +1,50 @@
+@import '../../scss/mixins';
+@import '../../scss/animations';
+
+.Main {
+    width: 68em;
+    height: 40em;
+    background-color: blanchedalmond;
+    @include flexCenter;
+    border-radius: 5px;
+
+    &-header {
+        background-color: transparent;
+        position: relative;
+        z-index: 2;
+        //margin-right: -5em;
+    }
+
+    &-p {
+        font-family: 'Bangers', cursive;
+        font-size: 5em;
+
+        &:nth-child(1) {
+            animation-name: firstP;
+            animation-duration: 1s;
+        }
+        &:nth-child(2) {
+            animation-name: secondP;
+            animation-duration: 1.2s;
+            transform: translateX(1.3em);
+        }
+        &:nth-child(3) {
+            animation-name: thirdP;
+            animation-duration: 1.3s;
+            transform: translateX(1.5em);
+        }
+        &:nth-child(4) {
+            animation-name: fourthP;
+            animation-duration: 1.4s;
+            transform: translateX(2em);
+        }
+    }
+
+    &-icon {
+        animation-name: icon;
+        animation-duration: 1s;
+        position: relative;
+        z-index: 1;
+        transform: translate(-5em, -7.5em);
+    }
+}

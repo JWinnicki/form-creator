@@ -1,0 +1,23 @@
+@import '../../scss/mixins';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* =========================================================================
+ This pattern is downloaded from www.toptal.com/designers/subtlepatterns/ 
+ If you need more, that's where to get'em.
+ ======================================================================== */
+
+html {
+  font-size: 62.5%;
+  background-image: url('../../assets/pictures/background/pink-dust.png');
+  font-family: 'Lato', sans-serif;
+}
+
+.App {
+  width: 100%;
+  min-height: 100vh;
+  @include flexCenter;
+}
