@@ -5,8 +5,15 @@
     width: 68em;
     height: 40em;
     background-color: blanchedalmond;
-    @include flexCenter;
+    @include flexSpaceEvenlyColumn;
     border-radius: 5px;
+    padding: 1em;
+
+    &-headerDiv {
+        width: 100%;
+        @include flexCenter;
+        margin-top: 1.5em;
+    }
 
     &-header {
         background-color: transparent;
@@ -45,6 +52,12 @@
         animation-duration: 1s;
         position: relative;
         z-index: 1;
-        transform: translate(-5em, -7.5em);
+        transform: translate(-5.5em, -7.5em);
+    }
+
+    &-buttonDiv {
+        animation-name: mainButton;
+        animation-duration: 1.4s;
+        position: relative;
     }
 }

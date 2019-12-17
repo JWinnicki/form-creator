@@ -29,3 +29,17 @@
     align-items: center;
     justify-content: space-around;
 }
+
+@mixin flexSpaceAroundColumn {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+@mixin flexSpaceEvenlyColumn {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
