@@ -1,12 +1,13 @@
 @import '../../scss/mixins';
 @import '../../scss/animations';
+@import '../../scss/variables';
 
 .Main {
     width: 68em;
     height: 40em;
     background-color: blanchedalmond;
     @include flexSpaceEvenlyColumn;
-    border-radius: 5px;
+    border-radius: $border-radius-basic;
     padding: 1em;
 
     &-headerDiv {

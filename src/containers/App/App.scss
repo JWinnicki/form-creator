@@ -20,4 +20,9 @@ html {
   width: 100%;
   min-height: 100vh;
   @include flexCenter;
+
+  &-content {
+    width: 100%;
+    @include flexCenter;
+  }
 }

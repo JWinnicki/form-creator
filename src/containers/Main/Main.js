@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './Main.scss';
 import Icon from '../../components/Icon/Icon';
@@ -19,7 +20,9 @@ const Main = () => {
                 </div>
             </div>
             <div className='Main-buttonDiv'>
-                <MainButton size='big'>Start</MainButton>
+                <Link to='/create-form'>
+                    <MainButton size='big'>Start</MainButton>
+                </Link>
             </div>
         </div>
     );

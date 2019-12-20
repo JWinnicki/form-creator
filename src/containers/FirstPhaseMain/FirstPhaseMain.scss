@@ -1,0 +1,10 @@
+@import '../../scss/mixins';
+@import '../../scss/variables';
+
+.FirstPhaseMain {
+    background-color: blanchedalmond;
+    width: 75%;
+    min-height: 40em;
+    border-radius: $border-radius-basic;
+    padding: 1em;
+}

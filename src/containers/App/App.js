@@ -3,12 +3,14 @@ import './App.scss';
 import { Route, Switch } from 'react-router-dom';
 
 import Main from '../Main/Main';
+import FirstPhaseMain from '../FirstPhaseMain/FirstPhaseMain';
 
 const App = () => {
   return (
     <div className='App'>
       <div className='App-content'>
         <Switch>
+          <Route path='/create-form' component={FirstPhaseMain} />
           <Route path='/' component={Main} />
         </Switch>
       </div>
