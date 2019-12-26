@@ -3,11 +3,12 @@
 .MainButton {
     background-color: $color-primary-red;
     font-family: 'Bangers', cursive;
+    letter-spacing: 2px;
     font-size: 2em;
     color: white;
     padding: .5em 1em;
     border: none;
-    border-radius: 3px;
+    border-radius: $border-radius-basic;
     position: relative;
     z-index: 2;
     transition: all .2s;
@@ -19,7 +20,7 @@
         top: 0;
         left: 0;
         transform: translateY(.5em);
-        border-radius: 3px;
+        border-radius: $border-radius-basic;
         font-size: 2em;
     }
 

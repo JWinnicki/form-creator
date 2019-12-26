@@ -3,11 +3,13 @@
 
 .FirstPhaseMain {
     background-color: blanchedalmond;
-    width: 75%;
+    width: 85%;
+    height: 80vh;
     min-height: 42em;
     border-radius: $border-radius-basic;
     padding: 1em;
     @include flexCenter;
+    margin: 3em;
 
     &-composition {
         flex: 1;
@@ -16,6 +18,8 @@
 
     &-settings {
         flex: 0 0 50%;
-        min-height: 40em;
+        height: 100%;
+        display: flex;
+        justify-content: center;
     }
 }
