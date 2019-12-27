@@ -10,7 +10,9 @@ const FirstPhaseMain = () => {
             <div className='FirstPhaseMain-settings'>
                 <SettingsComponent />
             </div>
-            <div className='FirstPhaseMain-composition'></div>
+            <div className='FirstPhaseMain-composition'>
+                <div className='FirstPhaseMain-composition__background'></div>
+            </div>
         </div>
     );
 }

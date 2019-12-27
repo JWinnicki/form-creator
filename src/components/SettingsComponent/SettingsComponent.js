@@ -1,25 +1,25 @@
 import React from 'react';
 
 import './SettingsComponent.scss';
-import SettingsToggler from '../SettingsToggler/SettingsToggler'
+import SettingsToggler from '../SettingsToggler/SettingsToggler';
+import TitleForm from '../Forms/TitleForm/TitleForm';
 
 const SettingsComponent = () => {
     return (
         <div className='SettingsComponent'>
             <SettingsToggler text='Title'>
-                <div style={{padding: '5em'}}>
-                    TITLE
-                    <div className='test'></div>
+                <div className='SettingsComponent-content'>
+                    <TitleForm />
                 </div>
             </SettingsToggler>
             <SettingsToggler text='Background'>
-                <div style={{padding: '5em'}}>
+                <div className='SettingsComponent-content'>
                     Background
                     <div className='test'></div>
                 </div>
             </SettingsToggler>
             <SettingsToggler text='Fields'>
-                <div style={{padding: '5em'}}>
+                <div className='SettingsComponent-content'>
                     Fields
                     <div className='test'></div>
                 </div>

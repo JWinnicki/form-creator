@@ -1,0 +1,72 @@
+@import '../../../scss/mixins';
+@import '../../../scss//variables';
+
+.TitleForm {
+    @include flexSpaceBetweenColumn;
+    min-height: 12em;
+    width: 100%;
+    &-inputDiv {
+        @include flexCenterColumn;
+        margin-bottom: 1.5em;
+    }
+
+    &-label {
+        margin-bottom: 1em;
+    }
+
+    &-labelText {
+        font-size: 1.5em;
+    }
+
+    &-input{
+        width:80%;
+        font-size: 1.3em;
+        padding: .3em;
+    }
+
+    &-error {
+        font-size: 1.1em;
+        padding: .5em 0;
+    }
+
+    &-buttonDiv {
+        margin-top: 1em;
+    }
+
+    &-button {
+        font-family: inherit;
+        font-size: 1.5em;
+        font-weight: bold;
+        background-color: $color-primary-red;
+        color: white;
+        border: none;
+        padding: .5em 1.5em;
+        border-radius: $border-radius-basic;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:active {
+            transform: translateY(.1em);
+        }
+    }
+
+    &-inlineInputDiv {
+        width: 80%;
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5em;
+    }
+
+    &-colorInput,
+    &-selectInput,
+    &-numberInput {
+        margin-left: .8em;
+        font-family: inherit;
+    }
+
+    &-numberInput {
+        width: 3em;
+    }
+}

@@ -6,7 +6,6 @@
     letter-spacing: 2px;
     font-size: 2em;
     color: white;
-    padding: .5em 1em;
     border: none;
     border-radius: $border-radius-basic;
     position: relative;
@@ -37,10 +36,21 @@
 .MainButton-big {
     width: 8em;
     height: 2.5em;
+    padding: .5em 1em;
 
     &__background {
         width: 8em;
         height: 2.5em;
+    }
+}
+
+.MainButton-small {
+    width: 4em;
+    height: 1.5em;
+    //padding: .5em 1em;
+    &__background {
+        width: 4em;
+        height: 1.5em;
     }
 }
 
