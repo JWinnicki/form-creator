@@ -3,13 +3,14 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 import './TitleForm.scss';
+import BasicFormButton from '../../BasicFormButton/BasicFormButton';
 
 const TitleForm = props => {
 
     const formik = useFormik({
         initialValues: {
             title: '',
-            titleColor: '#ffffff',
+            titleColor: '#000000',
             fontStyle: 'normal',
             fontWeight: 'normal',
             fontSize: '20'
@@ -100,7 +101,7 @@ const TitleForm = props => {
                 />
             </div>
             <div className='TitleForm-buttonDiv'>
-                <button type='submit' className='TitleForm-button'>Add</button>
+                <BasicFormButton type='submit'>Add</BasicFormButton>
             </div>
         </form>
     );

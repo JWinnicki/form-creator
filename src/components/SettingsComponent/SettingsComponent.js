@@ -3,6 +3,7 @@ import React from 'react';
 import './SettingsComponent.scss';
 import SettingsToggler from '../SettingsToggler/SettingsToggler';
 import TitleForm from '../Forms/TitleForm/TitleForm';
+import BackgroundForm from '../Forms/BackgroundForm/BackgroundForm';
 
 const SettingsComponent = () => {
     return (
@@ -14,8 +15,7 @@ const SettingsComponent = () => {
             </SettingsToggler>
             <SettingsToggler text='Background'>
                 <div className='SettingsComponent-content'>
-                    Background
-                    <div className='test'></div>
+                    <BackgroundForm />
                 </div>
             </SettingsToggler>
             <SettingsToggler text='Fields'>
