@@ -23,5 +23,8 @@
     &-colorInput {
         margin-left: .8em;
         font-family: inherit;
+        &:hover {
+            cursor: pointer;
+        }
     }
 }

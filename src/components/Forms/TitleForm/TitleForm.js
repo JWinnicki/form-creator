@@ -16,12 +16,10 @@ const TitleForm = props => {
             fontSize: '20'
         },
         validationSchema: Yup.object({
-            title: Yup.string()
-                .max(30, 'Must be 30 characters or less')
+            title: Yup.string().max(30, 'Must be 30 characters or less')
         }),
         onSubmit: values => {
-            console.log(values)
-            formik.resetForm();
+            console.log(values);
         }
     });
     return (

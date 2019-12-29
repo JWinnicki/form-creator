@@ -4,6 +4,7 @@ import './SettingsComponent.scss';
 import SettingsToggler from '../SettingsToggler/SettingsToggler';
 import TitleForm from '../Forms/TitleForm/TitleForm';
 import BackgroundForm from '../Forms/BackgroundForm/BackgroundForm';
+import FieldsForm from '../Forms/FieldsForm/FieldsForm';
 
 const SettingsComponent = () => {
     return (
@@ -20,8 +21,7 @@ const SettingsComponent = () => {
             </SettingsToggler>
             <SettingsToggler text='Fields'>
                 <div className='SettingsComponent-content'>
-                    Fields
-                    <div className='test'></div>
+                    <FieldsForm />
                 </div>
             </SettingsToggler>
         </div>
