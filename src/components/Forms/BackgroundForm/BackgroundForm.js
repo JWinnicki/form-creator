@@ -8,7 +8,9 @@ const BackgroundForm = props => {
 
     const formik = useFormik({
         initialValues: {
-            backgroundColor: '#ffffff'
+            backgroundColor: '#ffffff',
+            backgroundWidth: 500,
+            backgroundHeight: 700
         },
         onSubmit: values => {
             console.log(values)
@@ -28,6 +30,36 @@ const BackgroundForm = props => {
                     type='color'
                     value={formik.values.backgroundColor}
                     onChange={formik.handleChange}
+                />
+            </div>
+            <div className='BackgroundForm-inlineInputDiv'>
+                <label htmlFor='backgroundWidth' className='BackgroundForm-inlineInputLabel'>
+                    <p className='BackgroundForm-labelText'>Background Width (px):</p>
+                </label>
+                <input
+                    type='number'
+                    id='backgroundWidth'
+                    name='backgroundWidth'
+                    onChange={formik.handleChange}
+                    value={formik.values.backgroundWidth}
+                    className='BackgroundForm-numberInput'
+                    min='100'
+                    max='800'
+                />
+            </div>
+            <div className='BackgroundForm-inlineInputDiv'>
+                <label htmlFor='backgroundHeight' className='BackgroundForm-inlineInputLabel'>
+                    <p className='BackgroundForm-labelText'>Background Height (px):</p>
+                </label>
+                <input
+                    type='number'
+                    id='backgroundHeight'
+                    name='backgroundHeight'
+                    onChange={formik.handleChange}
+                    value={formik.values.backgroundHeight}
+                    className='BackgroundForm-numberInput'
+                    min='100'
+                    max='1000'
                 />
             </div>
             <div className='BackgroundForm-buttonDiv'>

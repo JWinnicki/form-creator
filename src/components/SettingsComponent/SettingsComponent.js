@@ -9,14 +9,14 @@ import FieldsForm from '../Forms/FieldsForm/FieldsForm';
 const SettingsComponent = () => {
     return (
         <div className='SettingsComponent'>
-            <SettingsToggler text='Title'>
-                <div className='SettingsComponent-content'>
-                    <TitleForm />
-                </div>
-            </SettingsToggler>
             <SettingsToggler text='Background'>
                 <div className='SettingsComponent-content'>
                     <BackgroundForm />
+                </div>
+            </SettingsToggler>
+            <SettingsToggler text='Title'>
+                <div className='SettingsComponent-content'>
+                    <TitleForm />
                 </div>
             </SettingsToggler>
             <SettingsToggler text='Fields'>

@@ -27,4 +27,10 @@
             cursor: pointer;
         }
     }
+
+    &-numberInput {
+        margin-left: .8em;
+        font-family: inherit;
+        width: 5em;
+    }
 }
