@@ -4,6 +4,7 @@
 .BackgroundForm {
     @include flexSpaceBetweenColumn;
     width: 100%;
+    font-weight: bold;
 
     &-buttonDiv {
         margin-top: 1em;

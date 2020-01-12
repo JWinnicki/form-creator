@@ -5,22 +5,22 @@
     @include flexSpaceBetweenColumn;
     min-height: 12em;
     width: 100%;
+    font-weight: bold;
     &-inputDiv {
         //@include flexCenterColumn;
-        width: 100%;
+        width: 80%;
         margin-bottom: 1.5em;
     }
 
     &-labelText {
         font-size: 1.5em;
-        text-align: center;
+        text-align: left;
     }
 
     &-input{
-        width:80%;
+        width: 100%;
         font-size: 1.3em;
         padding: .3em;
-        margin-left: 10%;
         margin-top: 1em;
     }
 

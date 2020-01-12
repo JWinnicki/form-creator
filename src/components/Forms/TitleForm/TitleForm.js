@@ -26,7 +26,7 @@ const TitleForm = props => {
         <form onSubmit={formik.handleSubmit} className='TitleForm'>
             <div className='TitleForm-inputDiv'>
                 <label htmlFor='title' className='TitleForm-label'>
-                    <p className='TitleForm-labelText'>Please add title for your form. If left empty no title will be added.</p>
+                    <p className='TitleForm-labelText'>Please add title for your form. If left empty no title will be added:</p>
                 </label>
                 <input
                     className='TitleForm-input'
