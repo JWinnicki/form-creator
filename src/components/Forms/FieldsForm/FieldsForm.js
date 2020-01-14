@@ -4,13 +4,12 @@ import * as Yup from 'yup';
 
 import './FieldsForm.scss';
 import BasicFormButton from '../../BasicFormButton/BasicFormButton';
+import TextFieldForm from '../FieldSubForms/TextFieldForm';
 
 const FieldsForm = props => {
 
     const formik = useFormik({
         initialValues: {
-            textInputLabel: '',
-            inputPlaceholder: '',
             fieldType: 'text'
         },
         validationSchema: Yup.object({
@@ -21,23 +20,7 @@ const FieldsForm = props => {
 
     const renderFieldsOptions = () => {
         if(formik.values.fieldType === 'text') {
-            return (
-                <React.Fragment>
-                    <div className='FieldsForm-inputDiv'>
-                        <label htmlFor={`textInputLabel`} className='FieldsForm-label'>
-                            <p className='FieldsForm-labelText'>Please add label/attachment/comment to this input.</p>
-                        </label>
-                        <input
-                            className='FieldsForm-input'
-                            id={`textInputLabel`}
-                            name={`textInputLabel`}
-                            type='text'
-                            onChange={formik.handleChange}
-                            value={formik.values.textInputLabel}
-                        />
-                    </div>
-                </React.Fragment>
-            );
+            return <TextFieldForm />
         }
     }
 
