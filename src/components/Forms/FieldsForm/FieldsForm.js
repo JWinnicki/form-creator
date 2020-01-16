@@ -3,8 +3,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 import './FieldsForm.scss';
-import BasicFormButton from '../../BasicFormButton/BasicFormButton';
-import TextFieldForm from '../FieldSubForms/TextFieldForm';
+import TextFieldForm from '../FieldSubForms/TextFieldForm/TextFieldForm';
 
 const FieldsForm = props => {
 
@@ -27,7 +26,7 @@ const FieldsForm = props => {
 
 
     return (
-        <form className='FieldsForm' onSubmit={formik.handleSubmit}>
+        <div className='FieldsForm'>
             <div className='FieldsForm-inlineInputDiv'>
                 <label htmlFor='fieldType' className='FieldsForm-inlineInputLabel'>
                     <p className='FieldsForm-labelText'>Field Type:</p>
@@ -45,10 +44,7 @@ const FieldsForm = props => {
                 </select>
             </div>
             {renderFieldsOptions()}
-            <div className='FieldsForm-buttonDiv'>
-                <BasicFormButton type='submit'>Add</BasicFormButton>
-            </div>
-        </form>
+        </div>
     );
 }
 

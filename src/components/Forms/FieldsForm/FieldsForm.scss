@@ -1,5 +1,6 @@
 @import '../../../scss/mixins';
-@import '../../../scss//variables';
+@import '../../../scss/variables';
+
 
 .FieldsForm {
     @include flexSpaceBetweenColumn;
@@ -13,9 +14,23 @@
     }
 
     &-labelText {
-        font-size: 1.5em;
+        font-size: 2em;
         text-align: left;
     }
+
+    &-selectInput {
+        font-size: 2em;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &-inlineInputDiv {
+        @include flexCenter;
+    }
+
+    ////////////////////////Niżej do usunięcia/////////////////////////////////
 
     &-input{
         width: 100%;
@@ -56,11 +71,6 @@
         width: 80%;
         display: flex;
         align-items: center;
-        margin-bottom: 1.5em;
-
-        &:first-child {
-            margin-bottom: 3em;
-        }
     }
 
     &-colorInput,
