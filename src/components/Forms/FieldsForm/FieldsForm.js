@@ -4,12 +4,13 @@ import * as Yup from 'yup';
 
 import './FieldsForm.scss';
 import TextFieldForm from '../FieldSubForms/TextFieldForm/TextFieldForm';
+import SelectFieldForm from '../FieldSubForms/SelectFieldForm/SelectFieldForm';
 
 const FieldsForm = props => {
 
     const formik = useFormik({
         initialValues: {
-            fieldType: 'text'
+            fieldType: 'select'
         },
         validationSchema: Yup.object({
             textInputLabel: Yup.string()
@@ -20,6 +21,8 @@ const FieldsForm = props => {
     const renderFieldsOptions = () => {
         if(formik.values.fieldType === 'text') {
             return <TextFieldForm />
+        } else if(formik.values.fieldType === 'select') {
+            return <SelectFieldForm />
         }
     }
 
@@ -38,8 +41,8 @@ const FieldsForm = props => {
                     onChange={formik.handleChange}
                     value={formik.values.fieldType}
                 >
-                    <option value='text'>Text</option>
                     <option value='select'>Select</option>
+                    <option value='text'>Text</option>
                     <option value='Radio'>Radio</option>
                 </select>
             </div>
