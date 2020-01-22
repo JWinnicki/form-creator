@@ -20,7 +20,9 @@ const SelectFieldForm = () => {
             selectInputLabelFontWeight: 'normal',
             selectInputLabelFontColor: '#000000',
             selectInputWidth: '300',
-            selectInputFontSize: '15'
+            selectInputFontSize: '15',
+            selectInputFontColor: '#000000',
+            selectInputBackgroundColor: '#ffffff',
         },
         validationSchema: Yup.object({
             textInputLabel: Yup.string()
@@ -35,6 +37,7 @@ const SelectFieldForm = () => {
     const onAddOptionHandler = () => {
         setOptions(prev => [...prev, {id: counter, option: latestOption}]);
         setCounter(prev => prev + 1);
+        setLatestOption('');
     }
     
     return (
@@ -148,6 +151,32 @@ const SelectFieldForm = () => {
                         max='20'
                     />
                 </div>
+                <div className='SelectFieldForm-inlineInputDiv'>
+                    <label htmlFor='selectInputFontColor' className='SelectFieldForm-colorLabel'>
+                        <p className='SelectFieldForm-labelText'>Font Color:</p>
+                    </label>
+                    <input
+                        className='SelectFieldForm-colorInput'
+                        id='selectInputFontColor'
+                        name='selectInputFontColor'
+                        type='color'
+                        value={formik.values.selectInputFontColor}
+                        onChange={formik.handleChange}
+                    />
+                </div>
+                <div className='SelectFieldForm-inlineInputDiv'>
+                    <label htmlFor='selectInputBackgroundColor' className='SelectFieldForm-colorLabel'>
+                        <p className='SelectFieldForm-labelText'>Background Color:</p>
+                    </label>
+                    <input
+                        className='SelectFieldForm-colorInput'
+                        id='selectInputBackgroundColor'
+                        name='selectInputBackgroundColor'
+                        type='color'
+                        value={formik.values.selectInputBackgroundColor}
+                        onChange={formik.handleChange}
+                    />
+                </div>
             </div>
             {/***********************************************************************************************************************************************************/}
             <div className='SelectFieldForm-section'>
@@ -164,7 +193,7 @@ const SelectFieldForm = () => {
                         value={latestOption}
                         className='SelectFieldForm-numberInput'
                     />
-                    <button type='button' onClick={onAddOptionHandler}>+</button>
+                    <button type='button' className='addOptionsButton' onClick={onAddOptionHandler}>+</button>
                 </div>
             </div>
             <div className='SelectFieldForm-buttonDiv'>
