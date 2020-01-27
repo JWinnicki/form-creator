@@ -39,6 +39,30 @@ const SelectFieldForm = () => {
         setCounter(prev => prev + 1);
         setLatestOption('');
     }
+
+    const onDeleteOptionHandler = e => {
+        const currentOptions = options;
+        const newArr = [];
+        currentOptions.forEach(el => {
+            if( Number(e.target.id) !== el.id ) {
+                newArr.push({id: Number(el.id), option: el.option})
+            }
+        });
+        setOptions(newArr);
+    }
+
+    const renderOptionsList = () => {
+        if(options.length > 0) {
+            return options.map(el => {
+                return (
+                    <li className='SelectFieldForm-optionsListElement' key={el.id}>
+                        <p>{el.option}</p>
+                        <button className='addOptionsButton' type='button' onClick={onDeleteOptionHandler} id={el.id}>-</button>
+                    </li>
+                )
+            });
+        }
+    }
     
     return (
         <form className='SelectFieldForm' onSubmit={formik.handleSubmit}>
@@ -193,7 +217,13 @@ const SelectFieldForm = () => {
                         value={latestOption}
                         className='SelectFieldForm-numberInput'
                     />
-                    <button type='button' className='addOptionsButton' onClick={onAddOptionHandler}>+</button>
+                    <button type='button' className='addOptionsButton' disabled={latestOption.length === 0} onClick={onAddOptionHandler}>+</button>
+                </div>
+                <div className='SelectFieldForm-optionsContainer'>
+                    <h2>Options:</h2>
+                    <ul className='SelectFieldForm-optionsList'>
+                        {renderOptionsList()}
+                    </ul>
                 </div>
             </div>
             <div className='SelectFieldForm-buttonDiv'>
