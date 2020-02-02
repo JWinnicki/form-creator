@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import './TextFieldForm.scss';
 import BasicFormButton from '../../../BasicFormButton/BasicFormButton';
 
-const TextFieldForm = () => {
+const TextFieldForm = props => {
     const formik = useFormik({
         initialValues: {
             textInputLabel: '',
@@ -180,7 +180,7 @@ const TextFieldForm = () => {
                 </div>
             </div>
             <div className='TextFieldForm-buttonDiv'>
-                <BasicFormButton type='submit'>Add</BasicFormButton>
+                <BasicFormButton type='button' data={formik.values} clicked={props.setFormFields} >Add</BasicFormButton>
             </div>
         </form>
     );

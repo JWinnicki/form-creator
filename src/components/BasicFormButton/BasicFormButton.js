@@ -3,8 +3,10 @@ import React from 'react';
 import './BasicFormButton.scss';
 
 const BasicFormButton = props => {
+    const { clicked, data, type, children } = props;
+
     return (
-        <button type={props.type ? props.type : ''} className='BasicFormButton'>{props.children}</button>
+        <button type={type ? type : 'button'} onClick={() => clicked(data)} className='BasicFormButton'>{children}</button>
     );
 }
 

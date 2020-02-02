@@ -63,7 +63,7 @@ const BackgroundForm = props => {
                 />
             </div>
             <div className='BackgroundForm-buttonDiv'>
-                <BasicFormButton type='submit'>Add</BasicFormButton>
+                <BasicFormButton type='button' clicked={props.setFormBackground} data={formik.values} >Add</BasicFormButton>
             </div>
         </form>
     );

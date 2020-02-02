@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import './SelectFieldForm.scss';
 import BasicFormButton from '../../../BasicFormButton/BasicFormButton';
 
-const SelectFieldForm = () => {
+const SelectFieldForm = props => {
     const [ options, setOptions ] = useState([]);
     const [ latestOption, setLatestOption ] = useState('');
     const [ counter, setCounter ] = useState(0);
@@ -62,6 +62,11 @@ const SelectFieldForm = () => {
                 )
             });
         }
+    }
+
+    const onSubmitHandler = () => {
+        const formData = {...formik.values, options: options};
+        console.log(formData);
     }
     
     return (
@@ -227,7 +232,7 @@ const SelectFieldForm = () => {
                 </div>
             </div>
             <div className='SelectFieldForm-buttonDiv'>
-                <BasicFormButton type='submit'>Add</BasicFormButton>
+                <BasicFormButton type='button' clicked={props.setFormFields} data={{...formik.values, options: options}} >Add</BasicFormButton>
             </div>
         </form>
     );

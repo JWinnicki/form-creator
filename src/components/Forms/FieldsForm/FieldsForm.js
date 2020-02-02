@@ -1,6 +1,5 @@
 import React from 'react';
 import { useFormik } from 'formik';
-import * as Yup from 'yup';
 
 import './FieldsForm.scss';
 import TextFieldForm from '../FieldSubForms/TextFieldForm/TextFieldForm';
@@ -11,18 +10,14 @@ const FieldsForm = props => {
     const formik = useFormik({
         initialValues: {
             fieldType: 'select'
-        },
-        validationSchema: Yup.object({
-            textInputLabel: Yup.string()
-        }),
-        onSubmit: values => console.log(values)
+        }
     });
 
     const renderFieldsOptions = () => {
         if(formik.values.fieldType === 'text') {
-            return <TextFieldForm />
+            return <TextFieldForm setFormFields={props.setFormFields} />
         } else if(formik.values.fieldType === 'select') {
-            return <SelectFieldForm />
+            return <SelectFieldForm setFormFields={props.setFormFields} />
         }
     }
 

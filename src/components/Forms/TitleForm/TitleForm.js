@@ -99,7 +99,7 @@ const TitleForm = props => {
                 />
             </div>
             <div className='TitleForm-buttonDiv'>
-                <BasicFormButton type='submit'>Add</BasicFormButton>
+                <BasicFormButton type='submit' data={formik.values} clicked={props.setFormTitle}>Add</BasicFormButton>
             </div>
         </form>
     );

@@ -6,22 +6,22 @@ import TitleForm from '../Forms/TitleForm/TitleForm';
 import BackgroundForm from '../Forms/BackgroundForm/BackgroundForm';
 import FieldsForm from '../Forms/FieldsForm/FieldsForm';
 
-const SettingsComponent = () => {
+const SettingsComponent = props => {
     return (
         <div className='SettingsComponent'>
             <SettingsToggler text='Background'>
                 <div className='SettingsComponent-content'>
-                    <BackgroundForm />
+                    <BackgroundForm setFormBackground={props.setFormBackground} />
                 </div>
             </SettingsToggler>
             <SettingsToggler text='Title'>
                 <div className='SettingsComponent-content'>
-                    <TitleForm />
+                    <TitleForm setFormTitle={props.setFormTitle} />
                 </div>
             </SettingsToggler>
             <SettingsToggler text='Fields'>
                 <div className='SettingsComponent-content'>
-                    <FieldsForm />
+                    <FieldsForm setFormFields={props.setFormFields} />
                 </div>
             </SettingsToggler>
         </div>
