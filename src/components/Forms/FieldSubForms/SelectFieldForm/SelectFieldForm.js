@@ -63,11 +63,6 @@ const SelectFieldForm = props => {
             });
         }
     }
-
-    const onSubmitHandler = () => {
-        const formData = {...formik.values, options: options};
-        console.log(formData);
-    }
     
     return (
         <form className='SelectFieldForm' onSubmit={formik.handleSubmit}>

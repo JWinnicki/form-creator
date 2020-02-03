@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 
 import './FirstPhaseMain.scss';
 import SettingsComponent from '../../components/SettingsComponent/SettingsComponent';
+import CompositionComponent from '../../components/CompositionComponent/CompositionComponent';
 
 
 const FirstPhaseMain = () => {
@@ -25,7 +26,9 @@ const FirstPhaseMain = () => {
                 />
             </div>
             <div className='FirstPhaseMain-composition'>
-                <div className='FirstPhaseMain-composition__background'></div>
+                <CompositionComponent
+                    backgroundStyle={formBackgroundData}
+                />
             </div>
         </div>
     );
