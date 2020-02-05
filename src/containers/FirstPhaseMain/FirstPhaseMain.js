@@ -28,6 +28,7 @@ const FirstPhaseMain = () => {
             <div className='FirstPhaseMain-composition'>
                 <CompositionComponent
                     backgroundStyle={formBackgroundData}
+                    titleStyle={formTitleData}
                 />
             </div>
         </div>
