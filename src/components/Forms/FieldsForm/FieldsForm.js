@@ -38,7 +38,7 @@ const FieldsForm = props => {
                 >
                     <option value='select'>Select</option>
                     <option value='text'>Text</option>
-                    <option value='Radio'>Radio</option>
+                    <option value='Radio'>Check box</option>
                 </select>
             </div>
             {renderFieldsOptions()}

@@ -3,9 +3,11 @@ import React from 'react';
 import './CompositionComponent.scss';
 
 const CompositionComponent = props => {
-    const { backgroundStyle, titleStyle } = props;
+    const { backgroundStyle, titleStyle ,formFields } = props;
     const { backgroundColor, backgroundWidth, backgroundHeight } = backgroundStyle;
     const { title, titleColor, fontStyle, fontWeight, fontSize } = titleStyle;
+
+
     const containerStyle = {
         backgroundColor,
         width: `${backgroundWidth}px`,
@@ -21,7 +23,7 @@ const CompositionComponent = props => {
 
     const renderTitle = () => {
         if(title) {
-            return <h1 style={headerStyle}>{title}</h1>;
+            return <h1 style={headerStyle} className='CompositionComponent-title' >{title}</h1>;
         }
     }
 

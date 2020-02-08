@@ -65,7 +65,6 @@ const TitleForm = props => {
                 >
                     <option value='normal'>Normal</option>
                     <option value='italic'>Italic</option>
-                    <option value='oblique'>Oblique</option>
                 </select>
             </div>
             <div className='TitleForm-inlineInputDiv'>

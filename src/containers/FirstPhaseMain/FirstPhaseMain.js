@@ -29,6 +29,7 @@ const FirstPhaseMain = () => {
                 <CompositionComponent
                     backgroundStyle={formBackgroundData}
                     titleStyle={formTitleData}
+                    formFields={formFieldsData}
                 />
             </div>
         </div>
