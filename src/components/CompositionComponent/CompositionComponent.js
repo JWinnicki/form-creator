@@ -1,9 +1,10 @@
 import React from 'react';
 
 import './CompositionComponent.scss';
+import DummyTextInput from '../DummyComponents/DummyTextInput/DummyTextInput';
 
 const CompositionComponent = props => {
-    const { backgroundStyle, titleStyle ,formFields } = props;
+    const { backgroundStyle, titleStyle, formFields } = props;
     const { backgroundColor, backgroundWidth, backgroundHeight } = backgroundStyle;
     const { title, titleColor, fontStyle, fontWeight, fontSize } = titleStyle;
 
@@ -27,9 +28,33 @@ const CompositionComponent = props => {
         }
     }
 
+    const renderFileds = () => {
+        return formFields.map(el => {
+            if(el.fieldType === 'text') {
+                return (
+                    <div key={el.fieldId}>
+                        <div>
+                            <p>{el.textInputLabel}</p>
+                        </div>
+                        <DummyTextInput 
+                            textInputWidth={el.textInputWidth}
+                            textInputBackground={el.textInputBackground}
+                            textInputFontSize={el.textInputFontSize}
+                            textInputFontColor={el.textInputFontColor}
+                            inputPlaceholder={el.inputPlaceholder}
+                        />
+                    </div>
+                )
+            }
+        })
+    }
+
     return (
         <div style={containerStyle} className='CompositionComponent'>
             {renderTitle()}
+            <div>
+                {renderFileds()}
+            </div>
         </div>
     );
 }
