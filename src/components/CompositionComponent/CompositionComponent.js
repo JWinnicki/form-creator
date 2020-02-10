@@ -31,10 +31,16 @@ const CompositionComponent = props => {
     const renderFileds = () => {
         return formFields.map(el => {
             if(el.fieldType === 'text') {
+                const elLabelStyle = {
+                    color: el.textInputLabelFontColor,
+                    fontSize: el.textInputLabelFontSize,
+                    fontWeight: el.textInputLabelFontWeight,
+                    fontStyle: el.textInputLabelFontStyle    
+                }
                 return (
-                    <div key={el.fieldId}>
+                    <div key={el.fieldId} className='CompositionComponent-textInputDiv'>
                         <div>
-                            <p>{el.textInputLabel}</p>
+                            <p style={elLabelStyle}>{el.textInputLabel}</p>
                         </div>
                         <DummyTextInput 
                             textInputWidth={el.textInputWidth}
@@ -52,7 +58,7 @@ const CompositionComponent = props => {
     return (
         <div style={containerStyle} className='CompositionComponent'>
             {renderTitle()}
-            <div>
+            <div className='CompositionComponent-fieldsContainer'>
                 {renderFileds()}
             </div>
         </div>

@@ -1,7 +1,16 @@
 .CompositionComponent {
     overflow: auto;
     padding: 1em;
+
     &-title {
         text-align: center;
+    }
+
+    &-fieldsContainer {
+        padding: 1em;
+    }
+
+    &-textInputDiv {
+        margin-top: 2em;
     }
 }
