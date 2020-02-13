@@ -38,6 +38,7 @@ const CompositionComponent = props => {
                     fontWeight: el.textInputLabelFontWeight,
                     fontStyle: el.textInputLabelFontStyle    
                 }
+
                 return (
                     <div key={el.fieldId} className='CompositionComponent-textInputDiv'>
                         <div>

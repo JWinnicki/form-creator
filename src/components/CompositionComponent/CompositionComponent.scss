@@ -13,9 +13,9 @@
     }
 
     &-textInputDiv {
-        margin-top: 3em;
+        margin-top: 2em;
         position: relative;
-        min-height: 6.7em;
+        min-height: 6.8em;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -51,11 +51,18 @@
     &-controlsButton {
         background-color: transparent;
         border: none;
-        padding: 0;
         @include flexCenter;
+        border-radius: $border-radius-basic;
+        padding: 0.1em;
+        outline: none;
 
         &:hover {
             cursor: pointer;
+            transform: scale(1.2);
+        }
+
+        &:active {
+            transform: translateY(.2em) scale(1.2);
         }
     }
 }
