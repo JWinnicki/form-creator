@@ -9,7 +9,7 @@ const FieldsForm = props => {
 
     const formik = useFormik({
         initialValues: {
-            fieldType: 'select'
+            fieldType: 'text'
         }
     });
 
@@ -35,9 +35,10 @@ const FieldsForm = props => {
                     name='fieldType'
                     onChange={formik.handleChange}
                     value={formik.values.fieldType}
-                >
-                    <option value='select'>Select</option>
+                >   
+                    
                     <option value='text'>Text</option>
+                    <option value='select'>Select</option>
                     <option value='Radio'>Check box</option>
                 </select>
             </div>

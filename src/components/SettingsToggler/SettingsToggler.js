@@ -12,10 +12,10 @@ const SettingsToggler = props => {
                 <div className='SettingsToggler-labelDiv'>
                     <p className='SettingsToggler-labelText'>{props.text}</p>
                     <div className='SettingsToggler-iconDiv SettingsToggler-iconPrimary'>
-                        <Icon icon='sort-down' size='small' color='darkRed' />
+                        <Icon icon='sort-down' size='small' backgroundColor='#860101' />
                     </div>
                     <div className='SettingsToggler-iconDiv SettingsToggler-iconSecondary'>
-                        <Icon icon='sort-down' size='small' color='white' />
+                        <Icon icon='sort-down' size='small' backgroundColor='#FFFFFF' />
                     </div>
                 </div>
             </label>

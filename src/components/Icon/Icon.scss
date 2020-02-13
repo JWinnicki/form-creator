@@ -21,31 +21,24 @@
 }
 
 .tiny {
-    width: 2em;
-    height: 2em;
+    width: 2.5em;
+    height: 2.5em;
 }
 
 .deg90 {
     transform: rotate(90deg);
 }
 
-  .deg180 {
+.deg180 {
     transform: rotate(180deg);
 }
 
-  .deg270 {
+.deg270 {
     transform: rotate(270deg);
 }
 
-.white {
-    fill: white;
+.inverted {
+    filter: invert(100%);
 }
 
-.red {
-    fill: $color-primary-red;
-}
-
-.darkRed {
-    fill: $color-secondary-red;
-}
 
