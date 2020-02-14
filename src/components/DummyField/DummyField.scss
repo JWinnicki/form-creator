@@ -1,0 +1,63 @@
+@import '../../scss/mixins';
+@import '../../scss/variables';
+
+.DummyField {    
+    &-textInputDiv {
+        margin-top: 2em;
+        position: relative;
+        min-height: 6.8em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        &:hover > .DummyField-fieldControls {
+            opacity: 1;
+        }
+    }
+
+    &-fieldControls {
+        @include flexCenter;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        filter: invert(100%);
+        min-height: 6.7em;
+        padding: .3em 1em;
+        border-radius: $border-radius-basic;
+        opacity: 0;
+        transition: .2s linear;
+    }
+
+    &-deleteDiv {
+        @include flexCenter;
+        margin-right: 1em;
+    }
+
+    &-arrowsDiv {
+        @include flexCenterColumn;
+    }
+
+    &-controlsButton {
+        background-color: transparent;
+        border: none;
+        @include flexCenter;
+        border-radius: $border-radius-basic;
+        padding: 0.1em;
+        outline: none;
+
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.2);
+        }
+
+        &:active {
+            transform: translateY(.2em) scale(1.2);
+        }
+    }
+
+    &-textInput {
+        padding: .2em;
+        min-height: 15px;
+    }
+}

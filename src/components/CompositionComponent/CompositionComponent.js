@@ -3,6 +3,7 @@ import React from 'react';
 import './CompositionComponent.scss';
 import DummyTextInput from '../DummyComponents/DummyTextInput/DummyTextInput';
 import Icon from '../Icon/Icon';
+import DummyField from '../DummyField/DummyField';
 
 const CompositionComponent = props => {
     const { backgroundStyle, titleStyle, formFields } = props;
@@ -69,8 +70,14 @@ const CompositionComponent = props => {
                     </div>
                 )
             } else {
-                return <div>ered</div>
+                return <div>in progress</div>
             }
+        })
+    }
+
+    const renderFields = () => {
+        return formFields.map(el => {
+            return <DummyField key={el.fieldId} fieldInfo={el} backgroundColor={backgroundColor} />
         })
     }
 
@@ -78,7 +85,7 @@ const CompositionComponent = props => {
         <div style={containerStyle} className='CompositionComponent'>
             {renderTitle()}
             <div className='CompositionComponent-fieldsContainer'>
-                {renderFileds()}
+                {renderFields()}
             </div>
         </div>
     );
