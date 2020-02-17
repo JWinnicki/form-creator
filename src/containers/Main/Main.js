@@ -16,7 +16,7 @@ const Main = () => {
                     <p className='Main-p'>Your Form</p>
                 </div>
                 <div className='Main-icon'>
-                    <Icon icon='form' size='huge' backgroundColor='#cf0000' />
+                    <Icon icon='form' size='huge' color='#cf0000' />
                 </div>
             </div>
             <div className='Main-buttonDiv'>

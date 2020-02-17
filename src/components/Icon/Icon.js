@@ -6,7 +6,7 @@ import icons from '../../assets/icons.svg';
 const Icon = props => {
 
     const style = {
-        fill: props.backgroundColor
+        fill: props.color
     }
     
     return (

@@ -19,7 +19,7 @@ const SelectFieldForm = props => {
             selectInputLabelFontStyle: 'normal',
             selectInputLabelFontWeight: 'normal',
             selectInputLabelFontColor: '#000000',
-            selectInputWidth: '300',
+            selectInputWidth: '100',
             selectInputFontSize: '15',
             selectInputFontColor: '#000000',
             selectInputBackgroundColor: '#ffffff',

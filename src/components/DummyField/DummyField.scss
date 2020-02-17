@@ -3,12 +3,25 @@
 
 .DummyField {    
     &-textInputDiv {
-        margin-top: 2em;
+        margin-top: 1em;
         position: relative;
         min-height: 6.8em;
         display: flex;
         flex-direction: column;
         justify-content: center;
+
+        &:hover > .DummyField-fieldControls {
+            opacity: 1;
+        }
+    }
+
+    &-selectInputDiv {
+        margin-top: 1em;
+        position: relative;
+        min-height: 6.8em;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
 
         &:hover > .DummyField-fieldControls {
             opacity: 1;
@@ -59,5 +72,41 @@
     &-textInput {
         padding: .2em;
         min-height: 15px;
+    }
+
+    &-selectInput {
+        @include flexSpaceBetween;
+        padding: .2em;
+        margin-left: .5em;
+        position: relative;
+        min-height: 2em;
+
+        &:hover .DummyField-optionsDiv {
+            opacity: 1;
+            z-index: 1;
+        }
+    }
+
+    &-selectArrowDiv{
+        @include flexCenter;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        min-width: 2em;
+    }
+
+    &-optionsDiv {
+        position: absolute;
+        top: 100%;
+        left: -0.1em;
+        min-height: 2em;
+        opacity: 0;
+        z-index: -1;
+    }
+    
+    &-optionsList {
+        list-style: none;
+        padding: 0.2em;
     }
 }
