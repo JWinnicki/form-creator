@@ -4,7 +4,7 @@ import './DummyField.scss';
 import Icon from '../Icon/Icon';
 
 const DummyField = props => {
-    const { fieldInfo, backgroundColor } = props
+    const { fieldInfo, backgroundColor, deleteField } = props
 
 
 
@@ -34,7 +34,7 @@ const DummyField = props => {
                     <div style={inputStyle} className='DummyField-textInput'>{fieldInfo.inputPlaceholder}</div>
                     <div className='DummyField-fieldControls' style={{backgroundColor: backgroundColor}}>
                         <div className='DummyField-deleteDiv'>
-                            <button type='button' className='DummyField-controlsButton'>
+                            <button type='button' className='DummyField-controlsButton' onClick={() => deleteField(fieldInfo.fieldId)} >
                                 <Icon icon='delete' size='tiny' inverted='inverted' color={backgroundColor}/>
                             </button>
                         </div>
@@ -112,7 +112,7 @@ const DummyField = props => {
                     <div className='DummyField-fieldControls' style={{backgroundColor: backgroundColor}}>
                         <div className='DummyField-deleteDiv'>
                             <button type='button' className='DummyField-controlsButton'>
-                                <Icon icon='delete' size='tiny' inverted='inverted' color={backgroundColor}/>
+                                <Icon icon='delete' size='tiny' inverted='inverted' color={backgroundColor} onClick={() => deleteField(fieldInfo.fieldId)} />
                             </button>
                         </div>
                         <div className='DummyField-arrowsDiv'>

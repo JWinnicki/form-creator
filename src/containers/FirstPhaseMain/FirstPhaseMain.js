@@ -16,6 +16,11 @@ const FirstPhaseMain = () => {
         setCounter(prev => prev + 1);
     }
 
+    const onDeleteFieldHandler = id => {
+        const newArr = formFieldsData.filter(el => el.fieldId !== id);
+        setFormFieldsData(newArr);
+    }
+
     return (
         <div className='FirstPhaseMain'>
             <div className='FirstPhaseMain-settings'>
@@ -30,6 +35,7 @@ const FirstPhaseMain = () => {
                     backgroundStyle={formBackgroundData}
                     titleStyle={formTitleData}
                     formFields={formFieldsData}
+                    deleteField={onDeleteFieldHandler}
                 />
             </div>
         </div>
