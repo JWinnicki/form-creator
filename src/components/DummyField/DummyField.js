@@ -4,7 +4,7 @@ import './DummyField.scss';
 import Icon from '../Icon/Icon';
 
 const DummyField = props => {
-    const { fieldInfo, backgroundColor, deleteField } = props
+    const { fieldInfo, backgroundColor, deleteField, moveUp, moveDown } = props
 
 
 
@@ -39,10 +39,10 @@ const DummyField = props => {
                             </button>
                         </div>
                         <div className='DummyField-arrowsDiv'>
-                            <button type='button' className='DummyField-controlsButton'>
+                            <button type='button' className='DummyField-controlsButton' onClick={() => moveUp(fieldInfo.fieldId)} >
                                 <Icon icon='arrow-right' size='tiny' rotate='deg270' inverted='inverted' color={backgroundColor} />
                             </button>
-                            <button type='button' className='DummyField-controlsButton'>
+                            <button type='button' className='DummyField-controlsButton' onClick={() => moveDown(fieldInfo.fieldId)}>
                                 <Icon icon='arrow-right' size='tiny' rotate='deg90' inverted='inverted' color={backgroundColor} />
                             </button>
                         </div>
@@ -111,15 +111,15 @@ const DummyField = props => {
                     <div></div>
                     <div className='DummyField-fieldControls' style={{backgroundColor: backgroundColor}}>
                         <div className='DummyField-deleteDiv'>
-                            <button type='button' className='DummyField-controlsButton'>
-                                <Icon icon='delete' size='tiny' inverted='inverted' color={backgroundColor} onClick={() => deleteField(fieldInfo.fieldId)} />
+                            <button type='button' className='DummyField-controlsButton' onClick={() => deleteField(fieldInfo.fieldId)} >
+                                <Icon icon='delete' size='tiny' inverted='inverted' color={backgroundColor}/>
                             </button>
                         </div>
                         <div className='DummyField-arrowsDiv'>
-                            <button type='button' className='DummyField-controlsButton'>
+                            <button type='button' className='DummyField-controlsButton' onClick={() => moveUp(fieldInfo.fieldId)}>
                                 <Icon icon='arrow-right' size='tiny' rotate='deg270' inverted='inverted' color={backgroundColor} />
                             </button>
-                            <button type='button' className='DummyField-controlsButton'>
+                            <button type='button' className='DummyField-controlsButton' onClick={() => moveDown(fieldInfo.fieldId)}>
                                 <Icon icon='arrow-right' size='tiny' rotate='deg90' inverted='inverted' color={backgroundColor} />
                             </button>
                         </div>

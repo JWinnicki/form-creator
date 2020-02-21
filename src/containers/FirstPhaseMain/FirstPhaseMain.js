@@ -18,9 +18,41 @@ const FirstPhaseMain = () => {
 
     const onDeleteFieldHandler = id => {
         const newArr = formFieldsData.filter(el => el.fieldId !== id);
-        setFormFieldsData(newArr);
+        newArr.forEach((el, index) => el.order = index + 1);
+        setFormFieldsData(newArr.sort( (a, b) => a.order - b.order) );
     }
 
+    const onMoveUpHandler = id => {
+        const newArr = [...formFieldsData];
+        newArr.forEach((el, index, arr) => {
+            if(el.fieldId === id && el.order > 1) {
+                //console.log(`order klikniętego elementu: ${el.order}`);
+                //console.log(`order elementu wyżej: ${arr[index - 1].order}`);
+                el.order -= 1;
+                arr[index - 1].order += 1;
+            }
+        });
+        setFormFieldsData(newArr.sort( (a, b) => a.order - b.order) );
+    }
+
+    const onMoveDownHanlder = id => {
+        const newArr = [...formFieldsData];
+        newArr.forEach((el, index, arr) => {
+            if(el.fieldId === id && el.order < newArr.length) {
+                //console.log(`order klikniętego elementu: ${el.order}`);
+                //console.log(`order elementu wyżej: ${arr[index - 1].order}`);
+                el.order += 1;
+                arr[index + 1].order -= 1;
+            }
+        });
+        setFormFieldsData(newArr.sort( (a, b) => a.order - b.order) );
+    }
+
+
+    /* if(el.fieldId === id && el.order > 1) {
+                originalArr[index-1].order = originalArr[index-1].order + 1;
+                el.order = el.order - 1;
+            } */
     return (
         <div className='FirstPhaseMain'>
             <div className='FirstPhaseMain-settings'>
@@ -36,6 +68,8 @@ const FirstPhaseMain = () => {
                     titleStyle={formTitleData}
                     formFields={formFieldsData}
                     deleteField={onDeleteFieldHandler}
+                    moveUp={onMoveUpHandler}
+                    moveDown={onMoveDownHanlder}
                 />
             </div>
         </div>
