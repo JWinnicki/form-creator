@@ -24,9 +24,30 @@
         margin-top: 1em;
     }
 
+    &-errorMsg {
+        font-size: 1.3em;
+        padding: .5em 0 0 0;
+        margin-bottom: -0.5em;
+        text-decoration: underline;
+    }
+
+    &-errorMsgInline {
+        font-size: 1.3em;
+        padding: .5em 0 0 0;
+        text-decoration: underline;
+    }
+
     &-error {
-        font-size: 1.1em;
-        padding: .5em 0;
+        background-color: $color-red-light;
+    }
+
+    &-error:-webkit-autofill,
+    &-error:-webkit-autofill:hover, 
+    &-error:-webkit-autofill:focus, 
+    &-error:-webkit-autofill:active  {
+        -webkit-box-shadow: 0 0 0 30px $color-red-light inset !important;
+        box-shadow: 0 0 0 30px $color-red-light inset !important;
+        -webkit-text-fill-color: black !important;
     }
 
     &-buttonDiv {
@@ -64,6 +85,7 @@
     &-numberInput {
         margin-left: .8em;
         font-family: inherit;
+        margin-right: 0.5em;
     }
 
     &-colorInput {
@@ -73,6 +95,6 @@
     }
 
     &-numberInput {
-        width: 3em;
+        width: 3.5em;
     }
 }

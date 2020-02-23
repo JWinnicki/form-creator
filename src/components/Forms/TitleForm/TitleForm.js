@@ -16,12 +16,28 @@ const TitleForm = props => {
             fontSize: '20'
         },
         validationSchema: Yup.object({
-            title: Yup.string().max(30, 'Must be 30 characters or less')
+            title: Yup.string().max(30, 'Must be 30 characters or less'),
+            fontSize: Yup.number().min(1, 'Too small').max(30, 'To big')
         }),
-        onSubmit: values => {
-            console.log(values);
-        }
+        onSubmit: () => {}
     });
+
+    const onClickHandler = data => {
+        if(!formik.errors.title && !formik.errors.fontSize) {
+            props.setFormTitle(data);
+        }
+    }
+
+    let titleErrorClass = '';
+    if(formik.touched.title && formik.errors.title) {
+        titleErrorClass='TitleForm-error';
+    }
+
+    let fontSizeError = '';
+    if(formik.touched.fontSize && formik.errors.fontSize) {
+        fontSizeError='TitleForm-error';
+    }
+
     return (
         <form onSubmit={formik.handleSubmit} className='TitleForm'>
             <div className='TitleForm-inputDiv'>
@@ -29,15 +45,16 @@ const TitleForm = props => {
                     <p className='TitleForm-labelText'>Please add title for your form. If left empty no title will be added:</p>
                 </label>
                 <input
-                    className='TitleForm-input'
+                    id='title'
+                    name='title'
+                    className={`TitleForm-input ${titleErrorClass}`}
                     placeholder='Title' 
                     type='text'
-                    name='title'
-                    id='title'
                     onChange={formik.handleChange}
                     value={formik.values.title}
+                    onBlur={formik.handleBlur}
                 />
-                {formik.touched.title && formik.errors.title ? <p className='TitleForm-error'>{formik.errors.title}</p> : null}
+                {formik.touched.title && formik.errors.title ? <p className='TitleForm-errorMsg'>{formik.errors.title}</p> : null}
             </div>
             <div className='TitleForm-inlineInputDiv'>
                 <label htmlFor='titleColor' className='TitleForm-colorLabel'>
@@ -92,13 +109,13 @@ const TitleForm = props => {
                     name='fontSize'
                     onChange={formik.handleChange}
                     value={formik.values.fontSize}
-                    className='TitleForm-numberInput'
-                    min='1'
-                    max='30'
+                    className={`TitleForm-numberInput ${fontSizeError}`}
+                    onBlur={formik.handleBlur}
                 />
+                {formik.touched.fontSize && formik.errors.fontSize ? <p className='TitleForm-errorMsgInline'>{formik.errors.fontSize}</p> : null}
             </div>
             <div className='TitleForm-buttonDiv'>
-                <BasicFormButton type='submit' data={formik.values} clicked={props.setFormTitle}>Add</BasicFormButton>
+                <BasicFormButton type='submit' data={formik.values} clicked={onClickHandler}>Add</BasicFormButton>
             </div>
         </form>
     );

@@ -45,9 +45,13 @@
     &-selectInput,
     &-numberInput,
     &-colorInput {
-        margin-left: .5em;
         font-size: 1.5em;
         padding: 2px;
+        margin: 0 .5em;
+    }
+
+    &-numberInput {
+        width: 3.5em;
     }
 
     &-selectInput:hover,
@@ -59,5 +63,24 @@
         @include flexCenter;
         width: 100%;
         margin-top: 2em;
+    }
+
+    &-errorMsg {
+        font-size: 1.3em;
+        padding: .5em 0 0 0;
+        text-decoration: underline;
+    }
+
+    &-error {
+        background-color: $color-red-light;
+    }
+
+    &-error:-webkit-autofill,
+    &-error:-webkit-autofill:hover, 
+    &-error:-webkit-autofill:focus, 
+    &-error:-webkit-autofill:active  {
+        -webkit-box-shadow: 0 0 0 30px $color-red-light inset !important;
+        box-shadow: 0 0 0 30px $color-red-light inset !important;
+        -webkit-text-fill-color: black !important;
     }
 }

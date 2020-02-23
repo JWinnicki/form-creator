@@ -21,29 +21,60 @@ const TextFieldForm = props => {
             textInputFontColor: '#000000',
         },
         validationSchema: Yup.object({
-            textInputLabel: Yup.string(),
-            inputPlaceholder: Yup.string()
+            textInputLabel: Yup.string().max(50, 'Must be 50 characters or less'),
+            inputPlaceholder: Yup.string(),
+            textInputLabelFontSize: Yup.number().max(20, 'Too big').min(1, 'Too small').required('It is required'),
+            textInputWidth: Yup.number(450, 'Too big').max(450, 'Too big').min(50, 'Too small').required('It is required'),
+            textInputFontSize: Yup.number().max(20, 'Too big').min(1, 'Too small').required('It is required')
         }),
-        onSubmit: values => console.log(values)
+        onSubmit: ()=> {}
     });
+
+    let labelErrorClass = '';
+    if(formik.touched.textInputLabel && formik.errors.textInputLabel) {
+        labelErrorClass='TextFieldForm-error';
+    }
+
+    let labelFontSizeError = '';
+    if(formik.touched.textInputLabelFontSize && formik.errors.textInputLabelFontSize) {
+        labelFontSizeError='TextFieldForm-error';
+    }
+
+    let inputWidthError = '';
+    if(formik.touched.textInputWidth && formik.errors.textInputWidth) {
+        inputWidthError='TextFieldForm-error';
+    }
+
+    let inputFontSizeError = '';
+    if(formik.touched.textInputFontSize && formik.errors.textInputFontSize) {
+        inputFontSizeError='TextFieldForm-error';
+    }
+
+    const onClickHandler = data => {
+        if(!formik.errors.textInputLabel && !formik.errors.textInputLabelFontSize && !formik.errors.textInputWidth && !formik.errors.textInputFontSize) {
+            props.setFormFields(data);
+        }
+    }
 
     return (
         <form className='TextFieldForm' onSubmit={formik.handleSubmit}>
             <div className='TextFieldForm-section'>
                 <h1 className='TextFieldForm-sectionTitle'>Label Settings</h1>
                 <div className='TextFieldForm-inputDiv'>
-                    <label htmlFor={`textInputLabel`} className='TextFieldForm-label'>
+                    <label htmlFor='textInputLabel' className='TextFieldForm-label'>
                         <p className='TextFieldForm-labelText'>Please add label/attachment/comment to this input:</p>
                     </label>
                     <input
-                        className='TextFieldForm-textInput'
-                        id={`textInputLabel`}
-                        name={`textInputLabel`}
+                        className={`TextFieldForm-textInput ${labelErrorClass}`}
+                        id='textInputLabel'
+                        name='textInputLabel'
                         type='text'
                         onChange={formik.handleChange}
                         value={formik.values.textInputLabel}
                         placeholder='Label/Attachment/Comment'
+                        onBlur={formik.handleBlur}
                     />
+                    {formik.touched.textInputLabel && formik.errors.textInputLabel ? <p className='TextFieldForm-errorMsg'>{formik.errors.textInputLabel}</p> : null}
                 </div>
                 <div className='TextFieldForm-inlineInputDiv'>
                     <label htmlFor='textInputLabelFontStyle' className='TextFieldForm-inlineInputLabel'>
@@ -86,10 +117,10 @@ const TextFieldForm = props => {
                         name='textInputLabelFontSize'
                         onChange={formik.handleChange}
                         value={formik.values.textInputLabelFontSize}
-                        className='TextFieldForm-numberInput'
-                        min='1'
-                        max='20'
+                        className={`TextFieldForm-numberInput ${labelFontSizeError}`}
+                        onBlur={formik.handleBlur}
                     />
+                    {formik.touched.textInputLabelFontSize && formik.errors.textInputLabelFontSize ? <p className='TextFieldForm-errorMsg'>{formik.errors.textInputLabelFontSize}</p> : null}
                 </div>
                 <div className='TextFieldForm-inlineInputDiv'>
                     <label htmlFor='textInputLabelFontColor' className='TextFieldForm-colorLabel'>
@@ -132,10 +163,10 @@ const TextFieldForm = props => {
                         name='textInputWidth'
                         onChange={formik.handleChange}
                         value={formik.values.textInputWidth}
-                        className='TextFieldForm-numberInput'
-                        min='50'
-                        max='450'
+                        className={`TextFieldForm-numberInput ${inputWidthError}`}
+                        onBlur={formik.handleBlur}
                     />
+                    {formik.touched.textInputWidth && formik.errors.textInputWidth ? <p className='TextFieldForm-errorMsg'>{formik.errors.textInputWidth}</p> : null}
                 </div>
                 <div className='TextFieldForm-inlineInputDiv'>
                     <label htmlFor='textInputFontSize' className='TextFieldForm-inlineInputLabel'>
@@ -147,10 +178,10 @@ const TextFieldForm = props => {
                         name='textInputFontSize'
                         onChange={formik.handleChange}
                         value={formik.values.textInputFontSize}
-                        className='TextFieldForm-numberInput'
-                        min='1'
-                        max='20'
+                        className={`TextFieldForm-numberInput ${inputFontSizeError}`}
+                        onBlur={formik.handleBlur}
                     />
+                    {formik.touched.textInputFontSize && formik.errors.textInputFontSize ? <p className='TextFieldForm-errorMsg'>{formik.errors.textInputFontSize}</p> : null}
                 </div>
                 <div className='TextFieldForm-inlineInputDiv'>
                     <label htmlFor='textInputFontColor' className='TextFieldForm-colorLabel'>
@@ -180,7 +211,7 @@ const TextFieldForm = props => {
                 </div>
             </div>
             <div className='TextFieldForm-buttonDiv'>
-                <BasicFormButton type='button' data={formik.values} clicked={props.setFormFields} >Add</BasicFormButton>
+                <BasicFormButton type='button' data={formik.values} clicked={onClickHandler} >Add</BasicFormButton>
             </div>
         </form>
     );
