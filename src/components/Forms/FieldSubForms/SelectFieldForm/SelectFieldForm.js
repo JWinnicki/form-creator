@@ -25,7 +25,10 @@ const SelectFieldForm = props => {
             selectInputBackgroundColor: '#ffffff',
         },
         validationSchema: Yup.object({
-            textInputLabel: Yup.string()
+            selectInputLabel: Yup.string().max(50, 'Must be 50 characters or less'),
+            selectInputLabelFontSize: Yup.number().max(20, 'Too big').min(1, 'Too small'),
+            selectInputWidth: Yup.number().max(450, 'Too big').min(50, 'Too small'),
+            selectInputFontSize: Yup.number().max(20, 'Too big').min(1, 'Too small')
         }),
         onSubmit: values => console.log(formik)
     });
@@ -63,24 +66,52 @@ const SelectFieldForm = props => {
             });
         }
     }
+
+    let labelError = '';
+    if(formik.touched.selectInputLabel && formik.errors.selectInputLabel) {
+        labelError='SelectFieldForm-error';
+    }
+
+    let labelFontSizeError = '';
+    if(formik.touched.selectInputLabelFontSize && formik.errors.selectInputLabelFontSize) {
+        labelFontSizeError='SelectFieldForm-error';
+    }
+
+    let inputWidthError = '';
+    if(formik.touched.selectInputWidth && formik.errors.selectInputWidth) {
+        inputWidthError='SelectFieldForm-error';
+    }
+
+    let inputFontSizeError = '';
+    if(formik.touched.selectInputFontSize && formik.errors.selectInputFontSize) {
+        inputFontSizeError='SelectFieldForm-error';
+    }
+
+    const onClickHandler = data => {
+        if(!formik.errors.selectInputLabel && !formik.errors.selectInputLabelFontSize && !formik.errors.selectInputWidth && !formik.errors.selectInputFontSize) {
+            props.setFormFields(data);
+        }
+    }
     
     return (
         <form className='SelectFieldForm' onSubmit={formik.handleSubmit}>
             <div className='SelectFieldForm-section'>
                 <h1 className='SelectFieldForm-sectionTitle'>Label Settings</h1>
                 <div className='SelectFieldForm-inputDiv'>
-                    <label htmlFor={`selectInputLabel`} className='SelectFieldForm-label'>
+                    <label htmlFor={`selectInputLabel`} className={`SelectFieldForm-label`}>
                         <p className='SelectFieldForm-labelText'>Please add label/attachment/comment to this input:</p>
                     </label>
                     <input
-                        className='SelectFieldForm-textInput'
+                        className={`SelectFieldForm-textInput ${labelError}`}
                         id={`selectInputLabel`}
                         name={`selectInputLabel`}
                         type='text'
                         onChange={formik.handleChange}
                         value={formik.values.selectInputLabel}
                         placeholder='Label/Attachment/Comment'
+                        onBlur={formik.handleBlur}
                     />
+                    {formik.touched.selectInputLabel && formik.errors.selectInputLabel ? <p className='SelectFieldForm-errorMsg'>{formik.errors.selectInputLabel}</p> : null}
                 </div>
                 <div className='SelectFieldForm-inlineInputDiv'>
                     <label htmlFor='selectInputLabelFontStyle' className='SelectFieldForm-inlineInputLabel'>
@@ -122,10 +153,10 @@ const SelectFieldForm = props => {
                         name='selectInputLabelFontSize'
                         onChange={formik.handleChange}
                         value={formik.values.selectInputLabelFontSize}
-                        className='SelectFieldForm-numberInput'
-                        min='1'
-                        max='20'
+                        className={`SelectFieldForm-numberInput ${labelFontSizeError}`}
+                        onBlur={formik.handleBlur}
                     />
+                    {formik.touched.selectInputLabelFontSize && formik.errors.selectInputLabelFontSize ? <p className='SelectFieldForm-errorMsg'>{formik.errors.selectInputLabelFontSize}</p> : null}
                 </div>
                 <div className='SelectFieldForm-inlineInputDiv'>
                     <label htmlFor='selectInputLabelFontColor' className='SelectFieldForm-colorLabel'>
@@ -154,10 +185,10 @@ const SelectFieldForm = props => {
                         name='selectInputWidth'
                         onChange={formik.handleChange}
                         value={formik.values.selectInputWidth}
-                        className='SelectFieldForm-numberInput'
-                        min='50'
-                        max='450'
+                        className={`SelectFieldForm-numberInput ${inputWidthError}`}
+                        onBlur={formik.handleBlur}
                     />
+                    {formik.touched.selectInputWidth && formik.errors.selectInputWidth ? <p className='SelectFieldForm-errorMsg'>{formik.errors.selectInputWidth}</p> : null}
                 </div>
                 <div className='SelectFieldForm-inlineInputDiv'>
                     <label htmlFor='selectInputFontSize' className='SelectFieldForm-inlineInputLabel'>
@@ -169,10 +200,10 @@ const SelectFieldForm = props => {
                         name='selectInputFontSize'
                         onChange={formik.handleChange}
                         value={formik.values.selectInputFontSize}
-                        className='SelectFieldForm-numberInput'
-                        min='1'
-                        max='20'
+                        className={`SelectFieldForm-numberInput ${inputFontSizeError}`}
+                        onBlur={formik.handleBlur}
                     />
+                    {formik.touched.selectInputFontSize && formik.errors.selectInputFontSize ? <p className='SelectFieldForm-errorMsg'>{formik.errors.selectInputFontSize}</p> : null}
                 </div>
                 <div className='SelectFieldForm-inlineInputDiv'>
                     <label htmlFor='selectInputFontColor' className='SelectFieldForm-colorLabel'>
@@ -214,7 +245,7 @@ const SelectFieldForm = props => {
                         name='selectInputOptions'
                         onChange={onOptionsInputHandler}
                         value={latestOption}
-                        className='SelectFieldForm-numberInput'
+                        className='SelectFieldForm-optionsInput'
                     />
                     <button type='button' className='addOptionsButton' disabled={latestOption.length === 0} onClick={onAddOptionHandler}>+</button>
                 </div>
@@ -226,7 +257,7 @@ const SelectFieldForm = props => {
                 </div>
             </div>
             <div className='SelectFieldForm-buttonDiv'>
-                <BasicFormButton type='button' clicked={props.setFormFields} data={{...formik.values, options: options}} >Add</BasicFormButton>
+                <BasicFormButton type='button' clicked={onClickHandler} data={{...formik.values, options: options}} >Add</BasicFormButton>
             </div>
         </form>
     );
