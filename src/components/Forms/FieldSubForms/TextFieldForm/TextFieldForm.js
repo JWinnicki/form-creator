@@ -19,6 +19,7 @@ const TextFieldForm = props => {
             textInputBackground: '#FFFFFF',
             textInputFontSize: '15',
             textInputFontColor: '#000000',
+            elementAlignment: 'flex-start'
         },
         validationSchema: Yup.object({
             textInputLabel: Yup.string().max(50, 'Must be 50 characters or less'),
@@ -197,17 +198,20 @@ const TextFieldForm = props => {
                     />
                 </div>
                 <div className='TextFieldForm-inlineInputDiv'>
-                    <label htmlFor='textInputBackground' className='TextFieldForm-colorLabel'>
-                        <p className='TextFieldForm-labelText'>Background Color:</p>
+                    <label htmlFor='elementAlignment' className='TextFieldForm-inlineInputLabel'>
+                        <p className='TextFieldForm-labelText'>Element Alignment:</p>
                     </label>
-                    <input
-                        className='TextFieldForm-colorInput'
-                        id='textInputBackground'
-                        name='textInputBackground'
-                        type='color'
-                        value={formik.values.textInputBackground}
+                    <select
+                        className='TextFieldForm-selectInput'
+                        id='elementAlignment'
+                        name='elementAlignment'
                         onChange={formik.handleChange}
-                    />
+                        value={formik.values.elementAlignment}
+                    >
+                        <option value='flex-start'>To right</option>
+                        <option value='center'>Center</option>
+                        <option value='flex-end'>To left</option>
+                    </select>
                 </div>
             </div>
             <div className='TextFieldForm-buttonDiv'>

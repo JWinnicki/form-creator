@@ -27,7 +27,7 @@ const DummyField = props => {
             }
 
             return (
-                <div className='DummyField-textInputDiv'>
+                <div className='DummyField-textInputDiv' style={{alignItems: fieldInfo.elementAlignment}}>
                     <div>
                         <p style={labelStyle}>{fieldInfo.textInputLabel}</p>
                     </div>
@@ -91,7 +91,7 @@ const DummyField = props => {
             }
 
             return (
-                <div className='DummyField-selectInputDiv'>
+                <div className='DummyField-selectInputDiv' style={{justifyContent: fieldInfo.elementAlignment}}>
                     <div>
                         <p style={labelStyle}>{fieldInfo.selectInputLabel}</p>
                     </div>
