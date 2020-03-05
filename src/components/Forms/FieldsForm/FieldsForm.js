@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import './FieldsForm.scss';
 import TextFieldForm from '../FieldSubForms/TextFieldForm/TextFieldForm';
 import SelectFieldForm from '../FieldSubForms/SelectFieldForm/SelectFieldForm';
+import CheckBoxForm from '../FieldSubForms/CheckBoxForm/CheckBoxForm';
 
 const FieldsForm = props => {
 
@@ -18,6 +19,8 @@ const FieldsForm = props => {
             return <TextFieldForm setFormFields={props.setFormFields} />
         } else if(formik.values.fieldType === 'select') {
             return <SelectFieldForm setFormFields={props.setFormFields} />
+        } else {
+            return <CheckBoxForm setFormFields={props.setFormFields} />
         }
     }
 
