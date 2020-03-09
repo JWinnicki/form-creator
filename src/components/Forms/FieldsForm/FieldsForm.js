@@ -10,7 +10,7 @@ const FieldsForm = props => {
 
     const formik = useFormik({
         initialValues: {
-            fieldType: 'text'
+            fieldType: 'checkbox'
         }
     });
 
@@ -42,7 +42,7 @@ const FieldsForm = props => {
                     
                     <option value='text'>Text</option>
                     <option value='select'>Select</option>
-                    <option value='Radio'>Check box</option>
+                    <option value='checkbox'>Check box</option>
                 </select>
             </div>
             {renderFieldsOptions()}

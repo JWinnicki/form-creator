@@ -232,12 +232,12 @@ const SelectFieldForm = props => {
                     />
                 </div>
                 
-                <div className='TextFieldForm-inlineInputDiv'>
-                    <label htmlFor='elementAlignment' className='TextFieldForm-inlineInputLabel'>
-                        <p className='TextFieldForm-labelText'>Element Alignment:</p>
+                <div className='SelectFieldForm-inlineInputDiv'>
+                    <label htmlFor='elementAlignment' className='SelectFieldForm-inlineInputLabel'>
+                        <p className='SelectFieldForm-labelText'>Element Alignment:</p>
                     </label>
                     <select
-                        className='TextFieldForm-selectInput'
+                        className='SelectFieldForm-selectInput'
                         id='elementAlignment'
                         name='elementAlignment'
                         onChange={formik.handleChange}

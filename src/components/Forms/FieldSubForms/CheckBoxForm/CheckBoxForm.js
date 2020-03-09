@@ -18,20 +18,51 @@ const CheckBoxForm = props => {
             checkBoxInputLabelFontStyle: 'normal',
             checkBoxInputLabelFontWeight: 'normal',
             checkBoxInputLabelFontColor: '#000000',
-            checkBoxInputWidth: '100',
-            checkBoxInputFontSize: '15',
-            checkBoxInputFontColor: '#000000',
-            checkBoxInputBackgroundColor: '#ffffff',
+            checkBoxOptionFontSize: '15',
+            checkBoxOptionFontColor: '#000000',
             elementAlignment: 'flex-start'
         },
         validationSchema: Yup.object({
             checkBoxInputLabel: Yup.string().max(50, 'Must be 50 characters or less'),
             checkBoxInputLabelFontSize: Yup.number().max(20, 'Too big').min(1, 'Too small'),
-            checkBoxInputWidth: Yup.number().max(450, 'Too big').min(50, 'Too small'),
-            checkBoxInputFontSize: Yup.number().max(20, 'Too big').min(1, 'Too small')
+            checkBoxOptionFontSize: Yup.number().max(20, 'Too big').min(1, 'Too small')
         }),
         //onSubmit: values => console.log(formik)
     });
+
+    const onOptionsInputHandler = e => {
+        setLatestOption(e.target.value);
+    }
+
+    const onAddOptionHandler = () => {
+        setOptions(prev => [...prev, {id: counter, option: latestOption}]);
+        setCounter(prev => prev + 1);
+        setLatestOption('');
+    }
+
+    const onDeleteOptionHandler = e => {
+        const currentOptions = options;
+        const newArr = [];
+        currentOptions.forEach(el => {
+            if( Number(e.target.id) !== el.id ) {
+                newArr.push({id: Number(el.id), option: el.option})
+            }
+        });
+        setOptions(newArr);
+    }
+
+    const renderOptionsList = () => {
+        if(options.length > 0) {
+            return options.map(el => {
+                return (
+                    <li className='CheckBoxFieldForm-optionsListElement' key={el.id}>
+                        <p>{el.option}</p>
+                        <button className='addOptionsButton' type='button' onClick={onDeleteOptionHandler} id={el.id}>-</button>
+                    </li>
+                )
+            });
+        }
+    }
 
     let labelError = '';
     if(formik.touched.checkBoxtInputLabel && formik.errors.checkBoxtInputLabel) {
@@ -43,14 +74,16 @@ const CheckBoxForm = props => {
         labelFontSizeError='CheckBoxtFieldForm-error';
     }
 
-    let inputWidthError = '';
-    if(formik.touched.checkBoxtInputWidth && formik.errors.checkBoxtInputWidth) {
-        inputWidthError='CheckBoxtFieldForm-error';
-    }
-
     let inputFontSizeError = '';
     if(formik.touched.checkBoxtInputFontSize && formik.errors.checkBoxtInputFontSize) {
         inputFontSizeError='CheckBoxtFieldForm-error';
+    }
+
+    const onClickHandler = data => {
+        /* if(!formik.errors.selectInputLabel && !formik.errors.selectInputLabelFontSize && !formik.errors.selectInputWidth && !formik.errors.selectInputFontSize) {
+            props.setFormFields(data);
+        } */
+        console.log(data);
     }
 
     return(
@@ -132,8 +165,119 @@ const CheckBoxForm = props => {
                     />
                 </div>
             </div>
+            {/* ******************************************************************************************************** */}
+            <div className='CheckBoxFieldForm-section'>
+                <h1 className='CheckBoxFieldForm-sectionTitle'>Options Settings</h1>
+                <div className='CheckBoxFieldForm-inlineInputDiv'>
+                    <label htmlFor='checkBoxOptionFontSize' className='CheckBoxFieldForm-inlineInputLabel'>
+                        <p className='CheckBoxFieldForm-labelText'>Font Size (1-20px):</p>
+                    </label>
+                    <input
+                        type='number'
+                        id='checkBoxOptionFontSize'
+                        name='checkBoxOptionFontSize'
+                        onChange={formik.handleChange}
+                        value={formik.values.checkBoxOptionFontSize}
+                        className={`CheckBoxFieldForm-numberInput ${inputFontSizeError}`}
+                        onBlur={formik.handleBlur}
+                    />
+                    {formik.touched.checkBoxOptionFontSize && formik.errors.checkBoxOptionFontSize ? <p className='CheckBoxFieldForm-errorMsg'>{formik.errors.checkBoxOptionFontSize}</p> : null}
+                </div>
+                <div className='CheckBoxFieldForm-inlineInputDiv'>
+                    <label htmlFor='checkBoxOptionFontColor' className='CheckBoxFieldForm-colorLabel'>
+                        <p className='CheckBoxFieldForm-labelText'>Font Color:</p>
+                    </label>
+                    <input
+                        className='CheckBoxFieldForm-colorInput'
+                        id='checkBoxOptionFontColor'
+                        name='checkBoxOptionFontColor'
+                        type='color'
+                        value={formik.values.checkBoxOptionFontColor}
+                        onChange={formik.handleChange}
+                    />
+                </div>
+                <div className='CheckBoxFieldForm-inlineInputDiv'>
+                    <label htmlFor='elementAlignment' className='CheckBoxFieldForm-inlineInputLabel'>
+                        <p className='CheckBoxFieldForm-labelText'>Element Alignment:</p>
+                    </label>
+                    <select
+                        className='CheckBoxFieldForm-selectInput'
+                        id='elementAlignment'
+                        name='elementAlignment'
+                        onChange={formik.handleChange}
+                        value={formik.values.elementAlignment}
+                    >
+                        <option value='flex-start'>To right</option>
+                        <option value='center'>Center</option>
+                        <option value='flex-end'>To left</option>
+                    </select>
+                </div>
+            </div>
+            {/***********************************************************************************************************************************************************/}
+            <div className='CheckBoxFieldForm-section'>
+                <h1 className='CheckBoxFieldForm-sectionTitle'>Input Options</h1>
+                <div className='CheckBoxFieldForm-inlineInputDiv'>
+                    <label htmlFor='selectInputOptions' className='CheckBoxFieldForm-inlineInputLabel'>
+                        <p className='CheckBoxFieldForm-labelText'>Please add input's options:</p>
+                    </label>
+                    <input
+                        type='text'
+                        id='selectInputOptions'
+                        name='selectInputOptions'
+                        onChange={onOptionsInputHandler}
+                        value={latestOption}
+                        className='CheckBoxFieldForm-optionsInput'
+                    />
+                    <button type='button' className='addOptionsButton' disabled={latestOption.length === 0} onClick={onAddOptionHandler}>+</button>
+                </div>
+                <div className='CheckBoxFieldForm-optionsContainer'>
+                    <h2>Options:</h2>
+                    <ul className='CheckBoxFieldForm-optionsList'>
+                        {renderOptionsList()}
+                    </ul>
+                </div>
+            </div>
+            <div className='CheckBoxFieldForm-buttonDiv'>
+                <BasicFormButton type='button' clicked={onClickHandler} data={{...formik.values, options: options}} >Add</BasicFormButton>
+            </div>
         </form>
     );
 }
 
 export default CheckBoxForm;
+
+/* //obsluga checkbox'a z formik
+
+                <div>
+                    <label>
+                        <input 
+                            type='checkbox' 
+                            name='checkboxValue' 
+                            value='first'
+                            checked={formik.values.checkboxValue !== undefined ? formik.values.checkboxValue.includes('first') : false}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                        />
+                    </label>
+                    <label>
+                        <input 
+                            type='checkbox' 
+                            name='checkboxValue' 
+                            value='second'
+                            checked={formik.values.checkboxValue !== undefined ? formik.values.checkboxValue.includes('second') : false}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                        />
+                    </label>
+                    <label>
+                        <input 
+                            type='checkbox' 
+                            name='checkboxValue' 
+                            value='third'
+                            checked={formik.values.checkboxValue !== undefined ? formik.values.checkboxValue.includes('third') : false}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                        />
+                    </label>
+                </div>
+*/
