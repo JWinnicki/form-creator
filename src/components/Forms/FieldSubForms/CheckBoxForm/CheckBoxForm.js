@@ -13,7 +13,7 @@ const CheckBoxForm = props => {
     const formik = useFormik({
         initialValues: {
             checkBoxInputLabel: '',
-            fieldType: 'select',
+            fieldType: 'checkbox',
             checkBoxInputLabelFontSize: '15',
             checkBoxInputLabelFontStyle: 'normal',
             checkBoxInputLabelFontWeight: 'normal',
@@ -65,25 +65,25 @@ const CheckBoxForm = props => {
     }
 
     let labelError = '';
-    if(formik.touched.checkBoxtInputLabel && formik.errors.checkBoxtInputLabel) {
-        labelError='CheckBoxtFieldForm-error';
+    if(formik.touched.checkBoxInputLabel && formik.errors.checkBoxInputLabel) {
+        labelError='CheckBoxFieldForm-error';
     }
 
     let labelFontSizeError = '';
-    if(formik.touched.checkBoxtInputLabelFontSize && formik.errors.checkBoxtInputLabelFontSize) {
-        labelFontSizeError='CheckBoxtFieldForm-error';
+    if(formik.touched.checkBoxInputLabelFontSize && formik.errors.checkBoxInputLabelFontSize) {
+        labelFontSizeError='CheckBoxFieldForm-error';
     }
 
     let inputFontSizeError = '';
-    if(formik.touched.checkBoxtInputFontSize && formik.errors.checkBoxtInputFontSize) {
-        inputFontSizeError='CheckBoxtFieldForm-error';
+    if(formik.touched.checkBoxOptionFontSize && formik.errors.checkBoxOptionFontSize) {
+        inputFontSizeError='CheckBoxFieldForm-error';
     }
 
     const onClickHandler = data => {
-        /* if(!formik.errors.selectInputLabel && !formik.errors.selectInputLabelFontSize && !formik.errors.selectInputWidth && !formik.errors.selectInputFontSize) {
+        if(!formik.errors.checkBoxInputLabel && !formik.errors.checkBoxInputLabelFontSize && !formik.errors.checkBoxOptionFontSize) {
             props.setFormFields(data);
-        } */
-        console.log(data);
+            console.log(data);
+        }
     }
 
     return(

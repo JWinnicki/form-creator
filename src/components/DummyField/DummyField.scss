@@ -2,7 +2,8 @@
 @import '../../scss/variables';
 
 .DummyField {    
-    &-textInputDiv {
+    &-textInputDiv,
+    &-checkBoxInputDiv {
         margin-top: 1em;
         position: relative;
         min-height: 6.8em;
@@ -108,5 +109,10 @@
     &-optionsList {
         list-style: none;
         padding: 0.2em;
+    }
+
+    &-checkBoxOptionsDiv {
+        display: flex;
+        flex-direction: column;
     }
 }

@@ -108,7 +108,6 @@ const DummyField = props => {
                             </ul>
                         </div>
                     </div>
-                    <div></div>
                     <div className='DummyField-fieldControls' style={{backgroundColor: backgroundColor}}>
                         <div className='DummyField-deleteDiv'>
                             <button type='button' className='DummyField-controlsButton' onClick={() => deleteField(fieldInfo.fieldId)} >
@@ -127,7 +126,62 @@ const DummyField = props => {
                 </div>
             );
         } else {
-            return <div>In progress</div>
+            const labelStyle = {
+                color: fieldInfo.checkBoxInputLabelFontColor,
+                fontSize: `${fieldInfo.checkBoxInputLabelFontSize}px`,
+                fontWeight: fieldInfo.checkBoxInputLabelFontWeight,
+                fontStyle: fieldInfo.checkBoxInputLabelFontStyle    
+            }
+
+            const optionStyle = {
+                color: fieldInfo.checkBoxOptionFontColor,
+                fontSize: `${fieldInfo.checkBoxOptionFontSize}px`,
+                marginLeft: '4px'
+            }
+
+            const checkBoxInputStyle = {
+                height: `${Number(fieldInfo.checkBoxOptionFontSize) - 3}px`,
+                width: `${Number(fieldInfo.checkBoxOptionFontSize) - 3}px`
+            }
+
+            const renderOptions = () => {
+                return fieldInfo.options.map(el => {
+                    return(
+                        <label key={el.id} className={`DummyField-checkBoxOptionLabel`}>
+                            <input style={checkBoxInputStyle} type='checkbox' />
+                            <span style={optionStyle}>{el.option}</span>
+                        </label>
+                    );
+                })
+            }
+
+            return (
+                <div className='DummyField-checkBoxInputDiv'>
+                    <div>
+                        <p style={labelStyle}>
+                            {fieldInfo.checkBoxInputLabel}
+                        </p>
+                    </div>
+                    <div className='DummyField-checkBoxOptionsDiv'>
+                        {renderOptions()}
+                    </div>
+                    <div className='DummyField-fieldControls' style={{backgroundColor: backgroundColor}}>
+                        <div className='DummyField-deleteDiv'>
+                            <button type='button' className='DummyField-controlsButton' onClick={() => deleteField(fieldInfo.fieldId)} >
+                                <Icon icon='delete' size='tiny' inverted='inverted' color={backgroundColor}/>
+                            </button>
+                        </div>
+                        <div className='DummyField-arrowsDiv'>
+                            <button type='button' className='DummyField-controlsButton' onClick={() => moveUp(fieldInfo.fieldId)}>
+                                <Icon icon='arrow-right' size='tiny' rotate='deg270' inverted='inverted' color={backgroundColor} />
+                            </button>
+                            <button type='button' className='DummyField-controlsButton' onClick={() => moveDown(fieldInfo.fieldId)}>
+                                <Icon icon='arrow-right' size='tiny' rotate='deg90' inverted='inverted' color={backgroundColor} />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            );
         }
     }
 
