@@ -156,7 +156,7 @@ const DummyField = props => {
             }
 
             return (
-                <div className='DummyField-checkBoxInputDiv'>
+                <div className='DummyField-checkBoxInputDiv' style={{alignItems: fieldInfo.elementAlignment}}>
                     <div>
                         <p style={labelStyle}>
                             {fieldInfo.checkBoxInputLabel}

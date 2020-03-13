@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 
 import './FirstPhaseMain.scss';
 import SettingsComponent from '../../components/SettingsComponent/SettingsComponent';
 import CompositionComponent from '../../components/CompositionComponent/CompositionComponent';
-
+import MainButton from '../../components/MainButton/MainButton';
 
 const FirstPhaseMain = () => {
     const [ counter, setCounter ] = useState(0);
@@ -55,22 +56,35 @@ const FirstPhaseMain = () => {
             } */
     return (
         <div className='FirstPhaseMain'>
-            <div className='FirstPhaseMain-settings'>
-                <SettingsComponent
-                    setFormBackground={setFormBackgroundData}
-                    setFormTitle={setFormTitleData}
-                    setFormFields={onFieldsDataHandler}
-                />
+            <div className='FirstPhaseMain-content'>
+                <div className='FirstPhaseMain-settings'>
+                    <div  className='FirstPhaseMain-header'>
+                        <p className='FirstPhaseMain-headerText'>Settings</p>
+                    </div>
+                    <SettingsComponent
+                        setFormBackground={setFormBackgroundData}
+                        setFormTitle={setFormTitleData}
+                        setFormFields={onFieldsDataHandler}
+                    />
+                </div>
+                <div className='FirstPhaseMain-composition'>
+                    <div  className='FirstPhaseMain-header'>
+                        <p className='FirstPhaseMain-headerText'>Preview</p>
+                    </div>
+                    <CompositionComponent
+                        backgroundStyle={formBackgroundData}
+                        titleStyle={formTitleData}
+                        formFields={formFieldsData}
+                        deleteField={onDeleteFieldHandler}
+                        moveUp={onMoveUpHandler}
+                        moveDown={onMoveDownHanlder}
+                    />
+                </div>
             </div>
-            <div className='FirstPhaseMain-composition'>
-                <CompositionComponent
-                    backgroundStyle={formBackgroundData}
-                    titleStyle={formTitleData}
-                    formFields={formFieldsData}
-                    deleteField={onDeleteFieldHandler}
-                    moveUp={onMoveUpHandler}
-                    moveDown={onMoveDownHanlder}
-                />
+            <div className='Main-buttonDiv'>
+                <Link to='/'>
+                    <MainButton size='big'>Generate</MainButton>
+                </Link>
             </div>
         </div>
     );
