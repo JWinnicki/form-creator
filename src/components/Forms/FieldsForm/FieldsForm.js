@@ -10,7 +10,7 @@ const FieldsForm = props => {
 
     const formik = useFormik({
         initialValues: {
-            fieldType: 'checkbox'
+            fieldType: 'text'
         }
     });
 
