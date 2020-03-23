@@ -13,11 +13,11 @@ const TitleForm = props => {
             titleColor: '#000000',
             fontStyle: 'normal',
             fontWeight: 'normal',
-            fontSize: '20'
+            fontSize: '35'
         },
         validationSchema: Yup.object({
             title: Yup.string().max(30, 'Must be 30 characters or less'),
-            fontSize: Yup.number().min(1, 'Too small').max(30, 'To big')
+            fontSize: Yup.number().min(1, 'Too small').max(45, 'To big')
         }),
         onSubmit: () => {}
     });
@@ -101,7 +101,7 @@ const TitleForm = props => {
             </div>
             <div className='TitleForm-inlineInputDiv'>
                 <label htmlFor='fontSize' className='TitleForm-inlineInputLabel'>
-                    <p className='TitleForm-labelText'>Font Size (1-30px):</p>
+                    <p className='TitleForm-labelText'>Font Size (1-45px):</p>
                 </label>
                 <input
                     type='number'

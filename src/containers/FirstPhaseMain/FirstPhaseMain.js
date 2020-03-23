@@ -8,7 +8,7 @@ import MainButton from '../../components/MainButton/MainButton';
 
 const FirstPhaseMain = () => {
     const [ counter, setCounter ] = useState(0);
-    const [ formBackgroundData, setFormBackgroundData ] = useState({ backgroundColor: '#ffffff', backgroundWidth: 500, backgroundHeight: 700 });
+    const [ formBackgroundData, setFormBackgroundData ] = useState({ backgroundColor: '#ffffff', backgroundWidth: 500, backgroundHeight: 650 });
     const [ formTitleData, setFormTitleData ] = useState({});
     const [ formFieldsData, setFormFieldsData ] = useState([]);
 

@@ -35,10 +35,12 @@ const CompositionComponent = props => {
     }
 
     return (
-        <div style={containerStyle} className='CompositionComponent'>
-            {renderTitle()}
-            <div className='CompositionComponent-fieldsContainer'>
-                {renderFields()}
+        <div className='DummyFormContainer'>
+            <div style={containerStyle} className='CompositionComponent'>
+                {renderTitle()}
+                <div className='CompositionComponent-fieldsContainer'>
+                    {renderFields()}
+                </div>
             </div>
         </div>
     );

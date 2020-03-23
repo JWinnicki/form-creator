@@ -11,7 +11,7 @@ const BackgroundForm = props => {
         initialValues: {
             backgroundColor: '#ffffff',
             backgroundWidth: 500,
-            backgroundHeight: 700
+            backgroundHeight: 650
         },
         validationSchema: Yup.object({
             backgroundWidth: Yup.number().max(800, 'Must be 800px or less').min(100, 'Must be 100px or more'),
