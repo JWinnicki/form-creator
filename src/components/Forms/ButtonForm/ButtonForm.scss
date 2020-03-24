@@ -1,0 +1,40 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixins';
+
+.ButtonForm {
+    width: 100%;
+
+    &-togglerContainer {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    &-radioInput {
+        display: none;
+
+        &:checked + .ButtonForm-toggleButton {
+            border: 5px solid white;
+            padding: calc(1.5em - 5px);
+        }    
+    }
+
+    &-toggleButton {
+        @include flexCenter;
+        padding: 1.5em;
+        width: 20em;
+        min-height: 6.6em;
+        background-color: $color-tertiary-red;
+        font-weight: bold;
+        border-radius: $border-radius-basic;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &-toggleButtonParagraph {
+        font-size: 1.5em;
+    }
+}

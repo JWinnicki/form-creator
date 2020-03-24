@@ -5,6 +5,7 @@ import SettingsToggler from '../SettingsToggler/SettingsToggler';
 import TitleForm from '../Forms/TitleForm/TitleForm';
 import BackgroundForm from '../Forms/BackgroundForm/BackgroundForm';
 import FieldsForm from '../Forms/FieldsForm/FieldsForm';
+import ButtonForm from '../Forms/ButtonForm/ButtonForm';
 
 const SettingsComponent = props => {
     return (
@@ -22,6 +23,11 @@ const SettingsComponent = props => {
             <SettingsToggler text='Fields'>
                 <div className='SettingsComponent-content'>
                     <FieldsForm setFormFields={props.setFormFields} />
+                </div>
+            </SettingsToggler>
+            <SettingsToggler text='Button'>
+                <div className='SettingsComponent-content'>
+                    <ButtonForm />
                 </div>
             </SettingsToggler>
         </div>
