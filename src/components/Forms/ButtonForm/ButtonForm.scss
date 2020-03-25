@@ -3,12 +3,14 @@
 
 .ButtonForm {
     width: 100%;
+    padding: 1.5em;
 
     &-togglerContainer {
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-evenly;
+        margin-bottom: 2em;
     }
 
     &-radioInput {
@@ -36,5 +38,47 @@
 
     &-toggleButtonParagraph {
         font-size: 1.5em;
+    }
+
+    &-sectionTitle {
+        font-weight: bold;
+        font-size: 2.5em;
+        margin-bottom: .5em;
+    }
+
+    &-section {
+        background-color: $color-tertiary-red;
+        width: 100%;
+        padding: 1em;
+        border-radius: 5px;
+        margin-bottom: 2em;
+    }
+
+    &-labelText {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-right: .5em;
+    }
+
+    &-inlineInputDiv {
+        margin-top: .6em;
+        display: flex;
+        align-items: center;
+        margin-left: 2em;
+        
+    }
+
+    &-textInlineInput,
+    &-numberInlineInput {
+        font-size: 1.5em;
+        padding: 2px;
+    }
+
+    &-textInlineInput {
+        width: 6.5em;
+    }
+
+    &-numberInlineInput {
+        width: 4em;
     }
 }
