@@ -21,7 +21,7 @@ const Main = () => {
             </div>
             <div className='Main-buttonDiv'>
                 <Link to='/create-form'>
-                    <MainButton size='big'>Start</MainButton>
+                    <MainButton fontColor='white' colorPrimary='#cf0000' colorSecondary='black' size='big'>Start</MainButton>
                 </Link>
             </div>
         </div>

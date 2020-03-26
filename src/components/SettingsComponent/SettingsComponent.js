@@ -27,7 +27,9 @@ const SettingsComponent = props => {
             </SettingsToggler>
             <SettingsToggler text='Button'>
                 <div className='SettingsComponent-content'>
-                    <ButtonForm />
+                    <ButtonForm
+                        formBackgroundColor={props.formBackgroundColor}
+                    />
                 </div>
             </SettingsToggler>
         </div>

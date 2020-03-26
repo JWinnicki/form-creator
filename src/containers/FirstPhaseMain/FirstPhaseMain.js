@@ -65,6 +65,7 @@ const FirstPhaseMain = () => {
                         setFormBackground={setFormBackgroundData}
                         setFormTitle={setFormTitleData}
                         setFormFields={onFieldsDataHandler}
+                        formBackgroundColor={formBackgroundData.backgroundColor}
                     />
                 </div>
                 <div className='FirstPhaseMain-composition'>
@@ -83,7 +84,7 @@ const FirstPhaseMain = () => {
             </div>
             <div className='Main-buttonDiv'>
                 <Link to='/'>
-                    <MainButton size='big'>Generate</MainButton>
+                    <MainButton fontColor='white' colorPrimary='#cf0000' colorSecondary='black' size='big'>Generate</MainButton>
                 </Link>
             </div>
         </div>

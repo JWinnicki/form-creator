@@ -1,19 +1,26 @@
 @import '../../scss/variables';
+@import '../../scss//animations';
 
 .MainButton {
-    background-color: $color-primary-red;
+    //background-color: $color-primary-red;
     font-family: 'Bangers', cursive;
     letter-spacing: 2px;
     font-size: 2em;
-    color: white;
+    //color: white;
     border: none;
     border-radius: $border-radius-basic;
     position: relative;
     z-index: 2;
     transition: all .2s;
+
+    &-buttonDiv {
+        animation-name: mainButton;
+        animation-duration: 1.4s;
+        position: relative;
+    }
     
     &-background {
-        background-color: black;
+        //background-color: black;
         display: block;
         position: absolute;
         top: 0;

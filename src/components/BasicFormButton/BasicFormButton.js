@@ -3,10 +3,15 @@ import React from 'react';
 import './BasicFormButton.scss';
 
 const BasicFormButton = props => {
-    const { clicked, data, type, children } = props;
+    const { clicked, data, type, children, primaryColor, fontColor } = props;
+
+    const style = {
+        backgroundColor: primaryColor,
+        color: fontColor
+    }
 
     return (
-        <button type={type ? type : 'button'} onClick={() => clicked(data)} className='BasicFormButton'>{children}</button>
+        <button style={style} type={type ? type : 'button'} onClick={() => clicked(data)} className='BasicFormButton'>{children}</button>
     );
 }
 

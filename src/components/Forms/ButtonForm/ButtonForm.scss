@@ -69,7 +69,8 @@
     }
 
     &-textInlineInput,
-    &-numberInlineInput {
+    &-numberInlineInput,
+    &-colorInput {
         font-size: 1.5em;
         padding: 2px;
     }
@@ -80,5 +81,33 @@
 
     &-numberInlineInput {
         width: 4em;
+    }
+
+    &-galleryContainer {
+        margin-top: 1.5em;
+        //background-color: $color-secondary-red;
+        border-radius: $border-radius-basic;
+        padding: 2em 1em;
+    }
+
+    &-galleryDiv {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 6em;
+        justify-items: center;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        gap: 2em;
+    }
+
+    &-checkboxInput {
+        margin-right: .5em;
+        height: 1.2em;
+        width: 1.2em;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 }

@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 import './ButtonForm.scss';
+import MainButton from '../../MainButton/MainButton';
+import BasicFormButton from '../../BasicFormButton/BasicFormButton';
 
 const ButtonForm = props => {
+
+    const [ enableBackground, setEnableBackground ] = useState(false);
 
     const formik = useFormik({
         initialValues: {
@@ -14,7 +18,10 @@ const ButtonForm = props => {
             paddingVertical: 0,
             paddingHorizontal: 0,
             buttonHeight: 40,
-            buttonWidth: 140
+            buttonWidth: 140,
+            fontColor: '#ffffff',
+            primaryColor: '#ffffff',
+            secondaryColor: '#ffffff'
         },
         validationSchema: Yup.object({
             buttonInnerText: Yup.string().min(1, 'Too short!').max(8, 'Too long!'),
@@ -24,6 +31,14 @@ const ButtonForm = props => {
             buttonWidth: Yup.number().min(50, 'Too small!').max(250, 'Too big!')
         })
     });
+
+    const onCheckboxChangeHandler = () => {
+        setEnableBackground(prev => !prev);
+    }
+
+    const backgroundColor = {
+        backgroundColor: enableBackground ? props.formBackgroundColor : '#860101',
+    }
 
     const renderSettings = () => {
         if(formik.values.buttonDimensionsOption === 'text') {
@@ -150,6 +165,68 @@ const ButtonForm = props => {
                     />
                 </div>
                 {renderSettings()}        
+            </div>
+            <div className='ButtonForm-section'>
+                <h1 className='ButtonForm-sectionTitle'>Style</h1>
+                <div className='ButtonForm-inlineInputDiv'>
+                    <label htmlFor='fontColor' className='ButtonForm-colorLabel'>
+                        <p className='ButtonForm-labelText'>Font Color:</p>
+                    </label>
+                    <input
+                        className='ButtonForm-colorInput'
+                        id='fontColor'
+                        name='fontColor'
+                        type='color'
+                        value={formik.values.fontColor}
+                        onChange={formik.handleChange}
+                    />
+                </div>
+                <div className='ButtonForm-inlineInputDiv'>
+                    <label htmlFor='primaryColor' className='ButtonForm-colorLabel'>
+                        <p className='ButtonForm-labelText'>Primary Color:</p>
+                    </label>
+                    <input
+                        className='ButtonForm-colorInput'
+                        id='primaryColor'
+                        name='primaryColor'
+                        type='color'
+                        value={formik.values.primaryColor}
+                        onChange={formik.handleChange}
+                    />
+                </div>
+                <div className='ButtonForm-inlineInputDiv'>
+                    <label htmlFor='secondaryColor' className='ButtonForm-colorLabel'>
+                        <p className='ButtonForm-labelText'>Secodnary Color:</p>
+                    </label>
+                    <input
+                        className='ButtonForm-colorInput'
+                        id='secondaryColor'
+                        name='secondaryColor'
+                        type='color'
+                        value={formik.values.secondaryColor}
+                        onChange={formik.handleChange}
+                    />
+                </div>
+                <div className='ButtonForm-inlineInputDiv'>
+                    <input 
+                        type='checkbox'
+                        id='formBackgroundColor'
+                        className='ButtonForm-checkboxInput'
+                        value={enableBackground}
+                        onChange={onCheckboxChangeHandler}
+                    />
+                    <label htmlFor='formBackgroundColor'>
+                        <p className='ButtonForm-labelText'>Use form background color</p>
+                    </label>
+                </div>
+                <div style={backgroundColor} className='ButtonForm-galleryContainer'>
+                    <div className='ButtonForm-galleryDiv'>
+                        <MainButton fontColor='white' colorPrimary='#cf0000' colorSecondary='black' size='small'>SUBMIT</MainButton>
+                        <BasicFormButton primaryColor='#cf0000' fontColor='white' type='button' clicked={() => {}} >SUBMIT</BasicFormButton>
+                        <MainButton fontColor='white' colorPrimary='#cf0000' colorSecondary='black' size='small'>SUBMIT</MainButton>
+                        <BasicFormButton primaryColor='#cf0000' fontColor='white' type='button' clicked={() => {}} >SUBMIT</BasicFormButton>
+                    </div>
+                </div>
             </div>
         </div>
     );
