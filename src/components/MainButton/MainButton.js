@@ -12,10 +12,24 @@ const MainButton = props => {
     const colorSecondary = {
         backgroundColor: props.colorSecondary
     }
+
+    let dimensionsStyle = {};
+
+    if(!props.height || !props.width) {
+        dimensionsStyle = { 
+            padding: `${props.paddingVertical}${props.unit} ${props.paddingHorizontal}${props.unit}`
+        }
+    } else if(!props.paddingVertical || !props.paddingHorizontal) {
+        dimensionsStyle = {
+            height: `${props.height}${props.unit}`,
+            width: `${props.width}${props.unit}`
+        }
+    }
+
     return (
         <div className='MainButton-buttonDiv'>
-            <button style={colorPrimary} type={props.type ? props.type : ''} className={`MainButton MainButton-${props.size}`}>{props.children}</button>
-            <div style={colorSecondary} className={`MainButton-background MainButton-${props.size}__background`}></div>
+            <button style={{...colorPrimary, ...dimensionsStyle}} type={props.type ? props.type : ''} className={`MainButton`}><p className='MainButton-text'>{props.children}</p></button>
+            <div style={{...colorSecondary, ...dimensionsStyle}} className={`MainButton-background`}></div>
         </div>
     );
 }

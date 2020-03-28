@@ -10,8 +10,21 @@ const BasicFormButton = props => {
         color: fontColor
     }
 
+    let dimensionsStyle = {};
+
+    if(!props.height || !props.width) {
+        dimensionsStyle = { 
+            padding: `${props.paddingVertical}${props.unit} ${props.paddingHorizontal}${props.unit}`
+        }
+    } else if(!props.paddingVertical || !props.paddingHorizontal) {
+        dimensionsStyle = {
+            height: `${props.height}${props.unit}`,
+            width: `${props.width}${props.unit}`
+        }
+    }
+
     return (
-        <button style={style} type={type ? type : 'button'} onClick={() => clicked(data)} className='BasicFormButton'>{children}</button>
+        <button style={{...style, ...dimensionsStyle}} type={type ? type : 'button'} onClick={() => clicked(data)} className='BasicFormButton'><p className='BasicFormButton-text'>{children}</p></button>
     );
 }
 

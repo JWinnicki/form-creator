@@ -221,9 +221,9 @@ const ButtonForm = props => {
                 </div>
                 <div style={backgroundColor} className='ButtonForm-galleryContainer'>
                     <div className='ButtonForm-galleryDiv'>
-                        <MainButton fontColor='white' colorPrimary='#cf0000' colorSecondary='black' size='small'>SUBMIT</MainButton>
-                        <BasicFormButton primaryColor='#cf0000' fontColor='white' type='button' clicked={() => {}} >SUBMIT</BasicFormButton>
-                        <MainButton fontColor='white' colorPrimary='#cf0000' colorSecondary='black' size='small'>SUBMIT</MainButton>
+                        <MainButton fontColor='white' colorPrimary='#cf0000' colorSecondary='black' height='3' width='5' unit='em'>SUBMIT</MainButton>
+                        <BasicFormButton primaryColor='#cf0000' fontColor='white' type='button' clicked={() => {}} paddingVertical='1' paddingHorizontal='2' unit='em' >SUBMIT</BasicFormButton>
+                        <MainButton fontColor='white' colorPrimary='#cf0000' colorSecondary='black' paddingVertical='1' paddingHorizontal='2' unit='em'>SUBMIT</MainButton>
                         <BasicFormButton primaryColor='#cf0000' fontColor='white' type='button' clicked={() => {}} >SUBMIT</BasicFormButton>
                     </div>
                 </div>

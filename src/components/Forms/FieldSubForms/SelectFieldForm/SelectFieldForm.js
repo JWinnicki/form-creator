@@ -274,7 +274,7 @@ const SelectFieldForm = props => {
                 </div>
             </div>
             <div className='SelectFieldForm-buttonDiv'>
-                <BasicFormButton primaryColor='#cf0000' fontColor='white' type='button' clicked={onClickHandler} data={{...formik.values, options: options}} >Add</BasicFormButton>
+                <BasicFormButton paddingVertical='.8' paddingHorizontal='1.5' unit='em' primaryColor='#cf0000' fontColor='white' type='button' clicked={onClickHandler} data={{...formik.values, options: options}} >ADD</BasicFormButton>
             </div>
         </form>
     );

@@ -215,7 +215,7 @@ const TextFieldForm = props => {
                 </div>
             </div>
             <div className='TextFieldForm-buttonDiv'>
-                <BasicFormButton primaryColor='#cf0000' fontColor='white' type='button' data={formik.values} clicked={onClickHandler} >Add</BasicFormButton>
+                <BasicFormButton paddingVertical='.8' paddingHorizontal='1.5' unit='em'  primaryColor='#cf0000' fontColor='white' type='button' data={formik.values} clicked={onClickHandler} >ADD</BasicFormButton>
             </div>
         </form>
     );

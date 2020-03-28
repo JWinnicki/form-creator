@@ -3,15 +3,19 @@
 
 .MainButton {
     //background-color: $color-primary-red;
-    font-family: 'Bangers', cursive;
-    letter-spacing: 2px;
-    font-size: 2em;
     //color: white;
     border: none;
     border-radius: $border-radius-basic;
     position: relative;
     z-index: 2;
     transition: all .2s;
+    font-size: inherit;
+
+    &-text {
+        font-family: 'Bangers', cursive;
+        letter-spacing: 2px;
+        font-size: 2em;
+    }
 
     &-buttonDiv {
         animation-name: mainButton;
@@ -25,39 +29,40 @@
         position: absolute;
         top: 0;
         left: 0;
-        transform: translateY(.5em);
+        transform: translateY(1em);
         border-radius: $border-radius-basic;
-        font-size: 2em;
+        width: 100%;
+        height: 100%;
     }
 
     &:hover {
         cursor: pointer;
-        transform: translateY(.15em);
+        transform: translateY(.3em);
     }
 
     &:active {
-        transform: translateY(.5em);
+        transform: translateY(1em);
     }
 }
 
 .MainButton-big {
-    width: 8em;
-    height: 2.5em;
-    padding: .5em 1em;
+    width: 16em;
+    height: 5em;
+    padding: 1em 2em;
 
     &__background {
-        width: 8em;
-        height: 2.5em;
+        width: 16em;
+        height: 5em;
     }
 }
 
 .MainButton-small {
-    width: 4em;
-    height: 1.5em;
+    width: 8em;
+    height: 3em;
     //padding: .5em 1em;
     &__background {
-        width: 4em;
-        height: 1.5em;
+        width: 8em;
+        height: 3em;
     }
 }
 

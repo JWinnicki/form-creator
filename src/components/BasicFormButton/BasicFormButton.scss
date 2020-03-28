@@ -1,14 +1,12 @@
 @import '../../scss/variables';
+@import '../../scss//mixins';
 
 .BasicFormButton {
+    font-size: inherit;
     font-family: inherit;
-    font-size: 1.5em;
-    font-weight: bold;
-    //background-color: $color-primary-red;
-    //color: white;
     border: none;
-    padding: .5em 1.5em;
     border-radius: $border-radius-basic;
+    @include flexCenter;
 
     &:hover {
         cursor: pointer;
@@ -17,4 +15,9 @@
     &:active {
         transform: translateY(.1em);
     }    
+
+    &-text {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
 }

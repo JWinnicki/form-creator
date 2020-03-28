@@ -84,7 +84,7 @@ const FirstPhaseMain = () => {
             </div>
             <div className='Main-buttonDiv'>
                 <Link to='/'>
-                    <MainButton fontColor='white' colorPrimary='#cf0000' colorSecondary='black' size='big'>Generate</MainButton>
+                    <MainButton fontColor='white' colorPrimary='#cf0000' colorSecondary='black' height='5' width='16' unit='em'>Generate</MainButton>
                 </Link>
             </div>
         </div>
