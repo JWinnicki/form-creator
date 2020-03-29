@@ -38,6 +38,15 @@ const TitleForm = props => {
         fontSizeError='TitleForm-error';
     }
 
+    const buttonStyle = {
+        buttonDimensionsOption: 'text',
+        paddingVertical: .8,
+        paddingHorizontal: 1.5,
+        fontColor: '#ffffff',
+        primaryColor: '#cf0000',
+        secondaryColor: '#000000'
+    }
+
     return (
         <form onSubmit={formik.handleSubmit} className='TitleForm'>
             <div className='TitleForm-inputDiv'>
@@ -115,7 +124,7 @@ const TitleForm = props => {
                 {formik.touched.fontSize && formik.errors.fontSize ? <p className='TitleForm-errorMsgInline'>{formik.errors.fontSize}</p> : null}
             </div>
             <div className='TitleForm-buttonDiv'>
-                <BasicFormButton paddingVertical='.8' paddingHorizontal='1.5' unit='em'  primaryColor='#cf0000' fontColor='white' type='submit' data={formik.values} clicked={onClickHandler}>ADD</BasicFormButton>
+                <BasicFormButton styleData={buttonStyle} unit='em' type='submit' data={formik.values} clicked={onClickHandler}>ADD</BasicFormButton>
             </div>
         </form>
     );

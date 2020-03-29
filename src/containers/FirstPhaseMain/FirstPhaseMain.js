@@ -54,6 +54,15 @@ const FirstPhaseMain = () => {
                 originalArr[index-1].order = originalArr[index-1].order + 1;
                 el.order = el.order - 1;
             } */
+
+        const buttonStyle = {
+        buttonDimensionsOption: 'fixed',
+        buttonHeight: 5,
+        buttonWidth: 16,
+        fontColor: '#ffffff',
+        primaryColor: '#cf0000',
+        secondaryColor: '#000000'
+    }
     return (
         <div className='FirstPhaseMain'>
             <div className='FirstPhaseMain-content'>
@@ -84,7 +93,7 @@ const FirstPhaseMain = () => {
             </div>
             <div className='Main-buttonDiv'>
                 <Link to='/'>
-                    <MainButton fontColor='white' colorPrimary='#cf0000' colorSecondary='black' height='5' width='16' unit='em'>Generate</MainButton>
+                    <MainButton styleData={buttonStyle} unit='em'>Generate</MainButton>
                 </Link>
             </div>
         </div>

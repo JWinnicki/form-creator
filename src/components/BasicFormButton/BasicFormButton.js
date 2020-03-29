@@ -3,24 +3,27 @@ import React from 'react';
 import './BasicFormButton.scss';
 
 const BasicFormButton = props => {
-    const { clicked, data, type, children, primaryColor, fontColor } = props;
 
-    const style = {
-        backgroundColor: primaryColor,
-        color: fontColor
-    }
+    const { styleData, clicked, data, type, children } = props;
+    const { buttonDimensionsOption, buttonHeight, buttonWidth, fontColor, paddingHorizontal, paddingVertical, primaryColor } = styleData;
+    const unit = props.unit ? props.unit : 'px';
 
     let dimensionsStyle = {};
 
-    if(!props.height || !props.width) {
+    if(buttonDimensionsOption === 'text') {
         dimensionsStyle = { 
-            padding: `${props.paddingVertical}${props.unit} ${props.paddingHorizontal}${props.unit}`
+            padding: `${paddingVertical}${unit} ${paddingHorizontal}${unit}`
         }
-    } else if(!props.paddingVertical || !props.paddingHorizontal) {
+    } else if(buttonDimensionsOption === 'fixed') {
         dimensionsStyle = {
-            height: `${props.height}${props.unit}`,
-            width: `${props.width}${props.unit}`
+            height: `${buttonHeight}${unit}`,
+            width: `${buttonWidth}${unit}`
         }
+    }
+    
+    const style = {
+        backgroundColor: primaryColor,
+        color: fontColor
     }
 
     return (

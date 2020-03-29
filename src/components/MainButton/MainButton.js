@@ -4,25 +4,29 @@ import './MainButton.scss';
 
 const MainButton = props => {
 
+    const { styleData } = props;
+    const { buttonDimensionsOption, buttonHeight, buttonWidth, fontColor, paddingHorizontal, paddingVertical, primaryColor, secondaryColor } = styleData;
+    const unit = props.unit ? props.unit : 'px';
+
     const colorPrimary = {
-        backgroundColor: props.colorPrimary,
-        color: props.fontColor
+        backgroundColor: primaryColor,
+        color: fontColor
     }
 
     const colorSecondary = {
-        backgroundColor: props.colorSecondary
+        backgroundColor: secondaryColor
     }
 
     let dimensionsStyle = {};
 
-    if(!props.height || !props.width) {
+    if(buttonDimensionsOption === 'text') {
         dimensionsStyle = { 
-            padding: `${props.paddingVertical}${props.unit} ${props.paddingHorizontal}${props.unit}`
+            padding: `${paddingVertical}${unit} ${paddingHorizontal}${unit}`
         }
-    } else if(!props.paddingVertical || !props.paddingHorizontal) {
+    } else if(buttonDimensionsOption === 'fixed') {
         dimensionsStyle = {
-            height: `${props.height}${props.unit}`,
-            width: `${props.width}${props.unit}`
+            height: `${buttonHeight}${unit}`,
+            width: `${buttonWidth}${unit}`
         }
     }
 

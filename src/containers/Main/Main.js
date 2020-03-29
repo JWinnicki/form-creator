@@ -6,6 +6,16 @@ import Icon from '../../components/Icon/Icon';
 import MainButton from '../../components/MainButton/MainButton';
 
 const Main = () => {
+
+    const buttonStyle = {
+        buttonDimensionsOption: 'fixed',
+        buttonHeight: 5,
+        buttonWidth: 16,
+        fontColor: '#ffffff',
+        primaryColor: '#cf0000',
+        secondaryColor: '#000000'
+    }
+
     return (
         <div className='Main'>
             <div className='Main-headerDiv'>
@@ -21,7 +31,7 @@ const Main = () => {
             </div>
             <div className='Main-buttonDiv'>
                 <Link to='/create-form'>
-                    <MainButton fontColor='white' colorPrimary='#cf0000' colorSecondary='black' height='5' width='16' unit='em'>Start</MainButton>
+                    <MainButton styleData={buttonStyle} unit='em'>Start</MainButton>
                 </Link>
             </div>
         </div>

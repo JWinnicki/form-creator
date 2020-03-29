@@ -38,6 +38,15 @@ const BackgroundForm = props => {
         }
     }
 
+    const buttonStyle = {
+        buttonDimensionsOption: 'text',
+        paddingVertical: .8,
+        paddingHorizontal: 1.5,
+        fontColor: '#ffffff',
+        primaryColor: '#cf0000',
+        secondaryColor: '#000000'
+    }
+
     return (
         <form className='BackgroundForm' onSubmit={formik.handleSubmit}>
             <div className='BackgroundForm-inlineInputDiv'>
@@ -88,7 +97,7 @@ const BackgroundForm = props => {
                 {formik.touched.backgroundHeight && formik.errors.backgroundHeight ? <p className='TextFieldForm-errorMsg'>{formik.errors.backgroundHeight}</p> : null}
             </div>
             <div className='BackgroundForm-buttonDiv'>
-                <BasicFormButton primaryColor='#cf0000' fontColor='white' type='button' clicked={onClickHandler} data={formik.values} >Add</BasicFormButton>
+                <BasicFormButton styleData={buttonStyle} unit='em' type='button' clicked={onClickHandler} data={formik.values} >Add</BasicFormButton>
             </div>
         </form>
     );

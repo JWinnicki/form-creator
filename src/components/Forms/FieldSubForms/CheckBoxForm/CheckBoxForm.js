@@ -86,6 +86,15 @@ const CheckBoxForm = props => {
         }
     }
 
+    const buttonStyle = {
+        buttonDimensionsOption: 'text',
+        paddingVertical: .8,
+        paddingHorizontal: 1.5,
+        fontColor: '#ffffff',
+        primaryColor: '#cf0000',
+        secondaryColor: '#000000'
+    }
+
     return(
         <form className='CheckBoxFieldForm'>
             <div className='CheckBoxFieldForm-section'>
@@ -238,7 +247,7 @@ const CheckBoxForm = props => {
                 </div>
             </div>
             <div className='CheckBoxFieldForm-buttonDiv'>
-                <BasicFormButton paddingVertical='.8' paddingHorizontal='1.5' unit='em'  primaryColor='#cf0000' fontColor='white' type='button' clicked={onClickHandler} data={{...formik.values, options: options}} >ADD</BasicFormButton>
+                <BasicFormButton styleData={buttonStyle} unit='em' type='button' clicked={onClickHandler} data={{...formik.values, options: options}} >ADD</BasicFormButton>
             </div>
         </form>
     );

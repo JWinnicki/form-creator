@@ -92,6 +92,15 @@ const SelectFieldForm = props => {
             props.setFormFields(data);
         }
     }
+
+    const buttonStyle = {
+        buttonDimensionsOption: 'text',
+        paddingVertical: .8,
+        paddingHorizontal: 1.5,
+        fontColor: '#ffffff',
+        primaryColor: '#cf0000',
+        secondaryColor: '#000000'
+    }
     
     return (
         <form className='SelectFieldForm' onSubmit={formik.handleSubmit}>
@@ -274,7 +283,7 @@ const SelectFieldForm = props => {
                 </div>
             </div>
             <div className='SelectFieldForm-buttonDiv'>
-                <BasicFormButton paddingVertical='.8' paddingHorizontal='1.5' unit='em' primaryColor='#cf0000' fontColor='white' type='button' clicked={onClickHandler} data={{...formik.values, options: options}} >ADD</BasicFormButton>
+                <BasicFormButton styleData={buttonStyle} unit='em' clicked={onClickHandler} data={{...formik.values, options: options}} >ADD</BasicFormButton>
             </div>
         </form>
     );

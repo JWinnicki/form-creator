@@ -14,21 +14,21 @@ const ButtonForm = props => {
         initialValues: {
             fieldType: 'button',
             buttonDimensionsOption: 'text',
-            buttonInnerText: '',
-            paddingVertical: 0,
-            paddingHorizontal: 0,
+            buttonInnerText: 'SUBMIT',
+            paddingVertical: 10,
+            paddingHorizontal: 20,
             buttonHeight: 40,
             buttonWidth: 140,
             fontColor: '#ffffff',
-            primaryColor: '#ffffff',
-            secondaryColor: '#ffffff'
+            primaryColor: '#cf0000',
+            secondaryColor: '#000000'
         },
         validationSchema: Yup.object({
             buttonInnerText: Yup.string().min(1, 'Too short!').max(8, 'Too long!'),
-            paddingVertical: Yup.number().max(200, 'Too many!'),
-            paddingHorizontal: Yup.number().max(200, 'Too many!'),
-            buttonHeight: Yup.number().min(20, 'Too low!').max(80, 'Too heigh'),
-            buttonWidth: Yup.number().min(50, 'Too small!').max(250, 'Too big!')
+            paddingVertical: Yup.number().max(20, 'Too many!'),
+            paddingHorizontal: Yup.number().max(50, 'Too many!'),
+            buttonHeight: Yup.number().min(20, 'Too low!').max(60, 'Too heigh'),
+            buttonWidth: Yup.number().min(50, 'Too small!').max(160, 'Too big!')
         })
     });
 
@@ -60,7 +60,7 @@ const ButtonForm = props => {
                     </div>
                     <div className='ButtonForm-inlineInputDiv'>
                         <label htmlFor='paddingHorizontal'>
-                            <p className='ButtonForm-labelText'>Horizontal padding (max 20px):</p>
+                            <p className='ButtonForm-labelText'>Horizontal padding (max 50px):</p>
                         </label>
                         <input 
                             type='number'
@@ -79,7 +79,7 @@ const ButtonForm = props => {
                 <React.Fragment>
                     <div className='ButtonForm-inlineInputDiv'>
                         <label htmlFor='buttonHeight'>
-                            <p className='ButtonForm-labelText'>Vertical padding (max 20px):</p>
+                            <p className='ButtonForm-labelText'>Height (max 60px):</p>
                         </label>
                         <input 
                             type='number'
@@ -93,7 +93,7 @@ const ButtonForm = props => {
                     </div>
                     <div className='ButtonForm-inlineInputDiv'>
                         <label htmlFor='buttonWidth'>
-                            <p className='ButtonForm-labelText'>Horizontal padding (max 20px):</p>
+                            <p className='ButtonForm-labelText'>Width (max 160px):</p>
                         </label>
                         <input 
                             type='number'
@@ -221,10 +221,10 @@ const ButtonForm = props => {
                 </div>
                 <div style={backgroundColor} className='ButtonForm-galleryContainer'>
                     <div className='ButtonForm-galleryDiv'>
-                        <MainButton fontColor='white' colorPrimary='#cf0000' colorSecondary='black' height='3' width='5' unit='em'>SUBMIT</MainButton>
-                        <BasicFormButton primaryColor='#cf0000' fontColor='white' type='button' clicked={() => {}} paddingVertical='1' paddingHorizontal='2' unit='em' >SUBMIT</BasicFormButton>
-                        <MainButton fontColor='white' colorPrimary='#cf0000' colorSecondary='black' paddingVertical='1' paddingHorizontal='2' unit='em'>SUBMIT</MainButton>
-                        <BasicFormButton primaryColor='#cf0000' fontColor='white' type='button' clicked={() => {}} >SUBMIT</BasicFormButton>
+                        <MainButton styleData={formik.values}>{formik.values.buttonInnerText}</MainButton>
+                        <BasicFormButton styleData={formik.values} type='button' clicked={() => {}}>{formik.values.buttonInnerText}</BasicFormButton>
+                        <MainButton styleData={formik.values}>{formik.values.buttonInnerText}</MainButton>
+                        <BasicFormButton styleData={formik.values} type='button' clicked={() => {}} >{formik.values.buttonInnerText}</BasicFormButton>
                     </div>
                 </div>
             </div>
@@ -233,3 +233,15 @@ const ButtonForm = props => {
 }
 
 export default ButtonForm;
+
+/* 
+fieldType: 'button',
+            buttonDimensionsOption: 'text',
+            buttonInnerText: '',
+            paddingVertical: 0,
+            paddingHorizontal: 0,
+            buttonHeight: 40,
+            buttonWidth: 140,
+            fontColor: '#ffffff',
+            primaryColor: '#ffffff',
+            secondaryColor: '#ffffff' */

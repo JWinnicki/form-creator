@@ -57,6 +57,15 @@ const TextFieldForm = props => {
         }
     }
 
+    const buttonStyle = {
+        buttonDimensionsOption: 'text',
+        paddingVertical: .8,
+        paddingHorizontal: 1.5,
+        fontColor: '#ffffff',
+        primaryColor: '#cf0000',
+        secondaryColor: '#000000'
+    }
+
     return (
         <form className='TextFieldForm' onSubmit={formik.handleSubmit}>
             <div className='TextFieldForm-section'>
@@ -215,7 +224,7 @@ const TextFieldForm = props => {
                 </div>
             </div>
             <div className='TextFieldForm-buttonDiv'>
-                <BasicFormButton paddingVertical='.8' paddingHorizontal='1.5' unit='em'  primaryColor='#cf0000' fontColor='white' type='button' data={formik.values} clicked={onClickHandler} >ADD</BasicFormButton>
+                <BasicFormButton styleData={buttonStyle} unit='em' type='button' data={formik.values} clicked={onClickHandler} >ADD</BasicFormButton>
             </div>
         </form>
     );
