@@ -17,11 +17,12 @@ const ButtonForm = props => {
             buttonInnerText: 'SUBMIT',
             paddingVertical: 10,
             paddingHorizontal: 20,
-            buttonHeight: 40,
-            buttonWidth: 140,
+            buttonHeight: 42,
+            buttonWidth: 100,
             fontColor: '#ffffff',
             primaryColor: '#cf0000',
-            secondaryColor: '#000000'
+            secondaryColor: '#000000',
+            buttonStyle: 'optionOne'
         },
         validationSchema: Yup.object({
             buttonInnerText: Yup.string().min(1, 'Too short!').max(8, 'Too long!'),
@@ -107,6 +108,31 @@ const ButtonForm = props => {
                     </div>
                 </React.Fragment>
             );
+        }
+    }
+
+    let customOuterRadioStyle = {};
+    let customInnerRadioStyle = {};
+    let radioDivStyle = {};
+    let customRadioInputBackground = {};
+
+    if(enableBackground) {
+        radioDivStyle = {
+            borderColor: props.formBackgroundColor,
+            filter: 'invert(100%)'
+        }
+
+        customOuterRadioStyle = {
+            borderColor: props.formBackgroundColor,
+        }
+
+        customInnerRadioStyle = {
+            backgroundColor: props.formBackgroundColor,
+        }
+
+        customRadioInputBackground = {
+            backgroundColor: props.formBackgroundColor,
+            filter: 'invert(100%)'
         }
     }
 
@@ -221,10 +247,78 @@ const ButtonForm = props => {
                 </div>
                 <div style={backgroundColor} className='ButtonForm-galleryContainer'>
                     <div className='ButtonForm-galleryDiv'>
-                        <MainButton styleData={formik.values}>{formik.values.buttonInnerText}</MainButton>
-                        <BasicFormButton styleData={formik.values} type='button' clicked={() => {}}>{formik.values.buttonInnerText}</BasicFormButton>
-                        <MainButton styleData={formik.values}>{formik.values.buttonInnerText}</MainButton>
-                        <BasicFormButton styleData={formik.values} type='button' clicked={() => {}} >{formik.values.buttonInnerText}</BasicFormButton>
+                        <label htmlFor='optionOne' className='ButtonForm-optionDivLabel'>
+                            <div className='ButtonForm-optionDiv' style={radioDivStyle}>
+                                <MainButton invertColors={enableBackground} styleData={formik.values}>{formik.values.buttonInnerText}</MainButton>
+                                <input
+                                    id='optionOne'
+                                    type='radio'
+                                    name='buttonStyle'
+                                    value='optionOne'
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    className={`ButtonForm-optionRadioInput`}
+                                    checked={formik.values.buttonStyle === 'optionOne'}
+                                />
+                                <div className='ButtonForm-customInnerRadioInput' style={customInnerRadioStyle}></div>
+                                <div className='ButtonForm-customOuterRadioInput' style={customOuterRadioStyle}></div>
+                                <div className='ButtonForm-customRadioInputBackground' style={customRadioInputBackground}></div>
+                            </div>
+                        </label>
+                        <label htmlFor='optionTwo' className='ButtonForm-optionDivLabel'>
+                            <div className='ButtonForm-optionDiv' style={radioDivStyle}>
+                                <BasicFormButton invertColors={enableBackground} styleData={formik.values} type='button' clicked={() => {}}>{formik.values.buttonInnerText}</BasicFormButton>
+                                <input
+                                    id='optionTwo'
+                                    type='radio'
+                                    name='buttonStyle'
+                                    value='optionTwo'
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    className={`ButtonForm-optionRadioInput`}
+                                    checked={formik.values.buttonStyle === 'optionTwo'}
+                                />
+                                <div className='ButtonForm-customInnerRadioInput' style={customInnerRadioStyle}></div>
+                                <div className='ButtonForm-customOuterRadioInput' style={customOuterRadioStyle}></div>
+                                <div className='ButtonForm-customRadioInputBackground' style={customRadioInputBackground}></div>
+                            </div>
+                        </label>
+                        <label htmlFor='optionThree' className='ButtonForm-optionDivLabel'>
+                            <div className='ButtonForm-optionDiv' style={radioDivStyle}>
+                                <MainButton invertColors={enableBackground} styleData={formik.values}>{formik.values.buttonInnerText}</MainButton>
+                                <input
+                                    id='optionThree'
+                                    type='radio'
+                                    name='buttonStyle'
+                                    value='optionThree'
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    className={`ButtonForm-optionRadioInput`}
+                                    checked={formik.values.buttonStyle === 'optionThree'}
+                                />
+                                <div className='ButtonForm-customInnerRadioInput' style={customInnerRadioStyle}></div>
+                                <div className='ButtonForm-customOuterRadioInput' style={customOuterRadioStyle}></div>
+                                <div className='ButtonForm-customRadioInputBackground' style={customRadioInputBackground}></div>
+                            </div>
+                        </label>
+                        <label htmlFor='optionFour' className='ButtonForm-optionDivLabel'>
+                            <div className='ButtonForm-optionDiv' style={radioDivStyle}>
+                                <BasicFormButton invertColors={enableBackground} styleData={formik.values} type='button' clicked={() => {}} >{formik.values.buttonInnerText}</BasicFormButton>
+                                <input
+                                    id='optionFour'
+                                    type='radio'
+                                    name='buttonStyle'
+                                    value='optionFour'
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    className={`ButtonForm-optionRadioInput`}
+                                    checked={formik.values.buttonStyle === 'optionFour'}
+                                />
+                                <div className='ButtonForm-customInnerRadioInput' style={customInnerRadioStyle}></div>
+                                <div className='ButtonForm-customOuterRadioInput' style={customOuterRadioStyle}></div>
+                                <div className='ButtonForm-customRadioInputBackground' style={customRadioInputBackground}></div>
+                            </div>
+                        </label>
                     </div>
                 </div>
             </div>

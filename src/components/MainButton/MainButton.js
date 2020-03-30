@@ -30,8 +30,16 @@ const MainButton = props => {
         }
     }
 
+    let invertColors = {};
+
+    if(props.invertColors) {
+        invertColors = {
+            filter: 'invert(1)',
+        }
+    }
+
     return (
-        <div className='MainButton-buttonDiv'>
+        <div className='MainButton-buttonDiv' style={invertColors}>
             <button style={{...colorPrimary, ...dimensionsStyle}} type={props.type ? props.type : ''} className={`MainButton`}><p className='MainButton-text'>{props.children}</p></button>
             <div style={{...colorSecondary, ...dimensionsStyle}} className={`MainButton-background`}></div>
         </div>

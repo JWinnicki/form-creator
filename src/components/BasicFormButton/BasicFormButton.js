@@ -26,8 +26,16 @@ const BasicFormButton = props => {
         color: fontColor
     }
 
+    let invertColors = {};
+
+    if(props.invertColors) {
+        invertColors = {
+            filter: 'invert(1)',
+        }
+    }
+
     return (
-        <button style={{...style, ...dimensionsStyle}} type={type ? type : 'button'} onClick={() => clicked(data)} className='BasicFormButton'><p className='BasicFormButton-text'>{children}</p></button>
+        <button style={{...style, ...dimensionsStyle, ...invertColors}} type={type ? type : 'button'} onClick={() => clicked(data)} className='BasicFormButton'><p className='BasicFormButton-text'>{children}</p></button>
     );
 }
 

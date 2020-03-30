@@ -92,12 +92,85 @@
     &-galleryDiv {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-auto-rows: 6em;
+        grid-auto-rows: 10em;
         justify-items: center;
         align-items: center;
         justify-content: center;
         align-content: center;
         gap: 2em;
+    }
+
+    &-optionDivLabel {
+        width: 100%;
+        height: 100%;
+    }
+    
+    &-optionDiv {
+        width: 100%;
+        height: 100%;
+        @include flexCenter;
+        border: 4px white solid;
+        border-radius: $border-radius-basic;
+        position: relative;
+
+        &:hover {
+            cursor: pointer;
+            
+            border: 4px white solid;
+        }
+    }
+
+    &-optionRadioInput {
+        display: none;
+
+        &:checked + .ButtonForm-customInnerRadioInput {
+            display: block;
+        }
+    }
+
+    &-customOuterRadioInput {
+        border: 3px solid white;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, calc(50% + 2px));
+        z-index: 10;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &-customInnerRadioInput {
+        background-color: white;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, calc(50% + 2px));
+        z-index: 11;
+        display: none;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &-customRadioInputBackground {
+        background-color: $color-secondary-red;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, calc(50% + 2px));
+        z-index: 9;
     }
 
     &-checkboxInput {
