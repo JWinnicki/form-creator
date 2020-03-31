@@ -87,12 +87,14 @@ const CheckBoxForm = props => {
     }
 
     const buttonStyle = {
-        buttonDimensionsOption: 'text',
+        buttonDimensionsOption: 'fixed',
         paddingVertical: .8,
         paddingHorizontal: 1.5,
         fontColor: '#ffffff',
         primaryColor: '#cf0000',
-        secondaryColor: '#000000'
+        secondaryColor: '#000000',
+        buttonWidth: 8.2,
+        buttonHeight: 3.4
     }
 
     return(

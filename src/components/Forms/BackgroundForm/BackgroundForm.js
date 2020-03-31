@@ -97,7 +97,7 @@ const BackgroundForm = props => {
                 {formik.touched.backgroundHeight && formik.errors.backgroundHeight ? <p className='TextFieldForm-errorMsg'>{formik.errors.backgroundHeight}</p> : null}
             </div>
             <div className='BackgroundForm-buttonDiv'>
-                <BasicFormButton styleData={buttonStyle} unit='em' type='button' clicked={onClickHandler} data={formik.values} >Add</BasicFormButton>
+                <BasicFormButton styleData={buttonStyle} unit='em' type='button' clicked={onClickHandler} data={formik.values} >Change</BasicFormButton>
             </div>
         </form>
     );

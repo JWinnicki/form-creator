@@ -11,6 +11,7 @@ const FirstPhaseMain = () => {
     const [ formBackgroundData, setFormBackgroundData ] = useState({ backgroundColor: '#ffffff', backgroundWidth: 500, backgroundHeight: 650 });
     const [ formTitleData, setFormTitleData ] = useState({});
     const [ formFieldsData, setFormFieldsData ] = useState([]);
+    const [ formButtonStyle, setFormButtonStyle ] = useState();
 
     const onFieldsDataHandler = data => {
         setFormFieldsData(prev => [...prev, {fieldId: counter, order: prev.length + 1, ...data}]);
@@ -55,7 +56,7 @@ const FirstPhaseMain = () => {
                 el.order = el.order - 1;
             } */
 
-        const buttonStyle = {
+    const buttonStyle = {
         buttonDimensionsOption: 'fixed',
         buttonHeight: 5,
         buttonWidth: 16,
@@ -75,6 +76,9 @@ const FirstPhaseMain = () => {
                         setFormTitle={setFormTitleData}
                         setFormFields={onFieldsDataHandler}
                         formBackgroundColor={formBackgroundData.backgroundColor}
+                        setFormButtonStyle={setFormButtonStyle}
+                        formButtonStyle={formButtonStyle}
+                        titleStyle={formTitleData}
                     />
                 </div>
                 <div className='FirstPhaseMain-composition'>

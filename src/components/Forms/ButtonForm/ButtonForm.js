@@ -136,8 +136,19 @@ const ButtonForm = props => {
         }
     }
 
+    const buttonStyle = {
+        buttonDimensionsOption: 'fixed',
+        paddingVertical: .8,
+        paddingHorizontal: 1.5,
+        fontColor: '#ffffff',
+        primaryColor: '#cf0000',
+        secondaryColor: '#000000',
+        buttonWidth: 8.2,
+        buttonHeight: 3.4
+    }
+
     return (
-        <div className='ButtonForm'>
+        <form className='ButtonForm'>
             <div className='ButtonForm-togglerContainer'>
                 <div className='ButtonForm-togglerOptionDiv'>
                     <label htmlFor='text'>
@@ -322,7 +333,10 @@ const ButtonForm = props => {
                     </div>
                 </div>
             </div>
-        </div>
+            <div /* className='SelectFieldForm-buttonDiv' */>
+                <BasicFormButton styleData={buttonStyle} unit='em' clicked={props.setFormButtonStyle} data={formik.values} >{props.formButtonStyle ? 'Update' : 'ADD'}</BasicFormButton>
+            </div>
+        </form>
     );
 }
 
