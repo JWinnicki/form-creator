@@ -31,7 +31,7 @@ const Main = () => {
             </div>
             <div className='Main-buttonDiv'>
                 <Link to='/create-form'>
-                    <MainButton styleData={buttonStyle} unit='em'>Start</MainButton>
+                    <MainButton animation={true} styleData={buttonStyle} unit='em'>Start</MainButton>
                 </Link>
             </div>
         </div>

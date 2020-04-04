@@ -65,6 +65,10 @@
             transform: translateY(.2em) scale(1.2);
         }
     }
+
+    &-buttonDiv {
+        @include flexCenter;
+    }
 }
 
 .DummyFormContainer {

@@ -92,6 +92,7 @@ const FirstPhaseMain = () => {
                         deleteField={onDeleteFieldHandler}
                         moveUp={onMoveUpHandler}
                         moveDown={onMoveDownHanlder}
+                        formButton={formButtonStyle}
                     />
                 </div>
             </div>

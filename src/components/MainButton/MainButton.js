@@ -38,8 +38,16 @@ const MainButton = props => {
         }
     }
 
+    let animation = {};
+
+    if(props.animation === true) {
+        animation = {
+            animationName: 'mainButton'
+        }
+    }
+
     return (
-        <div className='MainButton-buttonDiv' style={invertColors}>
+        <div className='MainButton-buttonDiv' style={{...invertColors, ...animation}}>
             <button style={{...colorPrimary, ...dimensionsStyle}} type={props.type ? props.type : 'button'} className={`MainButton`}><p className='MainButton-text'>{props.children}</p></button>
             <div style={{...colorSecondary, ...dimensionsStyle}} className={`MainButton-background`}></div>
         </div>

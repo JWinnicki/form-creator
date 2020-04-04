@@ -333,7 +333,7 @@ const ButtonForm = props => {
                     </div>
                 </div>
             </div>
-            <div /* className='SelectFieldForm-buttonDiv' */>
+            <div className='ButtonForm-buttonDiv'>
                 <BasicFormButton styleData={buttonStyle} unit='em' clicked={props.setFormButtonStyle} data={formik.values} >{props.formButtonStyle ? 'Update' : 'ADD'}</BasicFormButton>
             </div>
         </form>

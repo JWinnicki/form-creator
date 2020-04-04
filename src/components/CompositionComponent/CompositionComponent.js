@@ -2,9 +2,11 @@ import React from 'react';
 
 import './CompositionComponent.scss';
 import DummyField from '../DummyField/DummyField';
+import MainButton from '../MainButton/MainButton';
+import BasicFormButton from '../BasicFormButton/BasicFormButton';
 
 const CompositionComponent = props => {
-    const { backgroundStyle, titleStyle, formFields, deleteField, moveUp, moveDown } = props;
+    const { backgroundStyle, titleStyle, formFields, deleteField, moveUp, moveDown, formButton } = props;
     const { backgroundColor, backgroundWidth, backgroundHeight } = backgroundStyle;
     const { title, titleColor, fontStyle, fontWeight, fontSize } = titleStyle;
 
@@ -34,12 +36,23 @@ const CompositionComponent = props => {
         })
     }
 
+    const renderButton = () => {
+        if(formButton && (formButton.buttonStyle === 'optionOne' || formButton.buttonStyle === 'optionThree')) {
+        return <MainButton styleData={formButton}>{formButton.buttonInnerText}</MainButton>
+        } else if(formButton && (formButton.buttonStyle === 'optionTwo' || formButton.buttonStyle === 'optionFour')) {
+            return <BasicFormButton type='button' clicked={() => {}} styleData={formButton}>{formButton.buttonInnerText}</BasicFormButton>
+        }
+    }
+    
     return (
         <div className='DummyFormContainer'>
             <div style={containerStyle} className='CompositionComponent'>
                 {renderTitle()}
                 <div className='CompositionComponent-fieldsContainer'>
                     {renderFields()}
+                </div>
+                <div className='CompositionComponent-buttonDiv'>
+                    {renderButton()}
                 </div>
             </div>
         </div>
