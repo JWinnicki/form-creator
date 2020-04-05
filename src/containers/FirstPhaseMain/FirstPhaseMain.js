@@ -1,12 +1,16 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import { Link } from 'react-router-dom';
 
 import './FirstPhaseMain.scss';
 import SettingsComponent from '../../components/SettingsComponent/SettingsComponent';
 import CompositionComponent from '../../components/CompositionComponent/CompositionComponent';
 import MainButton from '../../components/MainButton/MainButton';
+import { FormContext } from '../../context/form-context';
 
 const FirstPhaseMain = () => {
+
+    const { /* contextFormData, */ getContextFormData } = useContext(FormContext)
+
     const [ counter, setCounter ] = useState(0);
     const [ formBackgroundData, setFormBackgroundData ] = useState({ backgroundColor: '#ffffff', backgroundWidth: 500, backgroundHeight: 650 });
     const [ formTitleData, setFormTitleData ] = useState({});
@@ -98,7 +102,7 @@ const FirstPhaseMain = () => {
             </div>
             <div className='Main-buttonDiv'>
                 <Link to='/'>
-                    <MainButton styleData={buttonStyle} unit='em'>Generate</MainButton>
+                    <MainButton clicked={getContextFormData} data={{formBackgroundData, formButtonStyle, formTitleData, formFieldsData}} styleData={buttonStyle} unit='em'>Generate</MainButton>
                 </Link>
             </div>
         </div>

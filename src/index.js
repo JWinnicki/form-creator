@@ -4,10 +4,13 @@ import { HashRouter } from 'react-router-dom';
 
 import './index.scss';
 import App from './containers/App/App';
+import FormContextProvider from './context/form-context';
 
 const app = (
     <HashRouter>
-        <App />
+        <FormContextProvider>
+            <App />
+        </FormContextProvider>
     </HashRouter>
 );
 

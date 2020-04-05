@@ -46,9 +46,15 @@ const MainButton = props => {
         }
     }
 
+    const onClickHandler = () => {
+        if(props.clicked && props.data) {
+            props.clicked(props.data);
+        }
+    }
+
     return (
         <div className='MainButton-buttonDiv' style={{...invertColors, ...animation}}>
-            <button style={{...colorPrimary, ...dimensionsStyle}} type={props.type ? props.type : 'button'} className={`MainButton`}><p className='MainButton-text'>{props.children}</p></button>
+            <button onClick={onClickHandler} style={{...colorPrimary, ...dimensionsStyle}} type={props.type ? props.type : 'button'} className={`MainButton`}><p className='MainButton-text'>{props.children}</p></button>
             <div style={{...colorSecondary, ...dimensionsStyle}} className={`MainButton-background`}></div>
         </div>
     );
