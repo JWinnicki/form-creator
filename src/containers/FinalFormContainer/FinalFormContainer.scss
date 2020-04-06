@@ -1,0 +1,15 @@
+@import '../../scss/variables';
+
+.FinalFormContainer {
+    background-color: blanchedalmond;
+    width: 85%;
+    height: 90vh;
+    min-height: 42em;
+    border-radius: $border-radius-basic;
+    padding: 1em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    margin: 3em;
+}

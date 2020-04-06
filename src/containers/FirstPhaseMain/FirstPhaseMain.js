@@ -101,7 +101,7 @@ const FirstPhaseMain = () => {
                 </div>
             </div>
             <div className='Main-buttonDiv'>
-                <Link to='/'>
+                <Link to='/final-form'>
                     <MainButton clicked={getContextFormData} data={{formBackgroundData, formButtonStyle, formTitleData, formFieldsData}} styleData={buttonStyle} unit='em'>Generate</MainButton>
                 </Link>
             </div>
