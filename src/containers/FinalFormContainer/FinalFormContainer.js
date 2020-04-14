@@ -8,6 +8,7 @@ import { FormContext } from '../../context/form-context';
 const FinalFormContainer = props => {
 
     const { contextFormData } = useContext(FormContext);
+    const { formBackgroundData } = contextFormData;
 
     useEffect(() => {
         if(!contextFormData.formBackgroundData) {
@@ -25,9 +26,24 @@ const FinalFormContainer = props => {
         secondaryColor: '#000000'
     }
 
+    const renderBackgroundStyle = () => {
+        if(contextFormData.formBackgroundData) {
+            return {
+                backgroundColor: formBackgroundData.backgroundColor,
+                height: formBackgroundData.backgroundHeight,
+                width: formBackgroundData.backgroundWidth
+            }
+        }
+    }
+
     return (
         <div className='FinalFormContainer'>
-            <div className=''>
+            <div className='FinalFormContainer-FormDiv'>
+                <form style={renderBackgroundStyle()}>
+
+                </form>
+            </div>
+            <div className='FinalFormContainer-buttonDiv'>
                 <Link to='/create-form'>
                     <MainButton styleData={buttonStyle} unit='em'>Back</MainButton>
                 </Link>
