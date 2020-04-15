@@ -1,21 +1,14 @@
-import React, { useContext, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 
 import './FinalFormContainer.scss'
 import MainButton from '../../components/MainButton/MainButton';
+import FinalForm from '../../components/FinalForm/FinalForm';
 import { FormContext } from '../../context/form-context';
 
 const FinalFormContainer = props => {
 
     const { contextFormData } = useContext(FormContext);
-    const { formBackgroundData } = contextFormData;
-
-    useEffect(() => {
-        if(!contextFormData.formBackgroundData) {
-            props.history.push('/');
-        }
-        //eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
 
     const buttonStyle = {
         buttonDimensionsOption: 'fixed',
@@ -26,7 +19,7 @@ const FinalFormContainer = props => {
         secondaryColor: '#000000'
     }
 
-    const renderBackgroundStyle = () => {
+    /* const renderBackgroundStyle = () => {
         if(contextFormData.formBackgroundData) {
             return {
                 backgroundColor: formBackgroundData.backgroundColor,
@@ -34,14 +27,20 @@ const FinalFormContainer = props => {
                 width: formBackgroundData.backgroundWidth
             }
         }
+    } */
+
+    const renderForm = () => {
+        if(contextFormData.formBackgroundData) {
+            return <FinalForm formData={contextFormData} />
+        } else {
+            return <Redirect to='/' />
+        }
     }
 
     return (
         <div className='FinalFormContainer'>
             <div className='FinalFormContainer-FormDiv'>
-                <form style={renderBackgroundStyle()}>
-
-                </form>
+                {renderForm()}
             </div>
             <div className='FinalFormContainer-buttonDiv'>
                 <Link to='/create-form'>
