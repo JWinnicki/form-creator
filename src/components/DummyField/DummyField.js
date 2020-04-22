@@ -33,9 +33,12 @@ const DummyField = props => {
                     </div>
                     <div style={inputStyle} className='DummyField-textInput'>{fieldInfo.inputPlaceholder}</div>
                     <div className='DummyField-fieldControls' style={{backgroundColor: backgroundColor}}>
-                        <div className='DummyField-deleteDiv'>
-                            <button type='button' className='DummyField-controlsButton' onClick={() => deleteField(fieldInfo.fieldId)} >
-                                <Icon icon='delete' size='tiny' inverted='inverted' color={backgroundColor}/>
+                        <div className='DummyField-horizontalArrowsDiv'>
+                            <button type='button' className='DummyField-controlsButton' onClick={() => {}} >
+                                <Icon icon='arrow-right' size='tiny' rotate='deg180' inverted='inverted' color={backgroundColor} />
+                            </button>
+                            <button type='button' className='DummyField-controlsButton' onClick={() => {}}>
+                                <Icon icon='arrow-right' size='tiny' rotate='deg0' inverted='inverted' color={backgroundColor} />
                             </button>
                         </div>
                         <div className='DummyField-arrowsDiv'>
@@ -44,6 +47,11 @@ const DummyField = props => {
                             </button>
                             <button type='button' className='DummyField-controlsButton' onClick={() => moveDown(fieldInfo.fieldId)}>
                                 <Icon icon='arrow-right' size='tiny' rotate='deg90' inverted='inverted' color={backgroundColor} />
+                            </button>
+                        </div>
+                        <div className='DummyField-deleteDiv'>
+                            <button type='button' className='DummyField-controlsButton' onClick={() => deleteField(fieldInfo.fieldId)} >
+                                <Icon icon='delete' size='tiny' inverted='inverted' color={backgroundColor}/>
                             </button>
                         </div>
                     </div>
@@ -109,9 +117,12 @@ const DummyField = props => {
                         </div>
                     </div>
                     <div className='DummyField-fieldControls' style={{backgroundColor: backgroundColor}}>
-                        <div className='DummyField-deleteDiv'>
-                            <button type='button' className='DummyField-controlsButton' onClick={() => deleteField(fieldInfo.fieldId)} >
-                                <Icon icon='delete' size='tiny' inverted='inverted' color={backgroundColor}/>
+                        <div className='DummyField-horizontalArrowsDiv'>
+                            <button type='button' className='DummyField-controlsButton' onClick={() => {}} >
+                                <Icon icon='arrow-right' size='tiny' rotate='deg180' inverted='inverted' color={backgroundColor} />
+                            </button>
+                            <button type='button' className='DummyField-controlsButton' onClick={() => {}}>
+                                <Icon icon='arrow-right' size='tiny' rotate='deg0' inverted='inverted' color={backgroundColor} />
                             </button>
                         </div>
                         <div className='DummyField-arrowsDiv'>
@@ -120,6 +131,11 @@ const DummyField = props => {
                             </button>
                             <button type='button' className='DummyField-controlsButton' onClick={() => moveDown(fieldInfo.fieldId)}>
                                 <Icon icon='arrow-right' size='tiny' rotate='deg90' inverted='inverted' color={backgroundColor} />
+                            </button>
+                        </div>
+                        <div className='DummyField-deleteDiv'>
+                            <button type='button' className='DummyField-controlsButton' onClick={() => deleteField(fieldInfo.fieldId)} >
+                                <Icon icon='delete' size='tiny' inverted='inverted' color={backgroundColor}/>
                             </button>
                         </div>
                     </div>
@@ -166,9 +182,12 @@ const DummyField = props => {
                         {renderOptions()}
                     </div>
                     <div className='DummyField-fieldControls' style={{backgroundColor: backgroundColor}}>
-                        <div className='DummyField-deleteDiv'>
-                            <button type='button' className='DummyField-controlsButton' onClick={() => deleteField(fieldInfo.fieldId)} >
-                                <Icon icon='delete' size='tiny' inverted='inverted' color={backgroundColor}/>
+                        <div className='DummyField-horizontalArrowsDiv'>
+                            <button type='button' className='DummyField-controlsButton' onClick={() => {}} >
+                                <Icon icon='arrow-right' size='tiny' rotate='deg180' inverted='inverted' color={backgroundColor} />
+                            </button>
+                            <button type='button' className='DummyField-controlsButton' onClick={() => {}}>
+                                <Icon icon='arrow-right' size='tiny' rotate='deg0' inverted='inverted' color={backgroundColor} />
                             </button>
                         </div>
                         <div className='DummyField-arrowsDiv'>
@@ -177,6 +196,11 @@ const DummyField = props => {
                             </button>
                             <button type='button' className='DummyField-controlsButton' onClick={() => moveDown(fieldInfo.fieldId)}>
                                 <Icon icon='arrow-right' size='tiny' rotate='deg90' inverted='inverted' color={backgroundColor} />
+                            </button>
+                        </div>
+                        <div className='DummyField-deleteDiv'>
+                            <button type='button' className='DummyField-controlsButton' onClick={() => deleteField(fieldInfo.fieldId)} >
+                                <Icon icon='delete' size='tiny' inverted='inverted' color={backgroundColor}/>
                             </button>
                         </div>
                     </div>
