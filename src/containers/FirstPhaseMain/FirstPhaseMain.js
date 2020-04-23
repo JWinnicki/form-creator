@@ -12,13 +12,14 @@ const FirstPhaseMain = () => {
     const { /* contextFormData, */ getContextFormData } = useContext(FormContext)
 
     const [ counter, setCounter ] = useState(0);
+    //const [ margin, setMargin ] = useState(0);
     const [ formBackgroundData, setFormBackgroundData ] = useState({ backgroundColor: '#ffffff', backgroundWidth: 500, backgroundHeight: 650 });
     const [ formTitleData, setFormTitleData ] = useState({});
     const [ formFieldsData, setFormFieldsData ] = useState([]);
     const [ formButtonStyle, setFormButtonStyle ] = useState();
 
     const onFieldsDataHandler = data => {
-        setFormFieldsData(prev => [...prev, {fieldId: counter, order: prev.length + 1, ...data}]);
+        setFormFieldsData(prev => [...prev, {fieldId: counter, order: prev.length + 1, margin: 0, ...data}]);
         setCounter(prev => prev + 1);
     }
 
@@ -51,7 +52,27 @@ const FirstPhaseMain = () => {
                 arr[index + 1].order -= 1;
             }
         });
-        setFormFieldsData(newArr.sort( (a, b) => a.order - b.order) );
+        setFormFieldsData( newArr.sort( (a, b) => a.order - b.order) );
+    }
+
+    const onIncreaseMargin = id => {
+        const newArr = [...formFieldsData];
+        newArr.forEach(el => {
+            if(el.fieldId === id && el.margin < 50) {
+                el.margin = el.margin + 10;
+            }
+        });
+        setFormFieldsData(newArr);
+    }
+
+    const onDecreaseMargin = id => {
+        const newArr = [...formFieldsData];
+        newArr.forEach(el => {
+            if(el.fieldId === id && el.margin > -50) {
+                el.margin = el.margin - 10;
+            }
+        });
+        setFormFieldsData(newArr);
     }
 
 
@@ -97,6 +118,8 @@ const FirstPhaseMain = () => {
                         moveUp={onMoveUpHandler}
                         moveDown={onMoveDownHanlder}
                         formButton={formButtonStyle}
+                        increaseMargin={onIncreaseMargin}
+                        decreaseMargin={onDecreaseMargin}
                     />
                 </div>
             </div>

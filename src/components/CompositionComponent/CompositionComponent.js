@@ -6,7 +6,7 @@ import MainButton from '../MainButton/MainButton';
 import BasicFormButton from '../BasicFormButton/BasicFormButton';
 
 const CompositionComponent = props => {
-    const { backgroundStyle, titleStyle, formFields, deleteField, moveUp, moveDown, formButton } = props;
+    const { backgroundStyle, titleStyle, formFields, deleteField, moveUp, moveDown, formButton, increaseMargin, decreaseMargin } = props;
     const { backgroundColor, backgroundWidth, backgroundHeight } = backgroundStyle;
     const { title, titleColor, fontStyle, fontWeight, fontSize } = titleStyle;
 
@@ -32,7 +32,16 @@ const CompositionComponent = props => {
 
     const renderFields = () => {
         return formFields.map(el => {
-            return <DummyField key={el.fieldId} fieldInfo={el} backgroundColor={backgroundColor} deleteField={deleteField} moveUp={moveUp} moveDown={moveDown} />
+            return <DummyField 
+                key={el.fieldId} 
+                fieldInfo={el} 
+                backgroundColor={backgroundColor} 
+                deleteField={deleteField} 
+                moveUp={moveUp} 
+                moveDown={moveDown}
+                increaseMargin={increaseMargin}
+                decreaseMargin={decreaseMargin} 
+            />
         })
     }
 

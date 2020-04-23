@@ -4,7 +4,7 @@ import './DummyField.scss';
 import Icon from '../Icon/Icon';
 
 const DummyField = props => {
-    const { fieldInfo, backgroundColor, deleteField, moveUp, moveDown } = props
+    const { fieldInfo, backgroundColor, deleteField, moveUp, moveDown, increaseMargin, decreaseMargin } = props
 
 
 
@@ -27,17 +27,17 @@ const DummyField = props => {
             }
 
             return (
-                <div className='DummyField-textInputDiv' style={{alignItems: fieldInfo.elementAlignment}}>
+                <div className='DummyField-textInputDiv' style={{alignItems: fieldInfo.elementAlignment, marginLeft: fieldInfo.margin}}>
                     <div>
                         <p style={labelStyle}>{fieldInfo.textInputLabel}</p>
                     </div>
                     <div style={inputStyle} className='DummyField-textInput'>{fieldInfo.inputPlaceholder}</div>
                     <div className='DummyField-fieldControls' style={{backgroundColor: backgroundColor}}>
                         <div className='DummyField-horizontalArrowsDiv'>
-                            <button type='button' className='DummyField-controlsButton' onClick={() => {}} >
+                            <button type='button' className='DummyField-controlsButton' onClick={() => decreaseMargin(fieldInfo.fieldId)} >
                                 <Icon icon='arrow-right' size='tiny' rotate='deg180' inverted='inverted' color={backgroundColor} />
                             </button>
-                            <button type='button' className='DummyField-controlsButton' onClick={() => {}}>
+                            <button type='button' className='DummyField-controlsButton' onClick={() => increaseMargin(fieldInfo.fieldId)}>
                                 <Icon icon='arrow-right' size='tiny' rotate='deg0' inverted='inverted' color={backgroundColor} />
                             </button>
                         </div>
@@ -99,7 +99,7 @@ const DummyField = props => {
             }
 
             return (
-                <div className='DummyField-selectInputDiv' style={{justifyContent: fieldInfo.elementAlignment}}>
+                <div className='DummyField-selectInputDiv' style={{justifyContent: fieldInfo.elementAlignment, marginLeft: fieldInfo.margin}}>
                     <div>
                         <p style={labelStyle}>{fieldInfo.selectInputLabel}</p>
                     </div>
@@ -118,10 +118,10 @@ const DummyField = props => {
                     </div>
                     <div className='DummyField-fieldControls' style={{backgroundColor: backgroundColor}}>
                         <div className='DummyField-horizontalArrowsDiv'>
-                            <button type='button' className='DummyField-controlsButton' onClick={() => {}} >
+                            <button type='button' className='DummyField-controlsButton' onClick={() => decreaseMargin(fieldInfo.fieldId)} >
                                 <Icon icon='arrow-right' size='tiny' rotate='deg180' inverted='inverted' color={backgroundColor} />
                             </button>
-                            <button type='button' className='DummyField-controlsButton' onClick={() => {}}>
+                            <button type='button' className='DummyField-controlsButton' onClick={() => increaseMargin(fieldInfo.fieldId)}>
                                 <Icon icon='arrow-right' size='tiny' rotate='deg0' inverted='inverted' color={backgroundColor} />
                             </button>
                         </div>
@@ -172,7 +172,7 @@ const DummyField = props => {
             }
 
             return (
-                <div className='DummyField-checkBoxInputDiv' style={{alignItems: fieldInfo.elementAlignment}}>
+                <div className='DummyField-checkBoxInputDiv' style={{alignItems: fieldInfo.elementAlignment, marginLeft: fieldInfo.margin}}>
                     <div>
                         <p style={labelStyle}>
                             {fieldInfo.checkBoxInputLabel}
@@ -183,10 +183,10 @@ const DummyField = props => {
                     </div>
                     <div className='DummyField-fieldControls' style={{backgroundColor: backgroundColor}}>
                         <div className='DummyField-horizontalArrowsDiv'>
-                            <button type='button' className='DummyField-controlsButton' onClick={() => {}} >
+                            <button type='button' className='DummyField-controlsButton' onClick={() => decreaseMargin(fieldInfo.fieldId)} >
                                 <Icon icon='arrow-right' size='tiny' rotate='deg180' inverted='inverted' color={backgroundColor} />
                             </button>
-                            <button type='button' className='DummyField-controlsButton' onClick={() => {}}>
+                            <button type='button' className='DummyField-controlsButton' onClick={() => increaseMargin(fieldInfo.fieldId)}>
                                 <Icon icon='arrow-right' size='tiny' rotate='deg0' inverted='inverted' color={backgroundColor} />
                             </button>
                         </div>
