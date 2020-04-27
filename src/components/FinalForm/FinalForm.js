@@ -22,9 +22,16 @@ const FinalForm = props => {
         width: formBackgroundData.backgroundWidth
     };
 
+    const titleStyle = {
+        color: formTitleData.titleColor,
+        fontSize: formTitleData.fontSize,
+        fontWeight: formTitleData.fontWeight,
+        fontStyle: formTitleData.fontStyle
+    }
+
     return (
-        <form style={backgroundStyle}>
-            <h1>{formTitleData ? formTitleData.title : ''}</h1>
+        <form className='FinalForm' style={backgroundStyle}>
+            <h1 className='FinalForm-title' style={titleStyle}>{formTitleData ? formTitleData.title : ''}</h1>
         </form>
     );
 }

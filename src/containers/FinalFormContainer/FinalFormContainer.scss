@@ -4,7 +4,7 @@
 .FinalFormContainer {
     background-color: blanchedalmond;
     width: 85%;
-    height: 90vh;
+    min-height: 90vh;
     min-height: 42em;
     border-radius: $border-radius-basic;
     padding: 1em;
@@ -23,5 +23,7 @@
     &-FormDiv {
         flex: 1;
         @include flexCenter;
+        margin-bottom: 2em;
+        //overflow: auto;
     }
 }
