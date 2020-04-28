@@ -12,14 +12,18 @@ const SettingsComponent = props => {
         <div className='SettingsComponent'>
             <SettingsToggler text='Background'>
                 <div className='SettingsComponent-content'>
-                    <BackgroundForm setFormBackground={props.setFormBackground} />
+                    <BackgroundForm 
+                        setFormBackground={props.setFormBackground}
+                        initValues={props.initValues}  
+                    />
                 </div>
             </SettingsToggler>
             <SettingsToggler text='Title'>
                 <div className='SettingsComponent-content'>
                     <TitleForm 
                         setFormTitle={props.setFormTitle}
-                        titleStyle={props.titleStyle} 
+                        titleStyle={props.titleStyle}
+                        initValues={props.initValues} 
                     />
                 </div>
             </SettingsToggler>

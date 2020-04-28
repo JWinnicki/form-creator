@@ -24,7 +24,7 @@ const FinalForm = props => {
 
     const titleStyle = {
         color: formTitleData.titleColor,
-        fontSize: formTitleData.fontSize,
+        fontSize: `${formTitleData.fontSize}px`,
         fontWeight: formTitleData.fontWeight,
         fontStyle: formTitleData.fontStyle
     }

@@ -9,14 +9,13 @@ import { FormContext } from '../../context/form-context';
 
 const FirstPhaseMain = () => {
 
-    const { /* contextFormData, */ getContextFormData } = useContext(FormContext)
+    const { contextFormData, getContextFormData } = useContext(FormContext)
 
     const [ counter, setCounter ] = useState(0);
-    //const [ margin, setMargin ] = useState(0);
-    const [ formBackgroundData, setFormBackgroundData ] = useState({ backgroundColor: '#ffffff', backgroundWidth: 500, backgroundHeight: 650 });
-    const [ formTitleData, setFormTitleData ] = useState({});
-    const [ formFieldsData, setFormFieldsData ] = useState([]);
-    const [ formButtonStyle, setFormButtonStyle ] = useState();
+    const [ formBackgroundData, setFormBackgroundData ] = useState(contextFormData.formBackgroundData ? contextFormData.formBackgroundData : { backgroundColor: '#ffffff', backgroundWidth: 500, backgroundHeight: 650 });
+    const [ formTitleData, setFormTitleData ] = useState(contextFormData.formTitleData ? contextFormData.formTitleData : {});
+    const [ formFieldsData, setFormFieldsData ] = useState(contextFormData.formFieldsData ? contextFormData.formFieldsData : []);
+    const [ formButtonStyle, setFormButtonStyle ] = useState(contextFormData.formButtonStyle ? contextFormData.formButtonStyle : null);
 
     const onFieldsDataHandler = data => {
         setFormFieldsData(prev => [...prev, {fieldId: counter, order: prev.length + 1, margin: 0, ...data}]);
@@ -104,6 +103,7 @@ const FirstPhaseMain = () => {
                         setFormButtonStyle={setFormButtonStyle}
                         formButtonStyle={formButtonStyle}
                         titleStyle={formTitleData}
+                        initValues={contextFormData}
                     />
                 </div>
                 <div className='FirstPhaseMain-composition'>

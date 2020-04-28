@@ -7,11 +7,13 @@ import BasicFormButton from '../../BasicFormButton/BasicFormButton';
 
 const BackgroundForm = props => {
 
+    const { initValues } = props;
+
     const formik = useFormik({
         initialValues: {
-            backgroundColor: '#ffffff',
-            backgroundWidth: 500,
-            backgroundHeight: 650
+            backgroundColor: initValues.formBackgroundData ? initValues.formBackgroundData.backgroundColor : '#ffffff',
+            backgroundWidth: initValues.formBackgroundData ? initValues.formBackgroundData.backgroundWidth : 500,
+            backgroundHeight: initValues.formBackgroundData ? initValues.formBackgroundData.backgroundHeight : 600
         },
         validationSchema: Yup.object({
             backgroundWidth: Yup.number().max(800, 'Must be 800px or less').min(100, 'Must be 100px or more'),
