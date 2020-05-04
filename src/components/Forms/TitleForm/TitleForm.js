@@ -15,7 +15,7 @@ const TitleForm = props => {
             titleColor: initValues.formTitleData ? initValues.formTitleData.titleColor : '#000000',
             fontStyle: initValues.formTitleData ? initValues.formTitleData.fontStyle : 'normal',
             fontWeight: initValues.formTitleData ? initValues.formTitleData.fontWeight : 'normal',
-            fontSize: initValues.formTitleData ? initValues.formTitleData.fontSize : '35'
+            fontSize: initValues.formTitleData ? initValues.formTitleData.fontSize : '35',
         },
         validationSchema: Yup.object({
             title: Yup.string().max(30, 'Must be 30 characters or less'),

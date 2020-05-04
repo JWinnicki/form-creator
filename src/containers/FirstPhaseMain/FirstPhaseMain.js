@@ -13,7 +13,7 @@ const FirstPhaseMain = () => {
 
     const [ counter, setCounter ] = useState(0);
     const [ formBackgroundData, setFormBackgroundData ] = useState(contextFormData.formBackgroundData ? contextFormData.formBackgroundData : { backgroundColor: '#ffffff', backgroundWidth: 500, backgroundHeight: 650 });
-    const [ formTitleData, setFormTitleData ] = useState(contextFormData.formTitleData ? contextFormData.formTitleData : {});
+    const [ formTitleData, setFormTitleData ] = useState(contextFormData.formTitleData ? contextFormData.formTitleData : { title: '', titleColor: '#000000', fontStyle: 'normal', fontWeight: 'normal', fontSize: '35' });
     const [ formFieldsData, setFormFieldsData ] = useState(contextFormData.formFieldsData ? contextFormData.formFieldsData : []);
     const [ formButtonStyle, setFormButtonStyle ] = useState(contextFormData.formButtonStyle ? contextFormData.formButtonStyle : null);
 
