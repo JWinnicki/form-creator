@@ -29,9 +29,25 @@ const FinalForm = props => {
         fontStyle: formTitleData.fontStyle
     }
 
+    const renderFields = () => {
+        return formFieldsData.map(el => {
+            if(el.fieldType === 'text') {
+                return (
+                    <div>
+                        <p>{el.textInputLabel}</p>
+                        <input placeholder={el.inputPlaceholder} />
+                    </div>
+                );
+            }
+        });
+    }
+
     return (
         <form className='FinalForm' style={backgroundStyle}>
             <h1 className='FinalForm-title' style={titleStyle}>{formTitleData ? formTitleData.title : ''}</h1>
+            <div className='FinalForm-fieldsDiv'>
+                {renderFields()}
+            </div>
         </form>
     );
 }
