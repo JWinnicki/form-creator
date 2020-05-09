@@ -11,7 +11,7 @@ const FirstPhaseMain = () => {
 
     const { contextFormData, getContextFormData } = useContext(FormContext)
 
-    const [ counter, setCounter ] = useState(0);
+    const [ counter, setCounter ] = useState(contextFormData.lastId ? contextFormData.lastId : 0);
     const [ formBackgroundData, setFormBackgroundData ] = useState(contextFormData.formBackgroundData ? contextFormData.formBackgroundData : { backgroundColor: '#ffffff', backgroundWidth: 500, backgroundHeight: 650 });
     const [ formTitleData, setFormTitleData ] = useState(contextFormData.formTitleData ? contextFormData.formTitleData : { title: '', titleColor: '#000000', fontStyle: 'normal', fontWeight: 'normal', fontSize: '35' });
     const [ formFieldsData, setFormFieldsData ] = useState(contextFormData.formFieldsData ? contextFormData.formFieldsData : []);
@@ -125,7 +125,7 @@ const FirstPhaseMain = () => {
             </div>
             <div className='Main-buttonDiv'>
                 <Link to='/final-form'>
-                    <MainButton clicked={getContextFormData} data={{formBackgroundData, formButtonStyle, formTitleData, formFieldsData}} styleData={buttonStyle} unit='em'>Generate</MainButton>
+                    <MainButton clicked={getContextFormData} data={{formBackgroundData, formButtonStyle, formTitleData, formFieldsData, lastId: counter }} styleData={buttonStyle} unit='em'>Generate</MainButton>
                 </Link>
             </div>
         </div>

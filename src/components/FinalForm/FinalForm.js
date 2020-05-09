@@ -30,12 +30,53 @@ const FinalForm = props => {
     }
 
     const renderFields = () => {
+
+        const renderSelectOptions = arr => {
+            return arr.map(el => {
+                return <option key={el.id}>{el.option}</option>
+            })
+        }
+
+        const renderCheckboxOptions = (arr, fieldId) => {
+            return arr.map(el => {
+                return (
+                    <div key={el.id}>
+                        <input
+                            type='checkbox'
+                            id={`field${fieldId}-option${el.id}`}
+                        />
+                        <label htmlFor={`field${fieldId}-option${el.id}`}>
+                            <p>{el.option}</p>
+                        </label>
+                    </div>
+                );
+            })
+        }
+
         return formFieldsData.map(el => {
             if(el.fieldType === 'text') {
                 return (
-                    <div>
+                    <div key={el.fieldId}>
                         <p>{el.textInputLabel}</p>
-                        <input placeholder={el.inputPlaceholder} />
+                        <input 
+                            placeholder={el.inputPlaceholder}
+                            type='text' 
+                        />
+                    </div>
+                );
+            } else if(el.fieldType === 'select') {
+                return (
+                    <div key={el.fieldId}>
+                        <p>{el.selectInputLabel}</p>
+                        <select>
+                            {renderSelectOptions(el.options)}
+                        </select>
+                    </div>
+                );
+            } else if(el.fieldType = 'checkbox') {
+                return (
+                    <div key={el.fieldId}>
+                        {renderCheckboxOptions(el.options, el.fieldId)}
                     </div>
                 );
             }
