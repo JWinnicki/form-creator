@@ -55,25 +55,59 @@ const FinalForm = props => {
 
         return formFieldsData.map(el => {
             if(el.fieldType === 'text') {
+
+                const labelStyle = {
+                    color: el.textInputLabelFontColor,
+                    fontSize: `${el.textInputLabelFontSize}px`,
+                    fontWeight: el.textInputLabelFontWeight,
+                    fontStyle: el.textInputLabelFontStyle    
+                }
+    
+                const inputStyle = {
+                    width: `${el.textInputWidth}px`,
+                    backgroundColor: el.textInputBackground,
+                    fontSize: `${el.textInputFontSize}px`,
+                    color: el.textInputFontColor,
+                    border: `1px solid ${el.textInputFontColor}`
+                }
+
                 return (
-                    <div key={el.fieldId}>
-                        <p>{el.textInputLabel}</p>
-                        <input 
+                    <div key={el.fieldId} className='FinalForm-textInputDiv' style={{alignItems: el.elementAlignment, marginLeft: el.margin}}>
+                        <p style={labelStyle}>{el.textInputLabel}</p>
+                        <input
+                            className='FinalForm-textInput'
+                            style={inputStyle} 
                             placeholder={el.inputPlaceholder}
                             type='text' 
                         />
                     </div>
                 );
             } else if(el.fieldType === 'select') {
+
+                const labelStyle = {
+                    color: el.selectInputLabelFontColor,
+                    fontSize: `${el.selectInputLabelFontSize}px`,
+                    fontWeight: el.selectInputLabelFontWeight,
+                    fontStyle: el.selectInputLabelFontStyle    
+                }
+
+                const inputStyle = {
+                    width: `${el.selectInputWidth}px`,
+                    backgroundColor: el.selectInputBackgroundColor,
+                    border: `1px solid ${el.selectInputFontColor}`,
+                    color: el.selectInputFontColor,
+                    fontSize: `${el.selectInputFontSize}px`,
+                }
+
                 return (
-                    <div key={el.fieldId}>
-                        <p>{el.selectInputLabel}</p>
-                        <select>
+                    <div key={el.fieldId} className='FinalForm-selectInputDiv' style={{justifyContent: el.elementAlignment, marginLeft: el.margin}}>
+                        <p style={labelStyle}>{el.selectInputLabel}</p>
+                        <select className='FinalForm-selectInput' style={inputStyle}>
                             {renderSelectOptions(el.options)}
                         </select>
                     </div>
                 );
-            } else if(el.fieldType = 'checkbox') {
+            } else /*if (el.fieldType === 'checkbox')  */{
                 return (
                     <div key={el.fieldId}>
                         {renderCheckboxOptions(el.options, el.fieldId)}

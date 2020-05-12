@@ -1,7 +1,42 @@
+@import '../../scss/mixins';
+@import '../../scss/variables';
+
 .FinalForm {
     padding: 1em;
 
     &-title {
         text-align: center;
+    }
+
+    &-fieldsDiv {
+        padding: 1em;
+    }
+
+    &-textInputDiv {
+        margin-top: 1em;
+        min-height: 6.8em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &-textInput {
+        padding: .2em;
+        min-height: 15px;
+    }
+
+    &-selectInputDiv {
+        margin-top: 1em;
+        min-height: 6.8em;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    &-selectInput {
+        @include flexSpaceBetween;
+        //padding: .2em;
+        margin-left: .5em;
+        min-height: 2em;
     }
 }
