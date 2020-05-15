@@ -12,7 +12,8 @@
         padding: 1em;
     }
 
-    &-textInputDiv {
+    &-textInputDiv,
+    &-checkBoxInputDiv {
         margin-top: 1em;
         min-height: 6.8em;
         display: flex;
@@ -38,5 +39,19 @@
         //padding: .2em;
         margin-left: .5em;
         min-height: 2em;
+    }
+
+    &-checkBoxOptionsDiv {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-checkBoxOption {
+        display: flex;
+        align-items: center;
+    }
+
+    &-buttonDiv {
+        @include flexCenter;
     }
 }

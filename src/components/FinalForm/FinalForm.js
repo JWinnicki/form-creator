@@ -3,7 +3,8 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 import './FinalForm.scss';
-
+import BasicFormButton from '../BasicFormButton/BasicFormButton';
+import MainButton from '../MainButton/MainButton';
 const FinalForm = props => {
 
     const { formTitleData, formBackgroundData, formFieldsData, formButtonStyle } = props.formData;
@@ -30,28 +31,6 @@ const FinalForm = props => {
     }
 
     const renderFields = () => {
-
-        const renderSelectOptions = arr => {
-            return arr.map(el => {
-                return <option key={el.id}>{el.option}</option>
-            })
-        }
-
-        const renderCheckboxOptions = (arr, fieldId) => {
-            return arr.map(el => {
-                return (
-                    <div key={el.id}>
-                        <input
-                            type='checkbox'
-                            id={`field${fieldId}-option${el.id}`}
-                        />
-                        <label htmlFor={`field${fieldId}-option${el.id}`}>
-                            <p>{el.option}</p>
-                        </label>
-                    </div>
-                );
-            })
-        }
 
         return formFieldsData.map(el => {
             if(el.fieldType === 'text') {
@@ -99,6 +78,12 @@ const FinalForm = props => {
                     fontSize: `${el.selectInputFontSize}px`,
                 }
 
+                const renderSelectOptions = arr => {
+                    return arr.map(el => {
+                        return <option key={el.id}>{el.option}</option>
+                    })
+                }
+
                 return (
                     <div key={el.fieldId} className='FinalForm-selectInputDiv' style={{justifyContent: el.elementAlignment, marginLeft: el.margin}}>
                         <p style={labelStyle}>{el.selectInputLabel}</p>
@@ -108,13 +93,62 @@ const FinalForm = props => {
                     </div>
                 );
             } else /*if (el.fieldType === 'checkbox')  */{
+
+                const labelStyle = {
+                    color: el.checkBoxInputLabelFontColor,
+                    fontSize: `${el.checkBoxInputLabelFontSize}px`,
+                    fontWeight: el.checkBoxInputLabelFontWeight,
+                    fontStyle: el.checkBoxInputLabelFontStyle    
+                }
+    
+                const optionStyle = {
+                    color: el.checkBoxOptionFontColor,
+                    fontSize: `${el.checkBoxOptionFontSize}px`,
+                    marginLeft: '4px'
+                }
+    
+                const checkBoxInputStyle = {
+                    height: `${Number(el.checkBoxOptionFontSize) - 3}px`,
+                    width: `${Number(el.checkBoxOptionFontSize) - 3}px`
+                }
+
+                const renderCheckboxOptions = (arr, fieldId) => {
+                    return arr.map(el => {
+                        return (
+                            <div key={el.id} className={`FinalForm-checkBoxOption`}>
+                                <input
+                                    type='checkbox'
+                                    id={`field${fieldId}-option${el.id}`}
+                                    style={checkBoxInputStyle}
+                                />
+                                <label htmlFor={`field${fieldId}-option${el.id}`}>
+                                    <p style={optionStyle}>{el.option}</p>
+                                </label>
+                            </div>
+                        );
+                    })
+                }
+
                 return (
-                    <div key={el.fieldId}>
-                        {renderCheckboxOptions(el.options, el.fieldId)}
+                    <div key={el.fieldId} className='FinalForm-checkBoxInputDiv' style={{alignItems: el.elementAlignment, marginLeft: el.margin}}>
+                        <div>
+                            <p style={labelStyle}>{el.checkBoxInputLabel}</p>
+                        </div>
+                        <div className='FinalForm-checkBoxOptionsDiv'>
+                            {renderCheckboxOptions(el.options, el.fieldId)}
+                        </div>
                     </div>
                 );
             }
         });
+    }
+
+    const renderButton = () => {
+        if(formButtonStyle && (formButtonStyle.buttonStyle === 'optionOne' || formButtonStyle.buttonStyle === 'optionThree')) {
+            return <MainButton styleData={formButtonStyle}>{formButtonStyle.buttonInnerText}</MainButton>
+        } else if(formButtonStyle && (formButtonStyle.buttonStyle === 'optionTwo' || formButtonStyle.buttonStyle === 'optionFour')) {
+            return <BasicFormButton type='button' clicked={() => {}} styleData={formButtonStyle}>{formButtonStyle.buttonInnerText}</BasicFormButton>
+        }
     }
 
     return (
@@ -122,6 +156,9 @@ const FinalForm = props => {
             <h1 className='FinalForm-title' style={titleStyle}>{formTitleData ? formTitleData.title : ''}</h1>
             <div className='FinalForm-fieldsDiv'>
                 {renderFields()}
+            </div>
+            <div className='FinalForm-buttonDiv'>
+                {renderButton()}
             </div>
         </form>
     );
