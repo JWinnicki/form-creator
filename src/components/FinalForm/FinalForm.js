@@ -9,12 +9,37 @@ const FinalForm = props => {
 
     const { formTitleData, formBackgroundData, formFieldsData, formButtonStyle } = props.formData;
 
+    const valuesArr = () => {
+
+        const newArr = [];
+
+        [...formFieldsData].forEach(el => {
+            let val = "";
+            if(el.options) {
+                val = el.options[0].option;
+            }
+            newArr.push({[`field${el.fieldId}`]: val});
+        });
+
+        let newObj = {};
+
+        newArr.forEach(el => {
+            newObj = {...newObj, ...el}
+        });
+
+        return newObj;
+    }
+
+    //console.log(valuesArr());
+
     const formik = useFormik({
-        initialValues: {
-        },
+        initialValues: valuesArr(),
         validationSchema: Yup.object({
         }),
-        onSubmit: () => {}
+        onSubmit: values => {
+            console.log(values)
+            //alert(["elo", "elo2"])
+        }
     });
 
     const backgroundStyle = {
@@ -145,14 +170,14 @@ const FinalForm = props => {
 
     const renderButton = () => {
         if(formButtonStyle && (formButtonStyle.buttonStyle === 'optionOne' || formButtonStyle.buttonStyle === 'optionThree')) {
-            return <MainButton styleData={formButtonStyle}>{formButtonStyle.buttonInnerText}</MainButton>
+            return <MainButton styleData={formButtonStyle} type='submit' clicked={formik.onSubmit}>{formButtonStyle.buttonInnerText}</MainButton>
         } else if(formButtonStyle && (formButtonStyle.buttonStyle === 'optionTwo' || formButtonStyle.buttonStyle === 'optionFour')) {
-            return <BasicFormButton type='button' clicked={() => {}} styleData={formButtonStyle}>{formButtonStyle.buttonInnerText}</BasicFormButton>
+            return <BasicFormButton type='submit' clicked={formik.onSubmit} styleData={formButtonStyle}>{formButtonStyle.buttonInnerText}</BasicFormButton>
         }
     }
 
     return (
-        <form className='FinalForm' style={backgroundStyle}>
+        <form className='FinalForm' style={backgroundStyle} onSubmit={formik.handleSubmit}>
             <h1 className='FinalForm-title' style={titleStyle}>{formTitleData ? formTitleData.title : ''}</h1>
             <div className='FinalForm-fieldsDiv'>
                 {renderFields()}

@@ -82,7 +82,6 @@ const CheckBoxForm = props => {
     const onClickHandler = data => {
         if(!formik.errors.checkBoxInputLabel && !formik.errors.checkBoxInputLabelFontSize && !formik.errors.checkBoxOptionFontSize) {
             props.setFormFields(data);
-            console.log(data);
         }
     }
 

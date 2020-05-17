@@ -34,8 +34,14 @@ const BasicFormButton = props => {
         }
     }
 
+    const onClickHandler = () => {
+        if(clicked && data) {
+            clicked(data);
+        }
+    }
+
     return (
-        <button style={{...style, ...dimensionsStyle, ...invertColors}} type={type ? type : 'button'} onClick={() => clicked(data)} className='BasicFormButton'><p className='BasicFormButton-text'>{children}</p></button>
+        <button style={{...style, ...dimensionsStyle, ...invertColors}} type={type ? type : 'button'} onClick={onClickHandler} className='BasicFormButton'><p className='BasicFormButton-text'>{children}</p></button>
     );
 }
 
