@@ -5,6 +5,15 @@
     @include flexSpaceBetweenColumn;
     width: 100%;
     font-weight: bold;
+    padding: 1.5em;
+
+    &-section {
+        background-color: $color-tertiary-red;
+        width: 100%;
+        padding: 1em;
+        border-radius: 5px;
+        margin-bottom: 2em;
+    }
 
     &-buttonDiv {
         margin-top: 1em;
@@ -14,7 +23,8 @@
         width: 80%;
         display: flex;
         align-items: center;
-        margin-bottom: 1.5em;
+        margin-top: .6em;
+        margin-left: 2em;
     }
 
     &-labelText {

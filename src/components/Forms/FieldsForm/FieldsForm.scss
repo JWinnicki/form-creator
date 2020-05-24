@@ -20,7 +20,7 @@
 
     &-selectInput {
         font-size: 2em;
-
+        margin-left: 1em;
         &:hover {
             cursor: pointer;
         }
@@ -32,7 +32,7 @@
 
     ////////////////////////Niżej do usunięcia/////////////////////////////////
 
-    &-input{
+    /* &-input{
         width: 100%;
         font-size: 1.3em;
         padding: .3em;
@@ -88,5 +88,5 @@
 
     &-numberInput {
         width: 3em;
-    }
+    } */
 }

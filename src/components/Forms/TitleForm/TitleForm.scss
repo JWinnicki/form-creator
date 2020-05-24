@@ -6,10 +6,22 @@
     min-height: 12em;
     width: 100%;
     font-weight: bold;
+    padding: 1.5em;
+
+    &-section {
+        background-color: $color-tertiary-red;
+        width: 100%;
+        padding: 1em;
+        border-radius: 5px;
+        margin-bottom: 2em;
+    }
+
+
     &-inputDiv {
         //@include flexCenterColumn;
         width: 80%;
-        margin-bottom: 1.5em;
+        margin-top: .6em;
+        margin-left: 2em;
     }
 
     &-labelText {
@@ -21,7 +33,6 @@
         width: 100%;
         font-size: 1.3em;
         padding: .3em;
-        margin-top: 1em;
     }
 
     &-errorMsg {
@@ -77,7 +88,8 @@
         width: 80%;
         display: flex;
         align-items: center;
-        margin-bottom: 1.5em;
+        margin-top: .6em;
+        margin-left: 2em;
     }
 
     &-colorInput,
@@ -86,6 +98,8 @@
         margin-left: .8em;
         font-family: inherit;
         margin-right: 0.5em;
+        font-size: 1.5em;
+        padding: 2px;
     }
 
     &-colorInput {

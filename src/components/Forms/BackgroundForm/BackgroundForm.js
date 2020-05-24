@@ -51,52 +51,54 @@ const BackgroundForm = props => {
 
     return (
         <form className='BackgroundForm' onSubmit={formik.handleSubmit}>
-            <div className='BackgroundForm-inlineInputDiv'>
-                <label htmlFor='backgroundColor' className='BackgroundForm-colorLabel'>
-                    <p className='BackgroundForm-labelText'>Background Color:</p>
-                </label>
-                <input
-                    className='BackgroundForm-colorInput'
-                    id='backgroundColor'
-                    name='backgroundColor'
-                    type='color'
-                    value={formik.values.backgroundColor}
-                    onChange={formik.handleChange}
-                />
-            </div>
-            <div className='BackgroundForm-inlineInputDiv'>
-                <label htmlFor='backgroundWidth' className='BackgroundForm-inlineInputLabel'>
-                    <p className='BackgroundForm-labelText'>Background Width (px):</p>
-                </label>
-                <input
-                    type='number'
-                    id='backgroundWidth'
-                    name='backgroundWidth'
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.backgroundWidth}
-                    className={`BackgroundForm-numberInput ${backgroundWidthError}`}
-                    min='100'
-                    max='800'
-                />
-                {formik.touched.backgroundWidth && formik.errors.backgroundWidth ? <p className='TextFieldForm-errorMsg'>{formik.errors.backgroundWidth}</p> : null}
-            </div>
-            <div className='BackgroundForm-inlineInputDiv'>
-                <label htmlFor='backgroundHeight' className='BackgroundForm-inlineInputLabel'>
-                    <p className='BackgroundForm-labelText'>Background Height (px):</p>
-                </label>
-                <input
-                    type='number'
-                    id='backgroundHeight'
-                    name='backgroundHeight'
-                    onBlur={formik.handleBlur}
-                    onChange={formik.handleChange}
-                    value={formik.values.backgroundHeight}
-                    className={`BackgroundForm-numberInput ${backgroundHeightError}`}
-                    min='100'
-                    max='1000'
-                />
-                {formik.touched.backgroundHeight && formik.errors.backgroundHeight ? <p className='TextFieldForm-errorMsg'>{formik.errors.backgroundHeight}</p> : null}
+            <div className='BackgroundForm-section'>
+                <div className='BackgroundForm-inlineInputDiv'>
+                    <label htmlFor='backgroundColor' className='BackgroundForm-colorLabel'>
+                        <p className='BackgroundForm-labelText'>Background Color:</p>
+                    </label>
+                    <input
+                        className='BackgroundForm-colorInput'
+                        id='backgroundColor'
+                        name='backgroundColor'
+                        type='color'
+                        value={formik.values.backgroundColor}
+                        onChange={formik.handleChange}
+                    />
+                </div>
+                <div className='BackgroundForm-inlineInputDiv'>
+                    <label htmlFor='backgroundWidth' className='BackgroundForm-inlineInputLabel'>
+                        <p className='BackgroundForm-labelText'>Background Width (px):</p>
+                    </label>
+                    <input
+                        type='number'
+                        id='backgroundWidth'
+                        name='backgroundWidth'
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.backgroundWidth}
+                        className={`BackgroundForm-numberInput ${backgroundWidthError}`}
+                        min='100'
+                        max='800'
+                    />
+                    {formik.touched.backgroundWidth && formik.errors.backgroundWidth ? <p className='TextFieldForm-errorMsg'>{formik.errors.backgroundWidth}</p> : null}
+                </div>
+                <div className='BackgroundForm-inlineInputDiv'>
+                    <label htmlFor='backgroundHeight' className='BackgroundForm-inlineInputLabel'>
+                        <p className='BackgroundForm-labelText'>Background Height (px):</p>
+                    </label>
+                    <input
+                        type='number'
+                        id='backgroundHeight'
+                        name='backgroundHeight'
+                        onBlur={formik.handleBlur}
+                        onChange={formik.handleChange}
+                        value={formik.values.backgroundHeight}
+                        className={`BackgroundForm-numberInput ${backgroundHeightError}`}
+                        min='100'
+                        max='1000'
+                    />
+                    {formik.touched.backgroundHeight && formik.errors.backgroundHeight ? <p className='TextFieldForm-errorMsg'>{formik.errors.backgroundHeight}</p> : null}
+                </div>
             </div>
             <div className='BackgroundForm-buttonDiv'>
                 <BasicFormButton styleData={buttonStyle} unit='em' type='button' clicked={onClickHandler} data={formik.values} >Change</BasicFormButton>
