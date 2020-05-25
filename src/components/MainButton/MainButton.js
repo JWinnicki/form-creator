@@ -2,9 +2,8 @@ import React from 'react';
 
 import './MainButton.scss';
 
-const MainButton = props => {
-
-    const { styleData } = props;
+const MainButton = ({ styleData, ...props }) => {
+    
     const { buttonDimensionsOption, buttonHeight, buttonWidth, fontColor, paddingHorizontal, paddingVertical, primaryColor, secondaryColor } = styleData;
     const unit = props.unit ? props.unit : 'px';
 
