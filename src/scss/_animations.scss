@@ -88,3 +88,17 @@
         transform: translateY(0);
     }   
 }
+
+@keyframes showModal {
+    0% {
+        transform: translateY(-100vh);
+    }
+    
+    /* 50% {
+        transform: translateY(-50vh);
+    } */
+    
+    100% {
+        transform: translateY(0);
+    }
+}

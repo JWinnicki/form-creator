@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 import './FinalForm.scss';
 import BasicFormButton from '../BasicFormButton/BasicFormButton';
 import MainButton from '../MainButton/MainButton';
+import { ModalContext } from '../../context/modal-context';
+
 const FinalForm = props => {
 
     const { formTitleData, formBackgroundData, formFieldsData, formButtonStyle } = props.formData;
+    const { setShowModal } = useContext(ModalContext);
 
     const valuesArr = () => {
 
@@ -37,7 +40,8 @@ const FinalForm = props => {
         validationSchema: Yup.object({
         }),
         onSubmit: values => {
-            console.log(values)
+            console.log(values);
+            setShowModal(true);
             //alert(["elo", "elo2"])
         }
     });

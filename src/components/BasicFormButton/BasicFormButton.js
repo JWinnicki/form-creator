@@ -37,6 +37,8 @@ const BasicFormButton = props => {
     const onClickHandler = () => {
         if(clicked && data) {
             clicked(data);
+        } else if (clicked) {
+            clicked();
         }
     }
 
