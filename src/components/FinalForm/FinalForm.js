@@ -18,10 +18,19 @@ const FinalForm = props => {
 
         [...formFieldsData].forEach(el => {
             let val = "";
-            if(el.options) {
+            if(el.fieldType === 'select') {
                 val = el.options[0].option;
+            } else if(el.fieldType === 'checkbox') {
+                val = false;
             }
-            newArr.push({[`field${el.fieldId}`]: val});
+
+            if(el.fieldType === 'checkbox') {
+                el.options.forEach(option => {
+                    newArr.push({[`field${el.fieldId}-option${option.id}`]: val});
+                })
+            } else {
+                newArr.push({[`field${el.fieldId}`]: val});
+            }
         });
 
         let newObj = {};
@@ -86,7 +95,12 @@ const FinalForm = props => {
                             className='FinalForm-textInput'
                             style={inputStyle} 
                             placeholder={el.inputPlaceholder}
-                            type='text' 
+                            type='text'
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values[`field${el.fieldId}`]}
+                            name={`field${el.fieldId}`}
+                            id={`field${el.fieldId}`}
                         />
                     </div>
                 );
@@ -116,7 +130,14 @@ const FinalForm = props => {
                 return (
                     <div key={el.fieldId} className='FinalForm-selectInputDiv' style={{justifyContent: el.elementAlignment, marginLeft: el.margin}}>
                         <p style={labelStyle}>{el.selectInputLabel}</p>
-                        <select className='FinalForm-selectInput' style={inputStyle}>
+                        <select 
+                            className='FinalForm-selectInput' 
+                            style={inputStyle}
+                            onChange={formik.handleChange}
+                            value={formik.values[`field${el.fieldId}`]}
+                            name={`field${el.fieldId}`}
+                            id={`field${el.fieldId}`}
+                        >
                             {renderSelectOptions(el.options)}
                         </select>
                     </div>
@@ -143,12 +164,15 @@ const FinalForm = props => {
 
                 const renderCheckboxOptions = (arr, fieldId) => {
                     return arr.map(el => {
-                        return (
+                        return ( //{`field${fieldId}-option${el.id}`}
                             <div key={el.id} className={`FinalForm-checkBoxOption`}>
                                 <input
                                     type='checkbox'
                                     id={`field${fieldId}-option${el.id}`}
+                                    name={`field${fieldId}-option${el.id}`}
                                     style={checkBoxInputStyle}
+                                    onChange={formik.handleChange}
+                                    value={formik.values[`field${fieldId}-option${el.id}`]}
                                 />
                                 <label htmlFor={`field${fieldId}-option${el.id}`}>
                                     <p style={optionStyle}>{el.option}</p>
