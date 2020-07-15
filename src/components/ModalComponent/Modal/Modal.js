@@ -22,6 +22,7 @@ const Modal = ({onCloseModal}) => {
             <Backdrop onCloseModal={onCloseModal}>
                 <div className='Modal'>
                     <div className='Modal-container' onClick={(e) => e.stopPropagation()}>
+                        <h1 className='Modal-title'>Sumbmited values</h1>
                         <BasicFormButton type='button' clicked={onCloseModal} styleData={buttonStyle} unit='em'>CLOSE</BasicFormButton>
                     </div>
                 </div>
