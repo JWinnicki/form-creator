@@ -1,19 +1,19 @@
-import React, { useContext } from 'react';
-import { useFormik } from 'formik';
+import React, {useContext} from 'react';
+import {useFormik} from 'formik';
 import * as Yup from 'yup';
 
 import './FinalForm.scss';
 import BasicFormButton from '../BasicFormButton/BasicFormButton';
 import MainButton from '../MainButton/MainButton';
-import { ModalContext } from '../../context/modal-context';
+import {ModalContext} from '../../context/modal-context';
+import Modal from '../ModalComponent/Modal/Modal';
 
 const FinalForm = props => {
 
-    const { formTitleData, formBackgroundData, formFieldsData, formButtonStyle } = props.formData;
-    const { setShowModal } = useContext(ModalContext);
+    const {formTitleData, formBackgroundData, formFieldsData, formButtonStyle} = props.formData;
+    const {showModal, setShowModal} = useContext(ModalContext);
 
     const valuesArr = () => {
-
         const newArr = [];
 
         [...formFieldsData].forEach(el => {
@@ -42,8 +42,6 @@ const FinalForm = props => {
         return newObj;
     }
 
-    //console.log(valuesArr());
-
     const formik = useFormik({
         initialValues: valuesArr(),
         validationSchema: Yup.object({
@@ -51,7 +49,6 @@ const FinalForm = props => {
         onSubmit: values => {
             console.log(values);
             setShowModal(true);
-            //alert(["elo", "elo2"])
         }
     });
 
@@ -206,6 +203,7 @@ const FinalForm = props => {
 
     return (
         <form className='FinalForm' style={backgroundStyle} onSubmit={formik.handleSubmit}>
+            {showModal && <Modal onCloseModal={() => setShowModal(false)} values={formik.values} />}
             <h1 className='FinalForm-title' style={titleStyle}>{formTitleData ? formTitleData.title : ''}</h1>
             <div className='FinalForm-fieldsDiv'>
                 {renderFields()}

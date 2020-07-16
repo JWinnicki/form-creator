@@ -3,8 +3,9 @@ import React from 'react';
 import Backdrop from '../Backdrop/Backdrop';
 import BasicFormButton from '../../BasicFormButton/BasicFormButton';
 import './Modal.scss';
+import ValuesList from '../ValuesList/ValuesList';
 
-const Modal = ({onCloseModal}) => {
+const Modal = ({onCloseModal, values}) => {
     
     const buttonStyle = {
         buttonDimensionsOption: 'text',
@@ -23,6 +24,7 @@ const Modal = ({onCloseModal}) => {
                 <div className='Modal'>
                     <div className='Modal-container' onClick={(e) => e.stopPropagation()}>
                         <h1 className='Modal-title'>Sumbmited values</h1>
+                        <ValuesList values={values} />
                         <BasicFormButton type='button' clicked={onCloseModal} styleData={buttonStyle} unit='em'>CLOSE</BasicFormButton>
                     </div>
                 </div>

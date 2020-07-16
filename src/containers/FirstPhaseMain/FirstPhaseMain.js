@@ -45,8 +45,6 @@ const FirstPhaseMain = () => {
         const newArr = [...formFieldsData];
         newArr.forEach((el, index, arr) => {
             if(el.fieldId === id && el.order < newArr.length) {
-                //console.log(`order klikniętego elementu: ${el.order}`);
-                //console.log(`order elementu wyżej: ${arr[index - 1].order}`);
                 el.order += 1;
                 arr[index + 1].order -= 1;
             }

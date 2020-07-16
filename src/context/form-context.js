@@ -13,7 +13,7 @@ const FormContextProvider = props => {
     };
 
     return (
-        <FormContext.Provider value={{ contextFormData: contextFormData, getContextFormData: getContextFormData }}>
+        <FormContext.Provider value={{contextFormData: contextFormData, getContextFormData: getContextFormData}}>
             {props.children}
         </FormContext.Provider>
     );
