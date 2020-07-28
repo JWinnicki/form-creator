@@ -32,8 +32,6 @@ const FirstPhaseMain = () => {
         const newArr = [...formFieldsData];
         newArr.forEach((el, index, arr) => {
             if(el.fieldId === id && el.order > 1) {
-                //console.log(`order klikniętego elementu: ${el.order}`);
-                //console.log(`order elementu wyżej: ${arr[index - 1].order}`);
                 el.order -= 1;
                 arr[index - 1].order += 1;
             }
@@ -55,7 +53,7 @@ const FirstPhaseMain = () => {
     const onIncreaseMargin = id => {
         const newArr = [...formFieldsData];
         newArr.forEach(el => {
-            if(el.fieldId === id && el.margin < 50) {
+            if(el.fieldId === id && el.margin < 100) {
                 el.margin = el.margin + 10;
             }
         });
@@ -65,18 +63,12 @@ const FirstPhaseMain = () => {
     const onDecreaseMargin = id => {
         const newArr = [...formFieldsData];
         newArr.forEach(el => {
-            if(el.fieldId === id && el.margin > -50) {
+            if(el.fieldId === id && el.margin > -100) {
                 el.margin = el.margin - 10;
             }
         });
         setFormFieldsData(newArr);
     }
-
-
-    /* if(el.fieldId === id && el.order > 1) {
-                originalArr[index-1].order = originalArr[index-1].order + 1;
-                el.order = el.order - 1;
-            } */
 
     const buttonStyle = {
         buttonDimensionsOption: 'fixed',

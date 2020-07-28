@@ -6,7 +6,7 @@ import MainButton from '../../components/MainButton/MainButton';
 import FinalForm from '../../components/FinalForm/FinalForm';
 import { FormContext } from '../../context/form-context';
 
-const FinalFormContainer = props => {
+const FinalFormContainer = () => {
 
     const { contextFormData } = useContext(FormContext);
 
@@ -18,16 +18,6 @@ const FinalFormContainer = props => {
         primaryColor: '#cf0000',
         secondaryColor: '#000000'
     }
-
-    /* const renderBackgroundStyle = () => {
-        if(contextFormData.formBackgroundData) {
-            return {
-                backgroundColor: formBackgroundData.backgroundColor,
-                height: formBackgroundData.backgroundHeight,
-                width: formBackgroundData.backgroundWidth
-            }
-        }
-    } */
 
     const renderForm = () => {
         if(contextFormData.formBackgroundData) {
