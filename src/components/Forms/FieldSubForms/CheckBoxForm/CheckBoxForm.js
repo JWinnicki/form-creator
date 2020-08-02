@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 
 import './CheckBoxForm.scss';
 import BasicFormButton from '../../../BasicFormButton/BasicFormButton';
+import InputOption from '../InputOption/InputOption';
 
 const CheckBoxForm = props => {
     const [ options, setOptions ] = useState([]);
@@ -55,10 +56,12 @@ const CheckBoxForm = props => {
         if(options.length > 0) {
             return options.map(el => {
                 return (
-                    <li className='CheckBoxFieldForm-optionsListElement' key={el.id}>
-                        <p>{el.option}</p>
-                        <button className='addOptionsButton' type='button' onClick={onDeleteOptionHandler} id={el.id}>-</button>
-                    </li>
+                    <InputOption 
+                        text={el.option}
+                        key={el.id}
+                        id={el.id}
+                        click={onDeleteOptionHandler}
+                    />
                 )
             });
         }
@@ -241,7 +244,6 @@ const CheckBoxForm = props => {
                     <button type='button' className='addOptionsButton' disabled={latestOption.length === 0} onClick={onAddOptionHandler}>+</button>
                 </div>
                 <div className='CheckBoxFieldForm-optionsContainer'>
-                    <h2>Options:</h2>
                     <ul className='CheckBoxFieldForm-optionsList'>
                         {renderOptionsList()}
                     </ul>

@@ -1,0 +1,41 @@
+@import '../../../../scss/variables';
+
+.InputOption {
+    width: 70%;
+    padding: .5em;
+    padding-right: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:hover {
+        background-color: $color-secondary-red;
+    }
+
+    &-text {
+        font-size: 1.4em;
+    }
+
+    &-button {
+        width: 2em;
+        height: 2em;
+        background-color: $color-secondary-red;
+        border: 1px white solid;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+
+        &:hover {
+            cursor: pointer;
+            border-width: 2px;
+        }
+    }
+
+    &:hover &-button {
+        opacity: 1;
+    }
+}

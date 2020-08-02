@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 
 import './SelectFieldForm.scss';
 import BasicFormButton from '../../../BasicFormButton/BasicFormButton';
+import InputOption from '../InputOption/InputOption';
 
 const SelectFieldForm = props => {
     const [ options, setOptions ] = useState([]);
@@ -58,14 +59,21 @@ const SelectFieldForm = props => {
         if(options.length > 0) {
             return options.map(el => {
                 return (
-                    <li className='SelectFieldForm-optionsListElement' key={el.id}>
-                        <p>{el.option}</p>
-                        <button className='addOptionsButton' type='button' onClick={onDeleteOptionHandler} id={el.id}>-</button>
-                    </li>
+                    <InputOption 
+                        text={el.option}
+                        key={el.id}
+                        id={el.id}
+                        click={onDeleteOptionHandler}
+                    />
                 )
             });
         }
     }
+
+    /* <li className='SelectFieldForm-optionsListElement' key={el.id}>
+                        <p>{el.option}</p>
+                        <button className='addOptionsButton' type='button' onClick={onDeleteOptionHandler} id={el.id}>-</button>
+                    </li> */
 
     let labelError = '';
     if(formik.touched.selectInputLabel && formik.errors.selectInputLabel) {
@@ -278,7 +286,6 @@ const SelectFieldForm = props => {
                     <button type='button' className='addOptionsButton' disabled={latestOption.length === 0} onClick={onAddOptionHandler}>+</button>
                 </div>
                 <div className='SelectFieldForm-optionsContainer'>
-                    <h2>Options:</h2>
                     <ul className='SelectFieldForm-optionsList'>
                         {renderOptionsList()}
                     </ul>
