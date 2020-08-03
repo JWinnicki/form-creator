@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 
 import './CheckBoxForm.scss';
 import BasicFormButton from '../../../BasicFormButton/BasicFormButton';
-import InputOption from '../InputOption/InputOption';
+import InputOptionsContainer from '../InputOptionsContainer/InputOptionsContainer';
 
 const CheckBoxForm = props => {
     const [ options, setOptions ] = useState([]);
@@ -50,21 +50,6 @@ const CheckBoxForm = props => {
             }
         });
         setOptions(newArr);
-    }
-
-    const renderOptionsList = () => {
-        if(options.length > 0) {
-            return options.map(el => {
-                return (
-                    <InputOption 
-                        text={el.option}
-                        key={el.id}
-                        id={el.id}
-                        click={onDeleteOptionHandler}
-                    />
-                )
-            });
-        }
     }
 
     let labelError = '';
@@ -228,26 +213,13 @@ const CheckBoxForm = props => {
             </div>
             {/***********************************************************************************************************************************************************/}
             <div className='CheckBoxFieldForm-section'>
-                <h1 className='CheckBoxFieldForm-sectionTitle'>Input Options</h1>
-                <div className='CheckBoxFieldForm-inlineInputDiv'>
-                    <label htmlFor='selectInputOptions' className='CheckBoxFieldForm-inlineInputLabel'>
-                        <p className='CheckBoxFieldForm-labelText'>Please add input's options:</p>
-                    </label>
-                    <input
-                        type='text'
-                        id='selectInputOptions'
-                        name='selectInputOptions'
-                        onChange={onOptionsInputHandler}
-                        value={latestOption}
-                        className='CheckBoxFieldForm-optionsInput'
-                    />
-                    <button type='button' className='addOptionsButton' disabled={latestOption.length === 0} onClick={onAddOptionHandler}>+</button>
-                </div>
-                <div className='CheckBoxFieldForm-optionsContainer'>
-                    <ul className='CheckBoxFieldForm-optionsList'>
-                        {renderOptionsList()}
-                    </ul>
-                </div>
+                <InputOptionsContainer 
+                    options={options}
+                    deleteHandler={onDeleteOptionHandler}
+                    addHandler={onAddOptionHandler}
+                    change={onOptionsInputHandler}
+                    latestOption={latestOption}
+                />
             </div>
             <div className='CheckBoxFieldForm-buttonDiv'>
                 <BasicFormButton styleData={buttonStyle} unit='em' type='button' clicked={onClickHandler} data={{...formik.values, options: options}} >ADD</BasicFormButton>

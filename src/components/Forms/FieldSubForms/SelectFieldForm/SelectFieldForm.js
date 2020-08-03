@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 
 import './SelectFieldForm.scss';
 import BasicFormButton from '../../../BasicFormButton/BasicFormButton';
-import InputOption from '../InputOption/InputOption';
+import InputOptionsContainer from '../InputOptionsContainer/InputOptionsContainer';
 
 const SelectFieldForm = props => {
     const [ options, setOptions ] = useState([]);
@@ -54,26 +54,6 @@ const SelectFieldForm = props => {
         });
         setOptions(newArr);
     }
-
-    const renderOptionsList = () => {
-        if(options.length > 0) {
-            return options.map(el => {
-                return (
-                    <InputOption 
-                        text={el.option}
-                        key={el.id}
-                        id={el.id}
-                        click={onDeleteOptionHandler}
-                    />
-                )
-            });
-        }
-    }
-
-    /* <li className='SelectFieldForm-optionsListElement' key={el.id}>
-                        <p>{el.option}</p>
-                        <button className='addOptionsButton' type='button' onClick={onDeleteOptionHandler} id={el.id}>-</button>
-                    </li> */
 
     let labelError = '';
     if(formik.touched.selectInputLabel && formik.errors.selectInputLabel) {
@@ -269,27 +249,14 @@ const SelectFieldForm = props => {
                 </div>
             </div>
             {/***********************************************************************************************************************************************************/}
-            <div className='SelectFieldForm-section'>
-                <h1 className='SelectFieldForm-sectionTitle'>Input Options</h1>
-                <div className='SelectFieldForm-inlineInputDiv'>
-                    <label htmlFor='selectInputOptions' className='SelectFieldForm-inlineInputLabel'>
-                        <p className='SelectFieldForm-labelText'>Please add input's options:</p>
-                    </label>
-                    <input
-                        type='text'
-                        id='selectInputOptions'
-                        name='selectInputOptions'
-                        onChange={onOptionsInputHandler}
-                        value={latestOption}
-                        className='SelectFieldForm-optionsInput'
-                    />
-                    <button type='button' className='addOptionsButton' disabled={latestOption.length === 0} onClick={onAddOptionHandler}>+</button>
-                </div>
-                <div className='SelectFieldForm-optionsContainer'>
-                    <ul className='SelectFieldForm-optionsList'>
-                        {renderOptionsList()}
-                    </ul>
-                </div>
+            <div className='CheckBoxFieldForm-section'>
+                <InputOptionsContainer 
+                    options={options}
+                    deleteHandler={onDeleteOptionHandler}
+                    addHandler={onAddOptionHandler}
+                    change={onOptionsInputHandler}
+                    latestOption={latestOption}
+                />
             </div>
             <div className='SelectFieldForm-buttonDiv'>
                 <BasicFormButton styleData={buttonStyle} unit='em' clicked={onClickHandler} data={{...formik.values, options: options}} >ADD</BasicFormButton>

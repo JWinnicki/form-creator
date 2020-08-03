@@ -72,44 +72,6 @@
         width: 100%;
         margin-top: 2em;
     }
-
-    &-optionsContainer {
-        margin-top: 1em;
-        min-height: 5em;
-        max-height: 15em;
-        overflow: auto;
-
-        scrollbar-color: $color-primary-red black;
-        scrollbar-width: thin;
-    }
-
-    &-optionsContainer::-webkit-scrollbar {
-        width: 5px;
-        height: 8px;
-        background-color: black;
-    }
-
-    &-optionsContainer::-webkit-scrollbar-thumb {
-        background: $color-secondary-red;
-    }
-
-    &-optionsList {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        @include flexCenterColumn;
-    }
-
-    &-optionsListElement {
-        display: flex;
-        align-items: center;
-        margin-top: .5em;
-    }
-
-    &-optionsListElement p {
-        font-size: 1.4em;
-    }
     
     &-errorMsg {
         font-size: 1.3em;
@@ -128,27 +90,5 @@
         -webkit-box-shadow: 0 0 0 30px $color-red-light inset !important;
         box-shadow: 0 0 0 30px $color-red-light inset !important;
         -webkit-text-fill-color: black !important;
-    }
-}
-
-.addOptionsButton {
-    background-color: $color-secondary-red;
-    border: 1px solid white;
-    border-radius: $border-radius-basic;
-    font-weight: bold;
-    color: white;
-    font-size: 2.3em;
-    transition: all .2s;
-    margin-left: .5em;
-    @include flexCenter;
-    width: 1.3em;
-    padding: 0;
-
-    &:hover {
-        cursor: pointer;
-    }
-
-    &:active {
-        transform: translateY(.1em);
     }
 }
